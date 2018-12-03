@@ -1,18 +1,18 @@
-phaseValue1 = phaseValue
+phase1 = phase
 
-if (phaseValue1 >= 0 and phaseValue1 < 1):
+if (phase1 >= 0 and phase1 < 1):
     if (SwitchMaize==0):
         if (cumulTT >= Dse):
-            phaseValue = 1#Emergence
+            phase = 1#Emergence
         else:
-            phaseValue = phaseValue1
+            phase = phase1
     else:
         if (cumulTT >= Dse):
-            phaseValue= 1#Emergence
+            phase= 1#Emergence
         else:
-            phaseValue = phaseValue1
+            phase = phase1
                 
-elif (phaseValue1 >= 1 and phaseValue1 < 2):#EmergenceToFloralInitiation
+elif (phase1 >= 1 and phase1 < 2):#EmergenceToFloralInitiation
     if ((IsVernalizable==1 and Vernaprog >= 1) or (IsVernalizable==0)):
         if (SwitchMaize==0):
             if (DayLength > MaxDL):
@@ -26,7 +26,7 @@ elif (phaseValue1 >= 1 and phaseValue1 < 2):#EmergenceToFloralInitiation
                     FinalLeafNumber = appFLN
                     hasLastPrimordiumAppeared =1
                 else:
-                    phaseValue = phaseValue1
+                    phase = phase1
 
         else:
             hasLastPrimordiumAppeared = 1
@@ -35,28 +35,28 @@ elif (phaseValue1 >= 1 and phaseValue1 < 2):#EmergenceToFloralInitiation
             #CheckFloralInitiation
         if (hasLastPrimordiumAppeared==1):
                 
-                phaseValue = 2#Floralinitiation
+                phase = 2#Floralinitiation
                 
     else:
-        phaseValue = phaseValue1
+        phase = phase1
             
         
-elif (phaseValue1 >= 2 and phaseValue1 < 4):#FloralInitiationToAnthesis
+elif (phase1 >= 2 and phase1 < 4):#FloralInitiationToAnthesis
     if (isMomentRegistredZC_39==1):
             
                 #calculate the heading date
-        if (phaseValue1 < 3):
+        if (phase1 < 3):
             ttFromLastLeafToHeading = 0.0
             if(choosePhyllUse=="Default"): ttFromLastLeafToHeading =(PFLLAnth - PHEADANTH) * Fixphyll
             elif (choosePhyllUse == "PTQ"): ttFromLastLeafToHeading = (PFLLAnth - PHEADANTH) * Phyllochron
             elif (choosePhyllUse == "Test"): ttFromLastLeafToHeading = (PFLLAnth - PHEADANTH) * P
 
             if (cumulTTFromZC_39 >= ttFromLastLeafToHeading):
-                    phaseValue = 3
+                    phase = 3
             else:
-                phaseValue = phaseValue1
+                phase = phase1
         else:
-            phaseValue = phaseValue1
+            phase = phase1
                                  
                     #CheckAnthesis;
         ttFromLastLeafToAnthesis =0.0
@@ -66,37 +66,37 @@ elif (phaseValue1 >= 2 and phaseValue1 < 4):#FloralInitiationToAnthesis
         
             
         if (cumulTTFromZC_39 >= ttFromLastLeafToAnthesis):
-            phaseValue = 4#Anthesis
+            phase = 4#Anthesis
                 
     else:
-        phaseValue = phaseValue1
+        phase = phase1
             
-elif (phaseValue1 == 4):#AnthesisToEndCellDivision
+elif (phase1 == 4):#AnthesisToEndCellDivision
             
                 #CheckEndCellDivision
     if (GrainCumulTT >= Dcd):
                 
-        phaseValue = 4.5#EndCellDivision
+        phase = 4.5#EndCellDivision
                 
     else:
                 
-        phaseValue = phaseValue1
+        phase = phase1
                 
             
-elif (phaseValue1 == 4.5):#EndCellDivisionToEndGrainFill
+elif (phase1 == 4.5):#EndCellDivisionToEndGrainFill
             
                 # CheckEndGrainFilling
     if (GrainCumulTT >= Dgf or GAI <= 0):
                 
-        phaseValue = 5#End of grain filling
+        phase = 5#End of grain filling
                 
     else:
                 
-        phaseValue = phaseValue1
+        phase = phase1
                 
 
             
-elif (phaseValue1 >= 5 and phaseValue1 < 6):#EndGrainFillToMaturity
+elif (phase1 >= 5 and phase1 < 6):#EndGrainFillToMaturity
             
                 #CheckMaturity
                 #/<Comment>To enable ignoring grain maturation duration</Comment>
@@ -105,18 +105,18 @@ elif (phaseValue1 >= 5 and phaseValue1 < 6):#EndGrainFillToMaturity
                 
     if (cumulTTFromZC_91 >= LocalDegfm ):
                 
-        phaseValue = 6 #maturity
+        phase = 6 #maturity
             
                 
     else:
                 
-        phaseValue= phaseValue1
+        phase= phase1
          
 
             
-elif (phaseValue1>= 6 and phaseValue1 < 7):
+elif (phase1>= 6 and phase1 < 7):
             
-    phaseValue = phaseValue1
+    phase = phase1
     
     
     
