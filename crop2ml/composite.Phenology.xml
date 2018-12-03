@@ -13,12 +13,12 @@
   <Composition>
     <Model name="Phyllochron" id="SQ.WheatPhenology.Phyllochron" filename="unit.Phyllochron.xml" />
     <Model name="PhylSowingDateCorrection" id="SQ.WheatPhenology.PhylSowingDateCorrection" filename="unit.PhylSowingDateCorrection.xml" />
-    <Model name="ShootNumber" id="SQ.WheatPhenology.ShootNumbe" filename="unit.ShootNumber.xml" />
+    <Model name="ShootNumber" id="SQ.WheatPhenology.ShootNumber" filename="unit.ShootNumber.xml" />
     <Model name="UpdateLeafFlag" id="SQ.WheatPhenology.UpdateLeafFlag" filename="unit.UpdateLeafFlag.xml" />
     <Model name="UpdatePhase" id="SQ.WheatPhenology.UpdatePhase" filename="unit.UpdatePhase.xml" />
     <Model name="LeafNumber" id="SQ.WheatPhenology.LeafNumber" filename="unit.LeafNumber.xml" />
     <Model name="VernalizationProgress" id="SQ.WheatPhenology.VernalizationProgress" filename="unit.VernalizationProgress.xml" />
-    <Model name="IsMomentRegistredZC_39" id="SQ.WheatPhenology.IsMomentRegistredZC_39" filename="unit.IsMomentRegistredZC39.xml" />
+    <Model name="IsMomentRegistredZC_39" id="SQ.WheatPhenology.IsMomentRegistredZC_39" filename="unit.Is_FlagLeafLiguleJustVisible_Registred.xml" />
  	  <Model name="CumulTTFrom" id="SQ.WheatPhenology.CumulTTFrom" filename="unit.CumulTTFrom.xml" />
   	<Model name="UpdateCalendar" id="SQ.WheatPhenology.UpdateCalendar" filename="unit.UpdateCalendar.xml" />
 
