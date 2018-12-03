@@ -20,7 +20,7 @@
     <Model name="VernalizationProgress" id="SQ.WheatPhenology.VernalizationProgress" filename="unit.VernalizationProgress.xml" />
     <Model name="IsMomentRegistredZC_39" id="SQ.WheatPhenology.IsMomentRegistredZC_39" filename="unit.IsMomentRegistredZC39.xml" />
  	  <Model name="CumulTTFrom" id="SQ.WheatPhenology.CumulTTFrom" filename="unit.CumulTTFrom.xml" />
-  	<Model name="UpdateCalendar" id="SQ.WheatPhenology.UpdateCalendar" filename="unitUpdateCalendar.xml" />
+  	<Model name="UpdateCalendar" id="SQ.WheatPhenology.UpdateCalendar" filename="unit.UpdateCalendar.xml" />
 
   <Links>
       <InputLink target="Phyllochron.LeafNumber" source="LeafNumber" />
