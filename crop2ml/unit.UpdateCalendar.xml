@@ -41,7 +41,7 @@
      <Testsets>
         <Testset name="check wheat model" parameterset = "wheat" description="some values in there" >
         	<Test name ="test_wheat1">
-        		<InputValue name="CumulTT"> 112.330110409888</InputValue>
+        		<InputValue name="cumulTT"> 112.330110409888</InputValue>
 				<InputValue name="calendarMoments">['ZC_00_Sowing']</InputValue>
                 <InputValue name="calendarDates">['21/3/2007']</InputValue>
                 <InputValue name="calendarCumuls">[0.0]</InputValue>
