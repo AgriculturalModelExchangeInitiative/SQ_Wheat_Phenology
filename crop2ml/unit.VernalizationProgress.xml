@@ -70,7 +70,7 @@
 				<OutputValue name="MinFinalNumber" precision ="2">5.5</OutputValue>
 				<OutputValue name="calendarMoments" >['ZC_00_Sowing']</OutputValue>        	
     			<OutputValue name="calendarDates" precision ="2">[0.0]</OutputValue>        	
-			    <OutputValue name="calendarCumuls" >[21/03/2007]</OutputValue>        	
+			    <OutputValue name="calendarCumuls" >['21/03/2007']</OutputValue>        	
  
         	</Test>
         </Testset>
