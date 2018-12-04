@@ -9,8 +9,8 @@
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
         <Abstract><![CDATA[Calculate progress (VernaProg) towards vernalization, but there 
-        			is no vernalization below minTvern (default = 0°C) 
-        			and above maxTvern (default = 17°C). The maximum value of VernaProg is 1.
+        			is no vernalization below minTvern (default = 0 degré Celsius) 
+        			and above maxTvern (default = 17 degré Celsius). The maximum value of VernaProg is 1.
         			Progress towards full vernalization is a linear function of shoot 
         			temperature (soil temperature until leaf # reach MaxLeafSoil and then
         			 canopy temperature)]]>
