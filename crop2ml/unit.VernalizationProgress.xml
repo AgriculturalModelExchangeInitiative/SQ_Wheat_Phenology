@@ -42,8 +42,10 @@
     <Outputs>
         <Output name="Vernaprog" description="progression on a 0  to 1 scale of the vernalization" datatype="DOUBLE" min="0" max="10000"  unit=""  />
         <Output name="MinFinalNumber" description="minimum final leaf number" datatype="DOUBLE" min="0" max="10000" unit="leaf"  />
-		<Output name="calendar" description="minimum final leaf number" datatype="DOUBLE" min="0" max="10000" unit="leaf"  />
-        
+        <Output name="calendarMoments" description="List containing appearance of each stage" variablecategory="auxiliary"  datatype="STRINGLIST"   unit="" />
+        <Output name="calendarDates" description="List containing  the dates of the wheat developmental phases" variablecategory="auxiliary" datatype="DATELIST" unit="" />
+        <Output name="calendarCumuls" description="list containing for each stage occured its cumulated thermal times" variablecategory="auxiliary"  datatype="DOUBLELIST"  unit="" />
+       
    	
     </Outputs>
 
