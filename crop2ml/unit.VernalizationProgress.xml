@@ -57,7 +57,7 @@
 
     <Parametersets>
             <Parameterset name="wheat" description="some values in there" >
-        	<Param name="IsVernalizable">5.0</Param>
+        	<Param name="IsVernalizable">1</Param>
         </Parameterset>
      </Parametersets>
      <Testsets>
