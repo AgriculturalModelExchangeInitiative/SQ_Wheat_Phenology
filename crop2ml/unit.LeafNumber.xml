@@ -33,8 +33,6 @@
     
     <Algorithm  language="C#" platform="" filename="LeafNumberModule.cs" />
     <Algorithm  language="python" platform="" filename="LeafNumberModule.py"/>
-    <Algorithm  language="C#" platform="" filename="LeafNumberModule.cs" />
-	<Algorithm  language="python" platform="" filename="LeafNumberModule.py" />
     <Algorithm  language="Java" platform="" filename="LeafNumberModule.java"  />
 	<Algorithm  language="Cython" platform="" filename="LeafNumberModule.pyx"  />
     <Algorithm  language="R" platform="" filename="LeafNumberModule.r"  />
