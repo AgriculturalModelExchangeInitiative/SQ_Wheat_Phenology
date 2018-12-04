@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Model PUBLIC " " "https://raw.githubusercontent.com/AgriculturalModelExchangeInitiative/crop2ml/master/ModelUnit.dtd">
-<Model id="SQ.WheatPhenology.PhylSowingDateCorrection" name="PhylSowingDateCorrection" timestep="1" version="1.0">
+<!DOCTYPE ModelUnit PUBLIC " " "https://raw.githubusercontent.com/AgriculturalModelExchangeInitiative/crop2ml/master/ModelUnit.dtd">
+<ModelUnit id="SQ.WheatPhenology.PhylSowingDateCorrection" name="PhylSowingDateCorrection" timestep="1" version="1.0">
     <Description>
         <Title>PhylSowingDateCorrection Model</Title>
         <Authors>Loic Manceau</Authors>
@@ -52,4 +52,4 @@
 
       </Testsets>
  	
-</Model>
+</ModelUnit>
