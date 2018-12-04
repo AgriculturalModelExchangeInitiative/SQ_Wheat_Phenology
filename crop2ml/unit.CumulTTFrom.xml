@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Model PUBLIC " " "https://raw.githubusercontent.com/AgriculturalModelExchangeInitiative/crop2ml/master/Modeldtd">
-<Model id="SQ.WheatPhenology.CumulTTFrom" name="CumulTTFrom" timestep="1" version="1.0">
+<ModelUnit id="SQ.WheatPhenology.CumulTTFrom" name="CumulTTFrom" timestep="1" version="1.0">
     <Description>
         <Title>CumulTTFrom Model</Title>
         <Authors>Pierre Martre</Authors>
@@ -51,4 +51,4 @@
         </Testset>
       </Testsets>
  	
-</Model>
+</ModelUnit>
