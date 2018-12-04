@@ -56,7 +56,7 @@
      <Parametersets>
         <Parameterset name="wheat" description="some values in there" >
         	<Param name="SwitchMaize">0</Param>
-        	<Param name=choosePhyllUse>Default</Param>
+        	<Param name=choosePhyllUse>"Default"</Param>
 
         </Parameterset>
 
