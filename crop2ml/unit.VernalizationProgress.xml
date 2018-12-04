@@ -22,7 +22,7 @@
         <Input name="cumulTT" description="cumul thermal times at currentdate"  datatype="DOUBLE" min="-200" max="500" default="112.330110409888" unit="°C d"  inputtype = "variable"/>
         <Input name="LeafNumber" description="Actual number of phytomers" parametercategory="species" datatype="DOUBLE" min="280" max="1000" default="0" unit="leaf"  inputtype = "variable"/>
         <Input name="calendarMoments" description="List containing appearance of each stage" variablecategory="auxiliary"  datatype="STRINGLIST"  default= "['ZC_00_Sowing']" unit=""  inputtype = "variable"/>
-        <Input name="calendarDates" description="List containing  the dates of the wheat developmental phases" variablecategory="auxiliary" datatype="DATELIST" default="[21/3/2007]" unit=""  inputtype = "variable"/>
+        <Input name="calendarDates" description="List containing  the dates of the wheat developmental phases" variablecategory="auxiliary" datatype="DATELIST" default="['21/3/2007']" unit=""  inputtype = "variable"/>
         <Input name="calendarCumuls" description="list containing for each stage occured its cumulated thermal times" variablecategory="auxiliary"  datatype="DOUBLELIST" default="[0.0]" unit=""  inputtype = "variable"/>
         <Input name="MinTvern" description="Minimum temperature for vernalization to occur" parametercategory="species" datatype="DOUBLE" min="-20" max="60" default="0.0" unit="°C"  inputtype = "parameter"/>
         <Input name="IntTvern" description="Intermediate temperature for vernalization to occur" parametercategory="species" datatype="DOUBLE" min="-20" max="60" default=" 11.0" unit="°C"  inputtype = "parameter"/>
