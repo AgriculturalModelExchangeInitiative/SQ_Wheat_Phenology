@@ -12,7 +12,7 @@
     </Description>
     <Inputs>
         <Input name="calendarMoments" description="List containing appearance of each stage" variablecategory="auxiliary"  datatype="STRINGLIST"  default= "['ZC_00_Sowing']" unit=""  inputtype = "variable"/>
-        <Input name="calendarDates" description="List containing  the dates of the wheat developmental phases" variablecategory="auxiliary" datatype="DATELIST" default="[21/3/2007]" unit=""  inputtype = "variable"/>
+        <Input name="calendarDates" description="List containing  the dates of the wheat developmental phases" variablecategory="auxiliary" datatype="DATELIST" default="['21/3/2007']" unit=""  inputtype = "variable"/>
         <Input name="calendarCumuls" description="list containing for each stage occured its cumulated thermal times" variablecategory="auxiliary"  datatype="DOUBLELIST" default="[0.0]" unit="°C d"  inputtype = "variable"/>
     </Inputs>
     <Outputs>
