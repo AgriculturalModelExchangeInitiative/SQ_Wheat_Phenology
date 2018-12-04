@@ -30,7 +30,6 @@
 
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >
-        	<Param name="SwitchMaize">0</Param>
         </Parameterset>
      </Parametersets>
      <Testsets>
