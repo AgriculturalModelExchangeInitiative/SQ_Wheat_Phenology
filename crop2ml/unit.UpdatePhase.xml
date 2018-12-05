@@ -19,7 +19,7 @@
         <Input name="GAI" description="used to calculate Terminal spikelet" variablecategory="auxiliary" datatype="DOUBLE" min="0" max="10000" default="0.3255196285135" unit=""  inputtype = "variable"/>
         <Input name="GrainCumulTT" description="cumulTT used for the grain developpment" variablecategory="auxiliary" datatype="DOUBLE" min="0" max="10000" default="0" unit="°C d"  inputtype="variable"/>
         <Input name="DayLength" description="length of the day" datatype="DOUBLE" variablecategory="auxiliary" min="0" max="24" unit="h" default="12.7433275303389" inputtype="variable" />
-        <Input name="Vernaprog" description="progression on a 0  to 1 scale of the vernalization" variablecategory="state" datatype="INT" min="0" max="10" default = " 1.0532526829571554" unit=""  inputtype="variable"/>
+        <Input name="Vernaprog" description="progression on a 0  to 1 scale of the vernalization" variablecategory="state" datatype="DOUBLE" min="0" max="10" default = " 1.0532526829571554" unit=""  inputtype="variable"/>
         <Input name="MinFinalNumber" description="minimum final leaf number"  variablecategory="state" datatype="DOUBLE" min="0" max="25" default="6.879410413987549" unit="leaf" inputtype="variable" />
         <Input name="FixPhyll" description="Phyllochron with sowing date fix" variablecategory="state" datatype="DOUBLE" min="0" max="10000" default="91.2" unit="°C d"  inputtype="variable"/>
         <Input name="IsVernalizable" description="true if the plant is vernalizable" parametercategory="constant" datatype="INT" min="0" max="1" unit="" default="1"  inputtype = "parameter"/>
