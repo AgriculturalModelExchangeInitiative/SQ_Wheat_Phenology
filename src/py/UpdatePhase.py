@@ -101,7 +101,7 @@ elif (phase1 >= 5 and phase1 < 6):#EndGrainFillToMaturity
                 #CheckMaturity
                 #/<Comment>To enable ignoring grain maturation duration</Comment>
     LocalDegfm = Degfm
-    if (IgnoreGrainMaturation==1): LocalDegfm = -1
+    if (IgnoreGrainMaturation==True): LocalDegfm = -1
                 
     if (cumulTTFromZC_91 >= LocalDegfm ):
                 
