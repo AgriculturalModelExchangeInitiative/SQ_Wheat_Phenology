@@ -31,12 +31,12 @@
         <Input name="MinDL" description="Threshold daylength below which it does influence vernalization rate" parametercategory="species" datatype="DOUBLE" min="12" max="24" default="8.0" unit="h"  inputtype = "parameter"/>
         <Input name="MaxDL" description="Saturating photoperiod above which final leaf number is not influenced by daylength" parametercategory="species" datatype="DOUBLE" min="0" max="24" default="15.0" unit="h"  inputtype = "parameter"/>
         <Input name="MaxTvern" description="Maximum temperature for vernalization to occur" parametercategory="species" datatype="DOUBLE" min="-20" max="60" default=" 23.0" unit="°C"  inputtype = "parameter"/>
-        <Input name="PNini" description="Number of primorida in the apex at emergence" parametercategory="species" datatype="INT" min="0" max="24" default="4.0" unit="primordia"  inputtype = "parameter"/>
+        <Input name="PNini" description="Number of primorida in the apex at emergence" parametercategory="species" datatype="DOUBLE" min="0" max="24" default="4.0" unit="primordia"  inputtype = "parameter"/>
         <Input name="AMXLFNO" description="Absolute maximum leaf number" parametercategory="species" datatype="DOUBLE" min="0" max="25" default="24.0" unit="leaf"  inputtype = "parameter"/>
         <Input name="Vernaprog" description="progression on a 0  to 1 scale of the vernalization" variablecategory="state" datatype="DOUBLE" min="0" max="1" default=" 0.5517254187376879" unit=""  inputtype = "parameter"/>
-        <Input name="currentdate" description="current date " variablecategory="auxiliary"  datatype="DOUBLE" default="27/3/2007"  inputtype = "variable"/>
+        <Input name="currentdate" description="current date " variablecategory="auxiliary"  datatype="DATE" default="27/3/2007"  inputtype = "variable"/>
         <Input name="IsVernalizable" description="true if the plant is vernalizable"  datatype="INT" min="0" max="1" default="1" unit=""  inputtype = "parameter"/>
-        <Input name="MinFinalNumber" description="minimum final leaf number"  datatype="DOUBLE" min="0" max="1" default="5.5" unit="leaf"  inputtype = "variable" variablecategory="state"/>
+        <Input name="MinFinalNumber" description="minimum final leaf number"  datatype="DOUBLE" min="0" max="25" default="5.5" unit="leaf"  inputtype = "variable" variablecategory="state"/>
      
     </Inputs>
     <Outputs>
