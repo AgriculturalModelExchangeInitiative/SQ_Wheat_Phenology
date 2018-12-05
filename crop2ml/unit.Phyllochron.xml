@@ -55,7 +55,8 @@
         	<Test name ="test_wheat1">
         		<InputValue name="FixPhyll">91.2</InputValue>
         		<InputValue name="GAI">0.279874189539498</InputValue>        						
-				<OutputValue name="Phyllochron" precision ="2">91.2</OutputValue>				
+			<OutputValue name="Phyllochron" precision ="2">36.48</OutputValue>
+               		<OutputValue name="pastMaxAI" precision ="2">0</OutputValue>				
 				
         	</Test>
         </Testset>
