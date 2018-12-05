@@ -16,7 +16,7 @@
         <Input name="SowingDensity" description="number of plant /m²" parametercategory="constant" datatype="INT" min="0" max="500" default="288" unit="plant m-2"  inputtype = "parameter"/>
         <Input name="TargetFertileShoot" description="max value of shoot number for the canopy" variablecategory="auxiliary" datatype="DOUBLE" min="280" max="1000" default="600" unit="shoot" inputtype = "variable"/>
         <Input name="tilleringProfile" description=" store the amount of new tiller created at each time a new tiller appears" variablecategory="auxiliary" datatype="DOUBLELIST"  default="[288]" unit=""  inputtype="variable"/>
-		<Input name="leafTillerNumberArray" description="store the number of tiller for each leaf layer" variablecategory="auxiliary"  datatype="DOUBLELIST" unit="leaf" default ="1"  inputtype="variable"/>
+		<Input name="leafTillerNumberArray" description="store the number of tiller for each leaf layer" variablecategory="auxiliary"  datatype="DOUBLELIST" unit="leaf" default ="[1]"  inputtype="variable"/>
 		<Input name="TillerNumber" description=" store the amount of tiller created at each time a tiller appears" variablecategory="auxiliary" datatype="INT" min="0" max="10000" default="1"  unit=""  inputtype="variable"/>
     </Inputs>
     <Outputs>
