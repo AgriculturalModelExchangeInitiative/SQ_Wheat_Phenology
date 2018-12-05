@@ -39,6 +39,7 @@
         <Input name="cumulTTFromZC_91" description="cumul of the thermal time (DeltaTT) since the moment ZC_91" vaiablecategory="auxiliary" datatype="DOUBLE" min="0" max="5000" default = "0" unit="°C d-1" inputtype="variable" />
         <Input name="Phyllochron" description="Phyllochron" variablecategory="state" datatype="DOUBLE" min="0" max="1000" default="91.2" unit="°C d leaf-1"  inputtype = "variable"/>
         <Input name="hasLastPrimordiumAppeared" description="if Last Primordium has Appeared" variablecategory="state" datatype="INT" min="0" max="1" default="0" unit=""  inputtype="variable"/>
+        <Input name="FinalLeafNumber" description="final leaf number" variablecategory="state" datatype="DOUBLE" min="0" max="25" default="0" unit="leaf" inputtype="variable" />
       
     </Inputs>
     <Outputs>
