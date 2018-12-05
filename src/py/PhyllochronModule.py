@@ -1,7 +1,7 @@
 if choosePhyllUse =="Default":
-    if (LeafNumber < Ldecr): Phyllochron = Fixphyll * Pdecr
-    elif (LeafNumber >= Ldecr and LeafNumber < Lincr): Phyllochron = Fixphyll
-    else: Phyllochron = Fixphyll * Pincr
+    if (LeafNumber < Ldecr): Phyllochron = FixPhyll * Pdecr
+    elif (LeafNumber >= Ldecr and LeafNumber < Lincr): Phyllochron = FixPhyll
+    else: Phyllochron = FixPhyll * Pincr
         
  
 if choosePhyllUse =="PTQ":
