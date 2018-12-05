@@ -12,7 +12,7 @@
     </Description>
     <Inputs>
         <Input name="DeltaTT" description="daily delta TT " variablecategory="auxiliary" datatype="DOUBLE" min="-20" max="100" default="23.5895677277199" unit="°C d"  inputtype="variable"/>
-        <Input name="Phyllochron" description="phyllochron" variablecategory="state" inputtype ="variable" datatype="DOUBLE" min="0" max="25" default="0" unit="°C d leaf-1" />
+        <Input name="Phyllochron" description="phyllochron" variablecategory="state" inputtype ="variable" datatype="DOUBLE" min="0" max="1000" default="0" unit="°C d leaf-1" />
         <Input name="HasFlagLeafLiguleAppeared" description="true if flag leaf has appeared (leafnumber reached finalLeafNumber)" variablecategory="state" datatype="INT" min="0" max="1" default="0" unit="" inputtype = "variable"/>
         <Input name="SwitchMaize" description="true if maize" parametercategory="constant" datatype="INT" min="0" max="1" default="0" unit=""  inputtype = "parameter"/>
         <Input name="atip" description="slope of leaf initiation" parametercategory="species" datatype="DOUBLE" min="0" max="1000" default="10" unit="leaf °C-1 d-2" inputtype = "parameter"/>
