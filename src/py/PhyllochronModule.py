@@ -1,21 +1,21 @@
 if choosePhyllUse =="Default":
-    if (LeafNumber < Ldecr): Phyllochron = FixPhyll * Pdecr
-    elif (LeafNumber >= Ldecr and LeafNumber < Lincr): Phyllochron = FixPhyll
-    else: Phyllochron = FixPhyll * Pincr
+    if (leafNumber < Ldecr): phyllochron = FixPhyll * Pdecr
+    elif (leafNumber >= Ldecr and leafNumber < Lincr): phyllochron = FixPhyll
+    else: phyllochron = FixPhyll * Pincr
         
  
 if choosePhyllUse =="PTQ":
     pastMaxAI1 = pastMaxAI
     GAI = max(pastMaxAI1,GAI)
     pastMaxAI = GAI
-    if (GAI > 0.0): Phyllochron = PhylPTQ1 * ((GAI * Kl) / (1 - exp(-Kl * GAI))) / (PTQ + aPTQ)
-    else: Phyllochron = PhylPTQ1
+    if (GAI > 0.0): phyllochron = PhylPTQ1 * ((GAI * Kl) / (1 - exp(-Kl * GAI))) / (PTQ + aPTQ)
+    else: phyllochron = PhylPTQ1
      
         
 if choosePhyllUse == "Test":
-    if (LeafNumber < Ldecr): Phyllochron = P * Pdecr
-    elif (LeafNumber >= Ldecr and LeafNumber < Lincr): Phyllochron = P
-    else: Phyllochron = P * Pincr
+    if (leafNumber < Ldecr): phyllochron = P * Pdecr
+    elif (leafNumber >= Ldecr and leafNumber < Lincr): phyllochron = P
+    else: phyllochron = P * Pincr
         
 
     

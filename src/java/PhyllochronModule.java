@@ -9,9 +9,9 @@ if (choosePhyllUse =="Default")
  
 if (choosePhyllUse =="PTQ")
 {
-    GAI = Math.Max(pastMaxAI,GAI);
+    GAI = Math.max(pastMaxAI,GAI);
     pastMaxAI = GAI;
-    if (GAI > 0.0) phyllochron = PhylPTQ1 * ((GAI * Kl) / (1 - Math.Exp(-Kl * GAI))) / (PTQ + aPTQ);
+    if (GAI > 0.0) phyllochron = PhylPTQ1 * ((GAI * Kl) / (1 - Math.exp(-Kl * GAI))) / (PTQ + aPTQ);
     else phyllochron = PhylPTQ1;
      
 }        

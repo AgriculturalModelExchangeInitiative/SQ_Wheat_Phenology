@@ -9,13 +9,16 @@ if (IsVernalizable==1 and Vernaprog < 1):
         DLverna = max(MinDL, min(MaxDL, DayLength))
         Vernaprog += max(0, maxVernaProg * (1 + ((IntTvern - TT) / (MaxTvern - IntTvern)) * ((DLverna - MinDL) / (MaxDL - MinDL))))
             
-    primordno = 2.0 * LeafNumber + PNini
+    primordno = 2.0 * leafNumber + PNini
         
     minLeafNumber = MinFinalNumber
     if (Vernaprog >= 1.0 or primordno >= AMXLFNO):
             
             
         MinFinalNumber = max(primordno, MinFinalNumber)
+        calendarMoments.append("EndVernalisation")
+        calendarCumuls.append(cumulTT) 
+        calendarDates.append(currentdate)        
         Vernaprog = max(1, Vernaprog)
             
             
@@ -27,6 +30,9 @@ if (IsVernalizable==1 and Vernaprog < 1):
                 
             MinFinalNumber = max((potlfno + primordno) / 2.0, MinFinalNumber)
             Vernaprog = max(1, Vernaprog)
+            calendarMoments.append("EndVernalisation")
+            calendarCumuls.append(cumulTT) 
+            calendarDates.append(currentdate)
 
              
 

@@ -1,4 +1,4 @@
-if (calendarMoments.Contains("FlagLeafLiguleJustVisible"))
+if (calendarMoments.contains("FlagLeafLiguleJustVisible"))
 {
    isMomentRegistredZC_39 = 1 ;
 }

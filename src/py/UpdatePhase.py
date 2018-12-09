@@ -22,7 +22,7 @@ elif (phase1 >= 1 and phase1 < 2):#EmergenceToFloralInitiation
                 appFLN = MinFinalNumber + SLDL * (MaxDL - DayLength)
                     
                     # calculation of final leaf number from daylength at inflexion plus 2 leaves
-                if (appFLN / 2.0 <= LeafNumber):
+                if (appFLN / 2.0 <= leafNumber):
                     FinalLeafNumber = appFLN
                     hasLastPrimordiumAppeared =1
                 else:
@@ -47,8 +47,8 @@ elif (phase1 >= 2 and phase1 < 4):#FloralInitiationToAnthesis
                 #calculate the heading date
         if (phase1 < 3):
             ttFromLastLeafToHeading = 0.0
-            if(choosePhyllUse=="Default"): ttFromLastLeafToHeading =(PFLLAnth - PHEADANTH) * Fixphyll
-            elif (choosePhyllUse == "PTQ"): ttFromLastLeafToHeading = (PFLLAnth - PHEADANTH) * Phyllochron
+            if(choosePhyllUse=="Default"): ttFromLastLeafToHeading =(PFLLAnth - PHEADANTH) * FixPhyll
+            elif (choosePhyllUse == "PTQ"): ttFromLastLeafToHeading = (PFLLAnth - PHEADANTH) * phyllochron
             elif (choosePhyllUse == "Test"): ttFromLastLeafToHeading = (PFLLAnth - PHEADANTH) * P
 
             if (cumulTTFromZC_39 >= ttFromLastLeafToHeading):
@@ -60,8 +60,8 @@ elif (phase1 >= 2 and phase1 < 4):#FloralInitiationToAnthesis
                                  
                     #CheckAnthesis;
         ttFromLastLeafToAnthesis =0.0
-        if (choosePhyllUse == "Default"): ttFromLastLeafToAnthesis = PFLLAnth * Fixphyll
-        elif (choosePhyllUse == "PTQ"): ttFromLastLeafToAnthesis = PFLLAnth * Phyllochron
+        if (choosePhyllUse == "Default"): ttFromLastLeafToAnthesis = PFLLAnth * FixPhyll
+        elif (choosePhyllUse == "PTQ"): ttFromLastLeafToAnthesis = PFLLAnth * phyllochron
         elif (choosePhyllUse == "Test"): ttFromLastLeafToAnthesis = PFLLAnth * P
         
             

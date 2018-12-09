@@ -1,4 +1,4 @@
-LeafNumber1 =LeafNumber
+leafNumber1 =leafNumber
 Ntip=0
     
 if (phase == 1 and cumulTTPhenoMaizeAtEmergence == 0):
@@ -9,24 +9,24 @@ if (phase >= 1 and phase< 4):
     if (HasFlagLeafLiguleAppeared==0): 
         if (SwitchMaize==0):
             
-            if (Phyllochron == 0.0):
-                Phyllochron = 0.0000001
-            LeafNumber = LeafNumber1 + min(DeltaTT / Phyllochron, 0.999)
+            if (phyllochron == 0.0):
+                phyllochron = 0.0000001
+            leafNumber = leafNumber1 + min(DeltaTT / phyllochron, 0.999)
             Ntip=0
         else:
-            if (LeafNumber1 < Leaf_tip_emerg):
-                LeafNumber = Leaf_tip_emerg
+            if (leafNumber1 < Leaf_tip_emerg):
+                leafNumber = Leaf_tip_emerg
                 
             else:
                 nextstartExpTT = 0
 
-                nexttipTT = ((LeafNumber1 + 1) - Leaf_tip_emerg) / atip + cumulTTPhenoMaizeAtEmergence
+                nexttipTT = ((leafNumber1 + 1) - Leaf_tip_emerg) / atip + cumulTTPhenoMaizeAtEmergence
 
                 abl = k_bl * atip
                 tt_lim_lip = ((Nlim - Leaf_tip_emerg) / atip) + cumulTTPhenoMaizeAtEmergence
                 bbl = Nlim - (abl * tt_lim_lip)
 
-                tt_bl = ((LeafNumber1 + 1) - bbl) / abl
+                tt_bl = ((leafNumber1 + 1) - bbl) / abl
                 if (tt_bl > nexttipTT):
                     nextstartExpTT = nexttipTT
                 else:
@@ -35,11 +35,11 @@ if (phase >= 1 and phase< 4):
                     
                 if (cumulTT >= nextstartExpTT):
                     
-                    LeafNumber = LeafNumber1 + 1
+                    leafNumber = leafNumber1 + 1
                     
                 else:
                     
-                    LeafNumber = LeafNumber1
+                    leafNumber = leafNumber1
                     
                 
             Ntip = atip * (cumulTT - cumulTTPhenoMaizeAtEmergence) + Leaf_tip_emerg

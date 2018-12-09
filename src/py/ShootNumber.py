@@ -1,7 +1,5 @@
-from Fibonacci import fibonacci
-
 OldCanopyShootNumber = CanopyShootNumber
-EmergedLeaves = int(max(1, ceil(LeafNumber - 1)))
+EmergedLeaves = int(max(1, ceil(leafNumber - 1)))
 
 Shoots = fibonacci(EmergedLeaves)
 
@@ -15,7 +13,7 @@ if (CanopyShootNumber != OldCanopyShootNumber):
            
 TillerNumber = len(tilleringProfile)
         
-for i in range(len(leafTillerNumberArray),int(ceil(LeafNumber))):
+for i in range(len(leafTillerNumberArray),int(ceil(leafNumber))):
     leafTillerNumberArray.append(TillerNumber)
     
 

@@ -19,7 +19,7 @@ if (phase >= 1 && phase< 4)
 				phyllochron = 0.0000001;
 					
 			}
-			leafNumber = leafNumber1 + Math.Min(DeltaTT / phyllochron, 0.999);
+			leafNumber = leafNumber1 + Math.min(DeltaTT / phyllochron, 0.999);
 		}
 		else
 		{
