@@ -27,6 +27,7 @@
 	<Algorithm  language="python" platform="" filename="PhylSowingDateCorrection.py" />
 	<Algorithm  language="C#" platform="" filename="PhylSowingDateCorrection.cs" />
 	<Algorithm  language="Java" platform="" filename="PhylSowingDateCorrection.java" />
+	<Algorithm  language="C++" platform="" filename="PhylSowingDateCorrection.cpp" />
 
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >

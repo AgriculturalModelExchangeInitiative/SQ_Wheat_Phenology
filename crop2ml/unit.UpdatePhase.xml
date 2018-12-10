@@ -51,6 +51,8 @@
 	<Algorithm  language="python" platform="" filename="UpdatePhase.py" />
 	<Algorithm  language="C#" platform="" filename="UpdatePhase.cs" />
 	<Algorithm  language="Java" platform="" filename="UpdatePhase.java" />
+	<Algorithm  language="C++" platform="" filename="UpdatePhase.cpp" />
+	
 	
      <Parametersets>
         <Parameterset name="wheat" description="some values in there" >

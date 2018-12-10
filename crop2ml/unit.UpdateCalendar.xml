@@ -30,6 +30,7 @@
 	<Algorithm  language="python" platform="" filename="UpdateCalendar.py" />
 	<Algorithm  language="C#" platform="" filename="UpdateCalendar.cs" />
 	<Algorithm  language="Java" platform="" filename="UpdateCalendar.java" />
+	<Algorithm  language="C++" platform="" filename="UpdateCalendar.cpp" />
 
     
     <Parametersets>
@@ -43,7 +44,6 @@
 				<InputValue name="calendarMoments">["Sowing"]</InputValue>
                 <InputValue name="calendarDates">["21/3/2007"]</InputValue>
                 <InputValue name="calendarCumuls">[0.0]</InputValue>
-				<InputValue name="currentdate">"27/3/2007"</InputValue>
 				<InputValue name="phase">1</InputValue>
 				<OutputValue name="calendarMoments">["Sowing", "Emergence"]</OutputValue>
                 <OutputValue name="calendarDates">["21/3/2007", "27/3/2007"]</OutputValue>

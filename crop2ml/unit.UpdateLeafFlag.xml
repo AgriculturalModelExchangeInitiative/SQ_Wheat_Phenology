@@ -34,6 +34,7 @@
 	<Algorithm  language="python" platform="" filename="UpdateLeafFlag.py" />
 	<Algorithm  language="C#" platform="" filename="UpdateLeafFlag.cs" />
 	<Algorithm  language="Java" platform="" filename="UpdateLeafFlag.java" />
+	<Algorithm  language="C++" platform="" filename="UpdateLeafFlag.cpp" />
 
     
      <Parametersets>

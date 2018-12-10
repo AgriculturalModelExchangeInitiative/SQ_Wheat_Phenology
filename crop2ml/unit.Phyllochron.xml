@@ -37,14 +37,14 @@
 	<Algorithm  language="python" platform="" filename="PhyllochronModule.py" />
 	<Algorithm  language="C#" platform="" filename="PhyllochronModule.cs"/>
 	<Algorithm  language="Java" platform="" filename="PhyllochronModule.java"/>
+	<Algorithm  language="C++" platform="" filename="PhyllochronModule.cpp"/>
 
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >
         	<Param name="Lincr">8</Param>
         	<Param name="Ldecr">3</Param>
         	<Param name="Pdecr">0.4</Param>
-            <Param name="Pincr">1.25</Param>
-        	<Param name="choosePhyllUse">"Default"</Param>            
+            <Param name="Pincr">1.25</Param>            
         </Parameterset>
      </Parametersets>
      <Testsets>

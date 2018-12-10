@@ -31,10 +31,13 @@
     <Function name = "fibonacci" language="Python" type="external" filename="Fibonacci.py" description="calculate fibonacci number"/>  
     <Function name = "fibonacci" language="csharp" type="external" filename="Fibonacci.cs" description="calculate fibonacci number"/>
     <Function name = "fibonacci" language="java" type="external" filename="Fibonacci.java" description="calculate fibonacci number"/>  
+    <Function name = "fibonacci" language="C++" type="external" filename="Fibonacci.cpp" description="calculate fibonacci number"/>  
 
 	<Algorithm  language="python" platform="" filename="ShootNumber.py" />
 	<Algorithm  language="C#" platform="" filename="ShootNumber.cs" />
 	<Algorithm  language="Java" platform="" filename="ShootNumber.java" />
+	<Algorithm  language="C++" platform="" filename="ShootNumber.cpp" />
+	
      
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >

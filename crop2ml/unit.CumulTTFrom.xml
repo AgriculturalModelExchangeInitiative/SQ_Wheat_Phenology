@@ -27,6 +27,7 @@
 	<Algorithm  language="python" platform="" filename="CumulFrom.py" />
 	<Algorithm  language="C#" platform="" filename="CumulFrom.cs" />
 	<Algorithm  language="Java" platform="" filename="CumulFrom.java" />
+	<Algorithm  language="C++" platform="" filename="CumulFrom.cpp" />
 
 
     <Parametersets>
