@@ -13,13 +13,13 @@ size_t posFlag = find(calendarMoments.begin(), calendarMoments.end(), "FlagLeafL
 
 if(posFlag<calendarMoments.size()){
     if (SwitchMaize==0)
-        cumulTTFromZC_65 = cumulTT - calendarCumuls[posFlag];
+        cumulTTFromZC_39 = cumulTT - calendarCumuls[posFlag];
 }
 size_t posFill= find(calendarMoments.begin(), calendarMoments.end(), "EndGrainFilling")-calendarMoments.begin();
 
 if(posFill<calendarMoments.size()){
     if (SwitchMaize==0)
-        cumulTTFromZC_65 = cumulTT- calendarCumuls[posFill];
+        cumulTTFromZC_91 = cumulTT- calendarCumuls[posFill];
 }
 
 
