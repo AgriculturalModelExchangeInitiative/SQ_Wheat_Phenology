@@ -1,4 +1,8 @@
 using fibonacci;
+using System.Collections.Generic;
+using System;
+namespace shootNumber
+{
 public class ShootNumber
 {
     public double AverageShootNumberPerPlant;
@@ -18,6 +22,7 @@ public class ShootNumber
 
 public static class Estimation_ShootNumber
 {
+
     public static ShootNumber CalculateShootNumber(double CanopyShootNumber,double leafNumber,int SowingDensity,double TargetFertileShoot,List<double> tilleringProfile,List<int> leafTillerNumberArray,int TillerNumber)
     {
 
@@ -37,7 +42,7 @@ public static class Estimation_ShootNumber
 
         double OldCanopyShootNumber = CanopyShootNumber;
         int EmergedLeaves = (int)Math.Max(1, Math.Ceiling(leafNumber - 1));
-        int Shoots = Calculatefibonacci(EmergedLeaves).value;
+        int Shoots = Estimation_fibonacci.Calculatefibonacci(EmergedLeaves).value;
         CanopyShootNumber = Math.Min(Shoots * SowingDensity, TargetFertileShoot);
         AverageShootNumberPerPlant = CanopyShootNumber / SowingDensity;
         if (CanopyShootNumber != OldCanopyShootNumber)
@@ -51,5 +56,6 @@ public static class Estimation_ShootNumber
         }
         return new ShootNumber(AverageShootNumberPerPlant,CanopyShootNumber,leafTillerNumberArray,tilleringProfile,TillerNumber);
     }
+    
 }
-
+}
