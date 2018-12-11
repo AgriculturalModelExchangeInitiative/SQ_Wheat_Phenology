@@ -5,7 +5,7 @@
 #include<time.h>
 #include "Is_FlagLeafLiguleJustVisible_Registred.h"
 #include "LeafNumberModule.h"
-#include "RegisterZadok.h"
+
 
 using namespace std;
 
@@ -71,37 +71,13 @@ void test_LeafNumberModule()
 }
 
 
-void test_RegisterZadok()
-{
-    double cumulTT = 354.582294511779;
-    double phase = 2;
-    double leafNumber = 4.8854219661087575;
-    vector<string> calendarMoments{"Sowing","Emergence","EndVernalisation","MainShootPlus1Tiller"};
-    vector<time_t>calendarDates;
-    vector<double> calendarCumuls{0.0, 112.33,157.97, 280.57};
-    double cumulTTFromZC_65;
-    struct tm instant;
-    time_t currentdate =  time(0);
-    double Der;
-    double slopeTSFLN;
-    double TSFLN;
-    double intTSFLN;
-    double FinalLeafNumber;
-    string currentZadokStage;
-    int hasZadokStageChanged;
-    cout<<currentdate;
 
-
-
-
-}
 
 int main()
 {
     test_CumulFROM();
     test_IsFlagLeafLiguleJustVisible_Registred();
     test_LeafNumberModule();
-    test_RegisterZadok();
 
     return 0;
 }
