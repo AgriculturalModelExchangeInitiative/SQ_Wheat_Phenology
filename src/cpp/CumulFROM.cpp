@@ -7,19 +7,19 @@ size_t posAnthesis = find(calendarMoments.begin(), calendarMoments.end(), "Anthe
 
 if(posAnthesis<calendarMoments.size()){
     if (SwitchMaize==0)
-        cumulTTFromZC_65 = calendarCumuls[posAnthesis];
+        cumulTTFromZC_65 = cumulTT - calendarCumuls[posAnthesis];
 }
 size_t posFlag = find(calendarMoments.begin(), calendarMoments.end(), "FlagLeafLiguleJustVisible")-calendarMoments.begin();
 
 if(posFlag<calendarMoments.size()){
     if (SwitchMaize==0)
-        cumulTTFromZC_65 = calendarCumuls[posFlag];
+        cumulTTFromZC_39 = cumulTT - calendarCumuls[posFlag];
 }
 size_t posFill= find(calendarMoments.begin(), calendarMoments.end(), "EndGrainFilling")-calendarMoments.begin();
 
 if(posFill<calendarMoments.size()){
     if (SwitchMaize==0)
-        cumulTTFromZC_65 = calendarCumuls[posFill];
+        cumulTTFromZC_91 = cumulTT- calendarCumuls[posFill];
 }
 
 
