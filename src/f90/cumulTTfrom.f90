@@ -1,20 +1,6 @@
-module CumulTTfrom
-    use crop2mlModules
 
+    !use crop2mlModules
 
-contains
-     subroutine calculateCumulFROM(cumulTT, calendarMoments, calendarCumuls, SwitchMaize,&
-        cumulTTFromZC_39, cumulTTFromZC_65, cumulTTFromZC_91)
-
-        !      INPUT VARIABLES:
-        integer, intent(in):: SwitchMaize
-        real, intent(in):: cumulTT
-        real,dimension (:), intent(in):: calendarCumuls
-        character(len=*),dimension(:), intent(in):: calendarMoments
-
-        !     OUTPUT VARIABLES:
-
-        real, intent(out):: cumulTTFromZC_39, cumulTTFromZC_65, cumulTTFromZC_91
 
         cumulTTFromZC_39=0
         cumulTTFromZC_65=0
@@ -41,7 +27,3 @@ contains
             END IF
         END IF
 
-    end subroutine
-
-
-end module
