@@ -1,19 +1,19 @@
 
     !use crop2mlModules
 
-    if (Latitude < 0) then
-        if (SowingDay > SDsa_sh) then
-            FixPhyll = P * (1 - Rp * min(SowingDay - SDsa_sh, SDws))
-        else
-            FixPhyll = P
-        end if
-    else
-        if (SowingDay < SDsa_nh) then
-            FixPhyll = P * (1 - Rp * min(SowingDay, SDws))
-        else
-            FixPhyll = P
-        end if
-    end if
+        IF (latitude < 0) THEN
+            IF (sowingDay > sDsa_sh) THEN
+                fixPhyll = p * (1 - rp * MIN(sowingDay - sDsa_sh, sDws))
+            ELSE
+                fixPhyll = p
+            END IF
+        ELSE
+            IF (sowingDay < sDsa_nh) THEN
+                fixPhyll = p * (1 - rp * MIN(sowingDay, sDws))
+            ELSE
+                fixPhyll = p
+            END IF
+        END IF
 
 
 

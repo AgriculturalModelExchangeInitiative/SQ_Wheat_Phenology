@@ -1,31 +1,17 @@
 
     !use crop2mlModules
+        REAL::oldcanopyShootNumber, calc
+        INTEGER:: emergedLeaves, i
 
-        real::OldCanopyShootNumber, calc
-        integer:: EmergedLeaves, Shoots, I
-
-        OldCanopyShootNumber = CanopyShootNumber
-
-
-        EmergedLeaves = int(max(1, ceiling(leafNumber - 1)))
-
-        Shoots = fibonacci(EmergedLeaves)
-
-        CanopyShootNumber = min(Shoots * SowingDensity, int(TargetFertileShoot))
-        AverageShootNumberPerPlant = CanopyShootNumber / SowingDensity
-
-        if (CanopyShootNumber /= OldCanopyShootNumber) then
-            calc = CanopyShootNumber - OldCanopyShootNumber
-            call AddToList(tilleringProfile,calc)
-
-         end if
-         TillerNumber = size(tilleringProfile)
-
-
-        Do I=size(leafTillerNumberArray), ceiling(leafNumber)-1
-            call AddToListInt(leafTillerNumberArray,TillerNumber)
-        End Do
-
-
-
-
+        oldcanopyShootNumber = canopyShootNumber
+        emergedLeaves = INT(MAX(1, CEILING(leafNumber - 1)))
+        shoots = fibonacci(emergedLeaves)
+        canopyShootNumber = MIN(shoots * sowingDensity, INT(targetFertileShoot))
+        averageShootNumberPerPlant = canopyShootNumber / sowingDensity
+        IF (canopyShootNumber /= oldcanopyShootNumber) THEN
+            CALL AddToList(tilleringProfile,canopyShootNumber - oldcanopyShootNumber)
+        END IF
+         tillerNumber = SIZE(tilleringProfile)
+        DO i=SIZE(leafTillerNumberArray), CEILING(leafNumber)-1
+            CALL AddToListInt(leafTillerNumberArray,tillerNumber)
+        END DO

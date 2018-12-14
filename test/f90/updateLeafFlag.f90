@@ -1,44 +1,33 @@
-module updateLeafFlagModule
-    use crop2mlModules
-    implicit none
+MODULE updateLeafFlagModule
+    USE crop2mlModules
+    IMPLICIT NONE
+CONTAINS
 
-contains
-    subroutine calculateUpdateLeafFlag( cumulTT, leafNumber,&
+    SUBROUTINE Calculate_UpdateLeafFlag( cumulTT, leafNumber,&
         calendarMoments, calendarDates, calendarCumuls,currentdate,&
-        FinalLeafNumber, HasFlagLeafLiguleAppeared, phase)
+        finalLeafNumber, hasFlagLeafLiguleAppeared, phase)
 
         ! DECLARATION
-        real, intent(in)::phase, cumulTT, leafNumber, FinalLeafNumber
-        character(len=65), intent(in) :: currentdate
+        REAL, INTENT(IN)::phase, cumulTT, leafNumber, finalLeafNumber
+        CHARACTER(LEN=65), INTENT(IN) :: currentdate
+        REAL,DIMENSION (:), INTENT(INOUT), ALLOCATABLE:: calendarCumuls
+        CHARACTER(LEN=65),DIMENSION(:), INTENT(INOUT), ALLOCATABLE:: calendarMoments, calendarDates
+        INTEGER, INTENT(INOUT):: hasFlagLeafLiguleAppeared
 
-        real,dimension (:), intent(inout), allocatable:: calendarCumuls
-        character(len=65),dimension(:), intent(inout), allocatable:: calendarMoments, calendarDates
-
-        integer, intent(inout):: HasFlagLeafLiguleAppeared
-
-
-        !Fortran Snippets
-        if ((phase >= 1) .AND. (phase< 4)) then
-
-            if (leafNumber > 0) then
-
-                if ((HasFlagLeafLiguleAppeared == 0) .AND. (FinalLeafNumber > 0) .AND. (leafNumber >= FinalLeafNumber)) then
-
-                    HasFlagLeafLiguleAppeared = 1;
-                    if  (ALL(calendarMoments/="FlagLeafLiguleJustVisible")) then
-
-                        call AddToListChar(calendarMoments,"FlagLeafLiguleJustVisible")
-                        call AddToList(calendarCumuls,cumulTT)
-                        call AddToListChar(calendarDates, currentdate)
-                    end if
-                end if
-
-            else
-                HasFlagLeafLiguleAppeared = 0
-            end if
-        end if
-
-
-    end subroutine
-end module
+        IF ((phase >= 1) .AND. (phase< 4)) THEN
+            IF (leafNumber > 0) THEN
+                IF ((hasFlagLeafLiguleAppeared == 0) .AND. (finalLeafNumber > 0) .AND. (leafNumber >= finalLeafNumber)) THEN
+                    hasFlagLeafLiguleAppeared = 1;
+                    IF  (ALL(calendarMoments/="FlagLeafLiguleJustVisible")) THEN
+                        CALL AddToListChar(calendarMoments,"FlagLeafLiguleJustVisible")
+                        CALL AddToList(calendarCumuls,cumulTT)
+                        CALL AddToListChar(calendarDates, currentdate)
+                    END IF
+                END IF
+            ELSE
+                hasFlagLeafLiguleAppeared = 0
+            END IF
+        END IF
+    END SUBROUTINE
+END MODULE
 

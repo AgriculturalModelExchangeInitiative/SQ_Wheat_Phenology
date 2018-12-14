@@ -1,55 +1,43 @@
-module phyllochronModule
-    use crop2mlModules
+MODULE phyllochronModule
+    USE crop2mlModules
+CONTAINS
 
-!type tyPhyllochron
- !   real:: phyllochron, pastMaxAI
-!end type
+    SUBROUTINE Calculate_Phyllochron(fixPhyll,leafNumber,lincr,ldecr,pdecr,&
+            pincr, ptq, gai, pastMaxAI,kl, aPTQ, phylPTQ1, p,choosePhyllUse, phyllochron)
 
-contains
-    subroutine calculatePhyllochron(FixPhyll,leafNumber,Lincr,Ldecr,Pdecr,&
-        Pincr, PTQ, GAI, pastMaxAI,Kl, aPTQ, PhylPTQ1, P,choosePhyllUse, phyllochron)
+        REAL , INTENT(IN)::fixPhyll,leafNumber,lincr,ldecr,pdecr,pincr,ptq,&
+            kl, aPTQ, phylPTQ1, p
+        REAL , INTENT(INOUT):: pastMaxAI, gai
+        CHARACTER(LEN=*), INTENT(IN):: choosePhyllUse
+        REAL, INTENT(OUT):: phyllochron
 
-    !type(tyPhyllochron) , intent(out):: resPhyllochron
+        IF (choosePhyllUse .EQ. 'Default') THEN
+            IF (leafNumber < ldecr) THEN
+                phyllochron = fixPhyll * pdecr
+            ELSE IF ((leafNumber >= ldecr) .AND. (leafNumber < lincr)) THEN
+                phyllochron = fixPhyll
+            ELSE
+                phyllochron = fixPhyll * pincr
+            END IF
+        END IF
+        IF (choosePhyllUse .EQ. 'PTQ') THEN
+            gai = MAX(pastMaxAI,gai)
+            pastMaxAI = gai
+            IF (gai > 0.0) THEN
+                phyllochron = phylPTQ1 * ((gai * kl) / (1 - EXP(-kl * gai))) / (ptq + aPTQ)
+            ELSE
+                phyllochron = phylPTQ1
+            END IF
+        END IF
+        IF (choosePhyllUse == 'Test') THEN
 
-    real , intent(in)::FixPhyll,leafNumber,Lincr,Ldecr,Pdecr,Pincr,PTQ,&
-     Kl, aPTQ, PhylPTQ1, P
-    real , intent(inout):: pastMaxAI, GAI
-    character(len=*), intent(in):: choosePhyllUse
-    real, intent(out):: phyllochron
-
-
-    if (choosePhyllUse .EQ. 'Default') then
-        if (leafNumber < Ldecr) then
-            phyllochron = FixPhyll * Pdecr
-        else if ((leafNumber >= Ldecr) .AND. (leafNumber < Lincr)) then
-            phyllochron = FixPhyll
-        else
-            phyllochron = FixPhyll * Pincr
-        end if
-    end if
-
-    if (choosePhyllUse .EQ. 'PTQ') then
-        GAI = MAX(pastMaxAI,GAI)
-        pastMaxAI = GAI
-        if (GAI > 0.0) then
-            phyllochron = PhylPTQ1 * ((GAI * Kl) / (1 - EXP(-Kl * GAI))) / (PTQ + aPTQ)
-        else
-            phyllochron = PhylPTQ1
-        end if
-    end if
-
-
-    if (choosePhyllUse == 'Test') then
-
-        if (leafNumber < Ldecr) then
-            phyllochron = P * Pdecr
-        else if ((leafNumber >= Ldecr) .AND. (leafNumber < Lincr)) then
-            phyllochron = P
-        else
-            phyllochron = P * Pincr
-        end if
-    end if
-
-    end subroutine
-
-end module
+            IF (leafNumber < ldecr) THEN
+                phyllochron = p * pdecr
+            ELSE IF ((leafNumber >= ldecr) .AND. (leafNumber < lincr)) THEN
+                phyllochron = p
+            ELSE
+                phyllochron = p * pincr
+            END IF
+        END IF
+    END SUBROUTINE
+END MODULE

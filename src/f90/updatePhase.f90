@@ -1,156 +1,104 @@
 
     !use crop2mlModules
-        real:: phase1, appFLN, ttFromLastLeafToHeading, LocalDegfm, ttFromLastLeafToAnthesis
-
-        phase1 = phase;
-        if ((phase1 >= 0) .AND. (phase1 < 1))then
-            if (SwitchMaize==0)then
-                if (cumulTT>= Dse) then
+        REAL:: phase1, appFLN, ttFromLastLeafToHeading, localDegfm, ttFromLastLeafToAnthesis
+        
+        phase1 = phase
+        IF ((phase1 >= 0) .AND. (phase1 < 1))THEN
+            IF (switchMaize==0)THEN
+                IF (cumulTT>= dse) THEN
                     phase = 1
-                else
+                ELSE
                     phase = phase1
-                end if
-            else
-                if (cumulTT >= Dse) then
+                END IF
+            ELSE
+                IF (cumulTT >= dse) THEN
                     phase= 1;
-                else
+                ELSE
                     phase = phase1
-                end if
-            end if
-        else if ((phase1 >= 1) .AND. (phase1 < 2)) then
-            if ((IsVernalizable==1 .AND. Vernaprog >= 1) .OR. (IsVernalizable==0)) then
-
-                if (SwitchMaize==0) then
-
-                    if (DayLength > MaxDL) then
-
-                        FinalLeafNumber = MinFinalNumber
+                END IF
+            END IF
+        ELSE IF ((phase1 >= 1) .AND. (phase1 < 2)) THEN
+            IF ((isVernalizable==1 .AND. vernaprog >= 1) .OR. (isVernalizable==0)) THEN
+                IF (switchMaize==0) THEN
+                    IF (dayLength > maxDL) THEN
+                        finalLeafNumber = minFinalNumber
                         hasLastPrimordiumAppeared = 1
-
-                    else
-                        appFLN = MinFinalNumber + SLDL * (MaxDL - DayLength)
-                        !calculation of final leaf number from daylength at inflexion plus 2 leaves
-                        if ((appFLN / 2.0) <= leafNumber) then
-
-                            FinalLeafNumber = appFLN;
+                    ELSE
+                        appFLN = minFinalNumber + sLDL * (maxDL - dayLength)
+                        !calculation of final leaf number from dayLength at inflexion plus 2 leaves
+                        IF ((appFLN / 2.0) <= leafNumber) THEN
+                            finalLeafNumber = appFLN;
                             hasLastPrimordiumAppeared =1
-
-                        else
-
+                        ELSE
                             phase = phase1
-                        end if
-                    end if
-
-                else
-
+                        END IF
+                    END IF
+                ELSE
                     hasLastPrimordiumAppeared = 1
-                end if
-
-                if (hasLastPrimordiumAppeared==1) then
-
+                END IF
+                IF (hasLastPrimordiumAppeared==1) THEN
                     phase = 2
-                end if
-
-
-            else
-
+                END IF
+            ELSE
                 phase = phase1
-
-            end if
-
-
-        else if ((phase1 >= 2) .AND. (phase1 < 4)) then
-
-            if (isMomentRegistredZC_39==1) then
-
-                if (phase1 < 3) then
-
+            END IF
+        ELSE IF ((phase1 >= 2) .AND. (phase1 < 4)) THEN
+            IF (isMomentRegistredZC_39==1) THEN
+                IF (phase1 < 3) THEN
                     ttFromLastLeafToHeading = 0.0
-                    if(choosePhyllUse=="Default") then
-                        ttFromLastLeafToHeading =(PFLLAnth - PHEADANTH) * FixPhyll
-                    else if (choosePhyllUse == "PTQ") then
-                        ttFromLastLeafToHeading = (PFLLAnth - PHEADANTH) * phyllochron;
-                    else if (choosePhyllUse == "Test")  then
-                        ttFromLastLeafToHeading = (PFLLAnth - PHEADANTH) * P
-                    end if
-                    if (cumulTTFromZC_39 >= ttFromLastLeafToHeading) then
-
+                    IF(choosePhyllUse=="Default") THEN
+                        ttFromLastLeafToHeading =(pFLLAnth - pHEADANTH) * fixPhyll
+                    ELSE IF (choosePhyllUse == "PTQ") THEN
+                        ttFromLastLeafToHeading = (pFLLAnth - pHEADANTH) * phyllochron;
+                    ELSE IF (choosePhyllUse == "Test")  THEN
+                        ttFromLastLeafToHeading = (pFLLAnth - pHEADANTH) * p
+                    END IF
+                    IF (cumulTTFromZC_39 >= ttFromLastLeafToHeading) THEN
                         phase = 3
-
-                    else
-
+                    ELSE
                         phase = phase1
-                    end if
-                end if
-
-
+                    END IF
+                END IF
                 ttFromLastLeafToAnthesis =0.0;
-                if (choosePhyllUse == "Default") then
-                    ttFromLastLeafToAnthesis = PFLLAnth * FixPhyll
-                else if (choosePhyllUse == "PTQ") then
-                    ttFromLastLeafToAnthesis = PFLLAnth * phyllochron
-                else if (choosePhyllUse == "Test") then
-                    ttFromLastLeafToAnthesis = PFLLAnth * P
-                end if
-                if (cumulTTFromZC_39 >= ttFromLastLeafToAnthesis) then
-
+                IF (choosePhyllUse == "Default") THEN
+                    ttFromLastLeafToAnthesis = pFLLAnth * fixPhyll
+                ELSE IF (choosePhyllUse == "PTQ") THEN
+                    ttFromLastLeafToAnthesis = pFLLAnth * phyllochron
+                ELSE IF (choosePhyllUse == "Test") THEN
+                    ttFromLastLeafToAnthesis = pFLLAnth * p
+                END IF
+                IF (cumulTTFromZC_39 >= ttFromLastLeafToAnthesis) THEN
                     phase = 4
-
-                else
-
+                ELSE
                     phase = phase1
-                end if
-
-
-            else
-
+                END IF
+            ELSE
                 phase = phase1
-            end if
-
-
-        else if (phase1 == 4) then
-
-            if (GrainCumulTT >= Dcd) then
-
+            END IF
+        ELSE IF (phase1 == 4) THEN
+            IF (grainCumulTT >= dcd) THEN
                 phase = 4.5
-
-            else
-
+            ELSE
                 phase = phase1
-            end if
-
-
-        else if (phase1 == 4.5) then
-
-            if ((GrainCumulTT >= Dgf) .OR. (GAI <= 0)) then
-
+            END IF
+        ELSE IF (phase1 == 4.5) THEN
+            IF ((grainCumulTT >= dgf) .OR. (gai <= 0)) THEN
                 phase = 5
-
-            else
-
+            ELSE
                 phase = phase1
-            end if
-
-
-        else if ((phase1 >= 5) .AND. (phase1 < 6)) then
-
-
-            LocalDegfm = Degfm
-            if (IgnoreGrainMaturation .eqv. .TRUE.) then
-                LocalDegfm = -1
-            end if
-            if (cumulTTFromZC_91 >= LocalDegfm) then
-
+            END IF
+        ELSE IF ((phase1 >= 5) .AND. (phase1 < 6)) THEN
+            localDegfm = degfm
+            IF (ignoreGrainMaturation .EQV. .TRUE.) THEN
+                localDegfm = -1
+            END IF
+            IF (cumulTTFromZC_91 >= localDegfm) THEN
                 phase = 6
-
-            else
-
+            ELSE
                 phase= phase1
-            end if
-
-
-        else if ((phase1>= 6) .AND. (phase1 < 7)) then
+            END IF
+        ELSE IF ((phase1>= 6) .AND. (phase1 < 7)) THEN
             phase = phase1
-        end if
+        END IF
 
 

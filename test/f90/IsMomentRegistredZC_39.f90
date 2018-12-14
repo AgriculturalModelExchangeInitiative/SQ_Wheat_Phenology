@@ -1,28 +1,18 @@
-module IsMomentRegistredZC_39Module
-    use crop2mlModules
-    implicit none
-
-
-contains
-     subroutine CalculateIsMomentRegistredZC_39(calendarMoments, isMomentRegistredZC_39)
-
+MODULE IsMomentRegistredZC_39Module
+    USE Crop2mlModules
+    IMPLICIT NONE
+CONTAINS
+     SUBROUTINE Calculate_IsMomentRegistredZC_39(calendarMoments, isMomentRegistredZC_39)
+	 
         !      INPUT VARIABLES:
-
-        character(len=*),dimension(:), intent(in):: calendarMoments
-
+        CHARACTER(LEN=*),DIMENSION(:), INTENT(IN):: calendarMoments
         !     OUTPUT VARIABLES:
+        INTEGER , INTENT(OUT):: isMomentRegistredZC_39
 
-        integer , intent(out):: isMomentRegistredZC_39
-
-
-        if (ANY(calendarMoments=="FlagLeafLiguleJustVisible"))then
-
+        IF (ANY(calendarMoments=="FlagLeafLiguleJustVisible"))THEN
            isMomentRegistredZC_39 = 1
-
-        else
+        ELSE
             isMomentRegistredZC_39 = 0
-        endif
-
-    end subroutine CalculateIsMomentRegistredZC_39
-
-end module
+        ENDIF
+    END SUBROUTINE Calculate_IsMomentRegistredZC_39
+END MODULE IsMomentRegistredZC_39Module

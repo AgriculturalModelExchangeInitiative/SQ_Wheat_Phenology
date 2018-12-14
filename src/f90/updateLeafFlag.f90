@@ -1,26 +1,19 @@
 
     !use crop2mlModules
-
-
-        !Fortran Snippets
-        if ((phase >= 1) .AND. (phase< 4)) then
-
-            if (leafNumber > 0) then
-
-                if ((HasFlagLeafLiguleAppeared == 0) .AND. (FinalLeafNumber > 0) .AND. (leafNumber >= FinalLeafNumber)) then
-
-                    HasFlagLeafLiguleAppeared = 1;
-                    if  (ALL(calendarMoments/="FlagLeafLiguleJustVisible")) then
-
-                        call AddToListChar(calendarMoments,"FlagLeafLiguleJustVisible")
-                        call AddToList(calendarCumuls,cumulTT)
-                        call AddToListChar(calendarDates, currentdate)
-                    end if
-                end if
-
-            else
-                HasFlagLeafLiguleAppeared = 0
-            end if
-        end if
+        
+        IF ((phase >= 1) .AND. (phase< 4)) THEN
+            IF (leafNumber > 0) THEN
+                IF ((hasFlagLeafLiguleAppeared == 0) .AND. (finalLeafNumber > 0) .AND. (leafNumber >= finalLeafNumber)) THEN
+                    hasFlagLeafLiguleAppeared = 1;
+                    IF  (ALL(calendarMoments/="FlagLeafLiguleJustVisible")) THEN
+                        CALL AddToListChar(calendarMoments,"FlagLeafLiguleJustVisible")
+                        CALL AddToList(calendarCumuls,cumulTT)
+                        CALL AddToListChar(calendarDates, currentdate)
+                    END IF
+                END IF
+            ELSE
+                hasFlagLeafLiguleAppeared = 0
+            END IF
+        END IF
 
 

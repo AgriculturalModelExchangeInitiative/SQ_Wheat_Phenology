@@ -1,66 +1,53 @@
-module vernalizationProgressModule
-    use crop2mlModules
-    implicit none
-
-contains
-    subroutine calculateVernalizationProgress( DayLength, DeltaTT, cumulTT, &
+MODULE vernalizationProgressModule
+    USE crop2mlModules
+    IMPLICIT NONE
+CONTAINS
+    SUBROUTINE Calculate_VernalizationProgress( dayLength, deltaTT, cumulTT, &
             leafNumber,calendarMoments, calendarDates, calendarCumuls, &
-            MinTvern, IntTvern, VAI, VBEE, MinDL, MaxDL, MaxTvern, PNini, AMXLFNO, Vernaprog,&
-            currentdate, IsVernalizable, MinFinalNumber)
+            minTvern, intTvern, vAI, vBEE, minDL, maxDL, maxTvern, pNini, aMXLFNO, vernaprog,&
+            currentdate, isVernalizable, minFinalNumber)
 
         ! DECLARATION
-        real, intent(in)::DayLength, DeltaTT, cumulTT,leafNumber,MinTvern, IntTvern, VAI,&
-            VBEE, MinDL, MaxDL, MaxTvern, PNini, AMXLFNO
+        REAL, INTENT(IN)::dayLength, deltaTT, cumulTT,leafNumber,minTvern, intTvern, vAI,&
+            vBEE, minDL, maxDL, maxTvern, pNini, aMXLFNO
+        CHARACTER(LEN=25), INTENT(IN) :: currentdate
+        INTEGER, INTENT(IN)::  isVernalizable
+        REAL,DIMENSION (:), INTENT(INOUT), ALLOCATABLE:: calendarCumuls
+        CHARACTER(LEN=25),DIMENSION(:), INTENT(INOUT), ALLOCATABLE:: calendarMoments, calendarDates
+        REAL, INTENT(INOUT):: vernaprog, minFinalNumber
+        REAL:: tt, maxVernaProg, dLverna, primordno, minLeafNumber, potlfno
 
-        character(len=25), intent(in) :: currentdate
-        integer, intent(in)::  IsVernalizable
-
-        real,dimension (:), intent(inout), allocatable:: calendarCumuls
-        character(len=25),dimension(:), intent(inout), allocatable:: calendarMoments, calendarDates
-
-        real, intent(inout):: Vernaprog, MinFinalNumber
-
-        real:: TT, maxVernaProg, DLverna, primordno, minLeafNumber, potlfno
-
-        ! Fortran Snippets
-        if ((IsVernalizable==1) .AND. (Vernaprog < 1)) then
-            TT = DeltaTT
-            if ((TT >= MinTvern) .AND. (TT <= IntTvern)) then
-
-                Vernaprog = Vernaprog + VAI * TT + VBEE
-            end if
-
-            if (TT > IntTvern) then
-
-                maxVernaProg = VAI * IntTvern + VBEE
-                DLverna = max(MinDL, min(MaxDL, DayLength))
-                Vernaprog =Vernaprog + max(0, int(maxVernaProg * (1 + ((IntTvern - TT) / (MaxTvern - IntTvern))&
-                    * ((DLverna - MinDL) / (MaxDL - MinDL)))))
-            end if
-            primordno = 2.0 * leafNumber + PNini
-            minLeafNumber = MinFinalNumber
-            if ((Vernaprog >= 1.0) .OR. (primordno >= AMXLFNO)) then
-
-                MinFinalNumber = max(primordno, MinFinalNumber)
-                call AddToListChar(calendarMoments, "EndVernalisation")
-                call AddToList(calendarCumuls, cumulTT)
-                call AddToListChar(calendarDates, currentdate)
-
-            else
-
-                potlfno = AMXLFNO - (AMXLFNO - minLeafNumber) * Vernaprog
-                if (primordno >= potlfno) then
-
-                    MinFinalNumber = max((potlfno + primordno) / 2.0, MinFinalNumber)
-                    call AddToListChar(calendarMoments,"EndVernalisation")
-                    call AddToList(calendarCumuls,cumulTT)
-                    call AddToListChar(calendarDates,currentdate)
-                    Vernaprog = max(1, int(Vernaprog))
-                end if
-            end if
-        end if
-    end subroutine
-end module
+        IF ((isVernalizable==1) .AND. (vernaprog < 1)) THEN
+            tt = deltaTT
+            IF ((tt >= minTvern) .AND. (TT <= intTvern)) THEN
+                vernaprog = vernaprog + vAI * tt + vBEE
+            END IF
+            IF (tt > intTvern) THEN
+                maxVernaProg = vAI * intTvern + vBEE
+                dLverna = MAX(minDL, MIN(maxDL, dayLength))
+                vernaprog =vernaprog + MAX(0.0, maxVernaProg * (1 + ((intTvern - tt) / (maxTvern - intTvern))&
+                    * ((dLverna - minDL) / (maxDL - minDL))))
+            END IF
+            primordno = 2.0 * leafNumber + pNini
+            minLeafNumber = minFinalNumber
+            IF ((vernaprog >= 1.0) .OR. (primordno >= aMXLFNO)) THEN
+                minFinalNumber = MAX(primordno, minFinalNumber)
+                CALL AddToListChar(calendarMoments, "EndVernalisation")
+                CALL AddToList(calendarCumuls, cumulTT)
+                CALL AddToListChar(calendarDates, currentdate)
+            ELSE
+                potlfno = aMXLFNO - (aMXLFNO - minLeafNumber) * vernaprog
+                IF (primordno >= potlfno) THEN
+                    minFinalNumber = MAX((potlfno + primordno) / 2.0, minFinalNumber)
+                    CALL AddToListChar(calendarMoments,"EndVernalisation")
+                    CALL AddToList(calendarCumuls,cumulTT)
+                    CALL AddToListChar(calendarDates,currentdate)
+                    vernaprog = MAX(1, INT(vernaprog))
+                END IF
+            END IF
+        END IF
+    END SUBROUTINE
+END MODULE
 
 
 

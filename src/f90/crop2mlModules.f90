@@ -1,111 +1,91 @@
-module crop2mlModules
+MODULE Crop2mlModules
+    IMPLICIT NONE
+CONTAINS
 
-contains
-    function indice(vectorElem, elem)  ! retrieve the index of an element in a vector
-	implicit none
-        character(len=*), dimension(:):: vectorElem
-        integer::iterator, indice
-        character(len=*):: elem
-        DO iterator= 1, size(vectorElem)
+    FUNCTION indice(vectorElem, elem)
+        CHARACTER(LEN=*), DIMENSION(:):: vectorElem
+        INTEGER::iterator, indice
+        CHARACTER(LEN=*):: elem
+        DO iterator= 1, SIZE(vectorElem)
             IF(vectorElem(iterator)==elem) THEN
                 indice = iterator
             END IF
         END DO
-        return
-    end function indice
+        RETURN
+    END FUNCTION indice
 
-    function fibonacci(n)  ! calculate fibonacci number
-        integer::n, fibonacci,b=1, i, temp
+    FUNCTION fibonacci(n)
+        INTEGER::n, fibonacci,b=1, i, temp
         fibonacci=0
-        do i=0, n-1
+        DO i=0, n-1
             temp = fibonacci;
             fibonacci=b;
             b=temp+b;
-        end do
-        return
+        END DO
+        RETURN
+    END FUNCTION fibonacci
 
-    end function fibonacci
-
-    subroutine AddToList(list, element) ! add an element to a real list numbers
+    SUBROUTINE AddToList(list, element)
         IMPLICIT NONE
-        integer :: i, isize
-        real, intent(in) :: element
-        real, dimension(:), allocatable, intent(inout) :: list
-        real, dimension(:), allocatable :: clist
-        if(allocated(list)) then
-            isize = size(list)
-            allocate(clist(isize+1))
-            do i=1,isize
+        INTEGER :: i, isize
+        REAL, INTENT(IN) :: element
+        REAL, DIMENSION(:), ALLOCATABLE, INTENT(INOUT) :: list
+        REAL, DIMENSION(:), ALLOCATABLE :: clist
+        IF(ALLOCATED(list)) THEN
+            isize = SIZE(list)
+            ALLOCATE(clist(isize+1))
+            DO i=1,isize
                 clist(i) = list(i)
-            end do
-
+            END DO
             clist(isize+1) = element
-
-            deallocate(list)
-            call move_alloc(clist, list)
-
-        else
-            allocate(list(1))
+            DEALLOCATE(list)
+            CALL MOVE_ALLOC(clist, list)
+        ELSE
+            ALLOCATE(list(1))
             list(1) = element
-        end if
-    end subroutine AddToList
+        END IF
+    END SUBROUTINE AddToList
 
-    subroutine AddToListInt(list, element) ! add an element to an int list numbers
+    SUBROUTINE AddToListInt(list, element)
         IMPLICIT NONE
-        integer :: i, isize
-        integer, intent(in) :: element
-        integer, dimension(:), allocatable, intent(inout) :: list
-        integer, dimension(:), allocatable :: clist
-        if(allocated(list)) then
-            isize = size(list)
-            allocate(clist(isize+1))
-            do i=1,isize
+        INTEGER :: i, isize
+        INTEGER, INTENT(IN) :: element
+        INTEGER, DIMENSION(:), ALLOCATABLE, INTENT(INOUT) :: list
+        INTEGER, DIMENSION(:), ALLOCATABLE :: clist
+        IF(ALLOCATED(list)) THEN
+            isize = SIZE(list)
+            ALLOCATE(clist(isize+1))
+            DO i=1,isize
                 clist(i) = list(i)
-            end do
-
+            END DO
             clist(isize+1) = element
-
-            deallocate(list)
-            call move_alloc(clist, list)
-
-        else
-            allocate(list(1))
+            DEALLOCATE(list)
+            CALL MOVE_ALLOC(clist, list)
+        ELSE
+            ALLOCATE(list(1))
             list(1) = element
-        end if
-    end subroutine AddToListInt
+        END IF
+    END SUBROUTINE AddToListInt
 
-
-    subroutine AddToListChar(list, element) ! add an element to a char list number
-
+    SUBROUTINE AddToListChar(list, element)
         IMPLICIT NONE
-
-        integer :: i, isize, l
-        character(len=*), intent(in) :: element
-        character(len=*), dimension(:), allocatable, intent(inout) :: list
-        character(len=65), dimension(:), allocatable :: clist
-
-
-        if(allocated(list)) then
-            isize = size(list)
-            allocate(clist(isize+1))
-            do i=1,isize
+        INTEGER :: i, isize, l
+        CHARACTER(LEN=*), INTENT(IN) :: element
+        CHARACTER(LEN=*), DIMENSION(:), ALLOCATABLE, INTENT(INOUT) :: list
+        CHARACTER(LEN=65), DIMENSION(:), ALLOCATABLE :: clist
+        IF(ALLOCATED(list)) THEN
+            isize = SIZE(list)
+            ALLOCATE(clist(isize+1))
+            DO i=1,isize
                 clist(i) = list(i)
-            end do
+            END DO
             clist(isize+1) = element
-
-            deallocate(list)
-            call move_alloc(clist, list)
-
-        else
+            DEALLOCATE(list)
+            CALL MOVE_ALLOC(clist, list)
+        ELSE
             l=1
-            allocate(list(l))
+            ALLOCATE(list(l))
             list(l) = element
-            !deallocate(list)
-            !print *, element
-        end if
-
-
-    end subroutine AddToListChar
-
-
-end module
+        END IF
+    END SUBROUTINE AddToListChar
+END MODULE Crop2mlModules

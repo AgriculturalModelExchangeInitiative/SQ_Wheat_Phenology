@@ -1,26 +1,26 @@
-program test_different_module
-    implicit none
-    call test_cumulTTFrom
-    call test_IsMomentRegistredZC_39
-    call test_leafNumber
-    call test_phyllochron
-    call test_registerZadock
-    call test_shootNumber
-    call test_UpdateCalendar
-    call test_updateLeafFlag
-    call test_updatePhase
-    call test_vernalizationProgress
-    call test_PhyllSowingDateCorrection
+PROGRAM testEachModule
+    IMPLICIT NONE
+    CALL Test_cumulTTFrom
+    CALL Test_IsMomentRegistredZC_39
+    CALL Test_leafNumber
+    CALL Test_phyllochron
+    CALL Test_registerZadock
+    CALL Test_shootNumber
+    CALL Test_UpdateCalendar
+    CALL Test_updateLeafFlag
+    CALL Test_updatePhase
+    CALL Test_vernalizationProgress
+    CALL Test_PhyllSowingDateCorrection
 
-end program
+END PROGRAM
 
-subroutine test_cumulTTFrom
-    use CumulTTFROM
-    integer::SwitchMaize=0
-    real,dimension (6)::calendarCumuls=(/0.0, 112.330110409888,&
+SUBROUTINE Test_cumulTTFrom
+    USE CumulTTFROM
+    INTEGER::switchMaize=0
+    REAL,DIMENSION (6)::calendarCumuls=(/0.0, 112.330110409888,&
         354.582294511779, 741.510096671757, 853.999637026622, 954.59002776961/)
-    real :: cumulTT = 972.970888983105
-    character(len=200),dimension(6):: calendarMoments
+    REAL :: cumulTT = 972.970888983105
+    CHARACTER(LEN=200),DIMENSION(6):: calendarMoments
 
     calendarMoments(1) = 'Sowing'
     calendarMoments(2) = 'Emergence'
@@ -29,21 +29,21 @@ subroutine test_cumulTTFrom
     calendarMoments(5) =  'Heading'
     calendarMoments(6) =  'Anthesis'
 
-    print *, "-----------------------------test_CumulTTFrom------------------------"
+    PRINT *, "-----------------------------test_CumulTTFrom------------------------"
 
-    call calculateCumulFROM(cumulTT, calendarMoments, calendarCumuls, SwitchMaize,&
+    CALL calculate_CumulFROM(cumulTT, calendarMoments, calendarCumuls, switchMaize,&
         cumulTTFromZC_39, cumulTTFromZC_65, cumulTTFromZC_91)
-    print *, "cumulTTFromZC_39 = ", cumulTTFromZC_39,&
+    PRINT *, "cumulTTFromZC_39 = ", cumulTTFromZC_39,&
     "cumulTTFromZC_65 = ", cumulTTFromZC_65,&
     "cumulTTFromZC_91 = ", cumulTTFromZC_91
 
-end subroutine
+END SUBROUTINE
 
-subroutine test_IsMomentRegistredZC_39
-    use IsMomentRegistredZC_39Module
-    implicit none
-    integer::isMomentRegistredZC_39
-    character(len=1000),dimension(6):: calendarMoments
+SUBROUTINE test_IsMomentRegistredZC_39
+    USE IsMomentRegistredZC_39Module
+    IMPLICIT NONE
+    INTEGER::isMomentRegistredZC_39
+    CHARACTER(LEN=1000),DIMENSION(6):: calendarMoments
     calendarMoments(1) = 'Sowing'
     calendarMoments(2) = 'Emergence'
     calendarMoments(3) = 'FloralInitiation'
@@ -51,322 +51,318 @@ subroutine test_IsMomentRegistredZC_39
     calendarMoments(5) =  'Heading'
     calendarMoments(6) =  'Anthesis'
 
+    PRINT *, "-----------------------------test_IsMomentRegistred------------------------"
 
-    print *, "-----------------------------test_IsMomentRegistred------------------------"
+    CALL Calculate_IsMomentRegistredZC_39(calendarMoments, isMomentRegistredZC_39)
+    PRINT *,"isMomentRegistredZC_39 = ",isMomentRegistredZC_39
+END SUBROUTINE
 
-    call CalculateIsMomentRegistredZC_39(calendarMoments, isMomentRegistredZC_39)
-    print *,"isMomentRegistredZC_39 = ",isMomentRegistredZC_39
+SUBROUTINE test_leafNumber
 
-
-end subroutine
-
-subroutine test_leafNumber
-
-    use leafNumberModule
-    implicit none
-    integer:: HasFlagLeafLiguleAppeared = 0 , SwitchMaize = 0
-    real::DeltaTT = 23.5895677277199,phyllochron = 91.2, atip = 10,Leaf_tip_emerg = 10,&
+    USE leafNumberModule
+    IMPLICIT NONE
+    INTEGER:: hasFlagLeafLiguleAppeared = 0 , switchMaize = 0
+    REAL::deltaTT = 23.5895677277199,phyllochron = 91.2, atip = 10,Leaf_tip_emerg = 10,&
         k_bl = 1.412, Nlim = 6.617,leafNumber = 5.147163833893262,&
-        cumulTTPhenoMaizeAtEmergence = 300, cumulTT = 402.042720581446, phase = 3, Ntip
+        cumulTTPhenoMaizeAtEmergence = 300, cumulTT = 402.042720581446, phase = 3, ntip
 
-    print *, "-----------------------------test_leafNumber------------------------"
+    PRINT *, "-----------------------------test_leafNumber------------------------"
 
+    CALL Calculate_LeafNumber(deltaTT,phyllochron,hasFlagLeafLiguleAppeared,&
+        switchMaize, atip,leaf_tip_emerg,k_bl, nlim, leafNumber,&
+       cumulTTPhenoMaizeAtEmergence, cumulTT,phase, ntip)
 
-    call CalculateLeafNumber(DeltaTT,phyllochron,HasFlagLeafLiguleAppeared,&
-        SwitchMaize, atip,Leaf_tip_emerg,k_bl, Nlim, leafNumber,&
-        cumulTTPhenoMaizeAtEmergence, cumulTT,phase, Ntip)
+    PRINT *, "leafNumber = ",leafNumber, "ntip = ", ntip
 
-    print *, "leafNumber = ",leafNumber, "Ntip = ", Ntip
-
-end subroutine
-
+END SUBROUTINE
 
 
-subroutine test_phyllochron
-    use phyllochronModule
-    real:: FixPhyll = 91.2,leafNumber = 0,Lincr = 8,Ldecr = 3,Pdecr = 0.4,&
-        Pincr = 1.25, PTQ = 0,GAI = 0.279874189539498,pastMaxAI = 0,&
-        Kl = 0.45, aPTQ = 0.842934,PhylPTQ1 = 20, P = 120
-    character(10):: choosePhyllUse = 'Default'
 
-    print *, "-----------------------------test_Phyllochron------------------------"
+SUBROUTINE test_phyllochron
+    USE phyllochronModule
+    REAL:: FixPhyll = 91.2,leafNumber = 0,lincr = 8,ldecr = 3,pdecr = 0.4,&
+        pincr = 1.25, ptq = 0,gai = 0.279874189539498,pastMaxAI = 0,&
+        kl = 0.45, aPTQ = 0.842934,phylPTQ1 = 20, p = 120
+    CHARACTER(10):: choosePhyllUse = 'Default'
 
-
-    call calculatePhyllochron(FixPhyll,leafNumber,Lincr,Ldecr,Pdecr,&
-        Pincr, PTQ, GAI, pastMaxAI,Kl, aPTQ, PhylPTQ1, P,choosePhyllUse, phyllochron)
-
-    print *, " phyllochron = ", phyllochron, "pastMaxAI", pastMaxAI
-end subroutine
+    PRINT *, "-----------------------------test_Phyllochron------------------------"
 
 
-subroutine test_registerZadock
-    use registerZadokModule
-    use crop2mlModules
+    CALL Calculate_Phyllochron(FixPhyll,leafNumber,lincr,ldecr,pdecr,&
+        pincr, ptq, gai, pastMaxAI,kl, aPTQ, phylPTQ1, p,choosePhyllUse, phyllochron)
 
-    character(len=65)::currentZadokStage = 'MainShootPlus1Tiller'
-    character(len=65)::currentdate = '9/4/2007'
-    character(len=65) ,dimension(:), allocatable:: calendarMoments
-    character(len=65), dimension(:), allocatable ::calendarDates
-    real, dimension(:), allocatable :: calendarCumuls
-
-    real ::cumulTT = 354.582294511779 ,  phase = 2,leafNumber = 4.8854219661087575,&
-        cumulTTFromZC_65 = 0,Der = 300.0,slopeTSFLN = 0.9,TSFLN = 2.6,intTSFLN = 0.9, &
-        FinalLeafNumber = 8.797582013199484
-    integer :: hasZadokStageChanged = 0
-
-    call AddToList(calendarCumuls,0.0)
-    call AddToList(calendarCumuls,112.330110409888)
-    call AddToList(calendarCumuls,157.969706915664)
-    call AddToList(calendarCumuls,280.570678654207)
+    PRINT *, " phyllochron = ", phyllochron, "pastMaxAI", pastMaxAI
+END SUBROUTINE
 
 
-    allocate(calendarDates(1))
+SUBROUTINE test_registerZadock
+    USE registerZadokModule
+    USE crop2mlModules
+
+    CHARACTER(LEN=65)::currentZadokStage = 'MainShootPlus1Tiller'
+    CHARACTER(LEN=65)::currentdate = '9/4/2007'
+    CHARACTER(LEN=65) ,DIMENSION(:), ALLOCATABLE:: calendarMoments
+    CHARACTER(LEN=65), DIMENSION(:), ALLOCATABLE ::calendarDates
+    REAL, DIMENSION(:), ALLOCATABLE :: calendarCumuls
+
+    REAL ::cumulTT = 354.582294511779 ,  phase = 2,leafNumber = 4.8854219661087575,&
+        cumulTTFromZC_65 = 0,Der = 300.0,slopeTSFLN = 0.9,intTSFLN = 2.6, &
+        finalLeafNumber = 8.797582013199484
+    INTEGER :: hasZadokStageChanged = 0
+
+    CALL AddToList(calendarCumuls,0.0)
+    CALL AddToList(calendarCumuls,112.330110409888)
+    CALL AddToList(calendarCumuls,157.969706915664)
+    CALL AddToList(calendarCumuls,280.570678654207)
+
+
+    ALLOCATE(calendarDates(1))
     calendarDates(1)="21/03/2007"
-    call AddToListChar(calendarDates,"27/03/2007")
-    call AddToListChar(calendarDates,"30/03/2007")
-    call AddToListChar(calendarDates,"05/04/2007")
+    CALL AddToListChar(calendarDates,"27/03/2007")
+    CALL AddToListChar(calendarDates,"30/03/2007")
+    CALL AddToListChar(calendarDates,"05/04/2007")
     !print *, calendarDates(3)
 
-    allocate(calendarMoments(1))
+    ALLOCATE(calendarMoments(1))
     calendarMoments(1)="Sowing"
-    call AddToListChar(calendarMoments,'Emergence')
-    call AddToListChar(calendarMoments, 'EndVernalisation')
-    call AddToListChar(calendarMoments,'MainShootPlus1Tiller')
+    CALL AddToListChar(calendarMoments,'Emergence')
+    CALL AddToListChar(calendarMoments, 'EndVernalisation')
+    CALL AddToListChar(calendarMoments,'MainShootPlus1Tiller')
 
-    print *, "-----------------------------test_RegisterZadok------------------------"
+    PRINT *, "-----------------------------test_RegisterZadok------------------------"
 
 
-    call calculateRegisterZadok(cumulTT,phase,leafNumber,calendarMoments,&
+    CALL Calculate_RegisterZadok(cumulTT,phase,leafNumber,calendarMoments,&
         calendarDates,calendarCumuls,cumulTTFromZC_65, currentdate,Der,&
-        slopeTSFLN,TSFLN,intTSFLN, FinalLeafNumber,currentZadokStage,&
+        slopeTSFLN,intTSFLN, finalLeafNumber,currentZadokStage,&
         hasZadokStageChanged)
 
-    print *, "hasZadokStageChanged =", hasZadokStageChanged, &
+    PRINT *, "hasZadokStageChanged =", hasZadokStageChanged, &
         "currentZadokStage =" ,currentZadokStage
 
-    Do I=1, size(calendarCumuls)
-        print *, calendarCumuls(I), calendarDates(I), calendarMoments(I)
-    End Do
+    DO I=1, SIZE(calendarCumuls)
+        PRINT *, calendarCumuls(I), calendarDates(I), calendarMoments(I)
+    END DO
 
-end subroutine
+END SUBROUTINE
 
-subroutine test_shootNumber
-    use shootNumberModule
-    use crop2mlModules
-    implicit none
-    integer :: SowingDensity=288, TillerNumber= 1
-    real ::leafNumber= 3.34348137255,TargetFertileShoot=600.0, &
-        CanopyShootNumber=288.0, AverageShootNumberPerPlant
+SUBROUTINE test_shootNumber
+    USE shootNumberModule
+    USE crop2mlModules
+    IMPLICIT NONE
+    INTEGER :: sowingDensity=288, tillerNumber= 1
+    REAL ::leafNumber= 3.34348137255,TargetFertileShoot=600.0, &
+        canopyShootNumber=288.0, averageShootNumberPerPlant
 
-    integer, dimension(:) , allocatable  ::  leafTillerNumberArray
-    real,dimension(:), allocatable  :: tilleringProfile
+    INTEGER, DIMENSION(:) , ALLOCATABLE  ::  leafTillerNumberArray
+    REAL,DIMENSION(:), ALLOCATABLE  :: tilleringProfile
 
-    call AddToList(tilleringProfile,288.0)
+    CALL AddToList(tilleringProfile,288.0)
 
-    call AddToListInt(leafTillerNumberArray, 1)
-    call AddToListInt(leafTillerNumberArray, 1)
-    call AddToListInt(leafTillerNumberArray, 1)
+    CALL AddToListInt(leafTillerNumberArray, 1)
+    CALL AddToListInt(leafTillerNumberArray, 1)
+    CALL AddToListInt(leafTillerNumberArray, 1)
 
-    print *, "-----------------------------test_ShootNumber------------------------"
+    PRINT *, "-----------------------------test_ShootNumber------------------------"
 
-    call calculateShootNumber(CanopyShootNumber,leafNumber,SowingDensity,&
-        TargetFertileShoot, tilleringProfile,leafTillerNumberArray, TillerNumber, &
-        AverageShootNumberPerPlant)
+    CALL Calculate_ShootNumber(canopyShootNumber,leafNumber,sowingDensity,&
+        TargetFertileShoot, tilleringProfile,leafTillerNumberArray, tillerNumber, &
+        averageShootNumberPerPlant)
 
-    print *, "CanopyShootNumber =",CanopyShootNumber,"TillerNumber =", TillerNumber &
-    , "AverageShootNumberPerPlant = ", AverageShootNumberPerPlant
+    PRINT *, "canopyShootNumber =",canopyShootNumber,"tillerNumber =", tillerNumber &
+    , "averageShootNumberPerPlant = ", averageShootNumberPerPlant
 
-    print *, "leafTillerNumberArray =" ,leafTillerNumberArray
-    print *, "tilleringProfile ", tilleringProfile
+    PRINT *, "leafTillerNumberArray =" ,leafTillerNumberArray
+    PRINT *, "tilleringProfile ", tilleringProfile
 
 
-end subroutine
+END SUBROUTINE
 
-subroutine test_UpdateCalendar
-    use updateCalendarModule
-    use crop2mlModules
+SUBROUTINE test_UpdateCalendar
+    USE updateCalendarModule
+    USE crop2mlModules
 
-    character(len=65)::currentdate = '27/3/2007'
-    character(len=65) ,dimension(:), allocatable:: calendarMoments
-    character(len=65), dimension(:), allocatable ::calendarDates
-    real, dimension(:), allocatable :: calendarCumuls
+    CHARACTER(LEN=65)::currentdate = '27/3/2007'
+    CHARACTER(LEN=65) ,DIMENSION(:), ALLOCATABLE:: calendarMoments
+    CHARACTER(LEN=65), DIMENSION(:), ALLOCATABLE ::calendarDates
+    REAL, DIMENSION(:), ALLOCATABLE :: calendarCumuls
 
-    real ::cumulTT = 112.330110409888 ,  phase = 1
-    call AddToList(calendarCumuls,0.0)
+    REAL ::cumulTT = 112.330110409888 ,  phase = 1
+    CALL AddToList(calendarCumuls,0.0)
 
-    allocate(calendarDates(1))
+    ALLOCATE(calendarDates(1))
     calendarDates(1)="21/03/2007"
 
-    allocate(calendarMoments(1))
+    ALLOCATE(calendarMoments(1))
     calendarMoments(1)="Sowing"
 
 
-    print *, "-----------------------------test_UpdateCalendar------------------------"
+    PRINT *, "-----------------------------test_UpdateCalendar------------------------"
 
-    call calculateUpdateCalendar( cumulTT,&
+    CALL Calculate_UpdateCalendar( cumulTT,&
         calendarMoments, calendarDates,&
         calendarCumuls,currentdate, phase)
 
-    print *, "phase =", phase
-    Do I=1, size(calendarCumuls)
-        print *, calendarCumuls(I), calendarDates(I), calendarMoments(I)
-    End Do
+    PRINT *, "phase =", phase
+    DO I=1, SIZE(calendarCumuls)
+        PRINT *, calendarCumuls(I), calendarDates(I), calendarMoments(I)
+    END DO
 
 
-end subroutine
+END SUBROUTINE
 
-subroutine test_updateLeafFlag
-    use updateLeafFlagModule
-    use crop2mlModules
+SUBROUTINE test_updateLeafFlag
+    USE updateLeafFlagModule
+    USE crop2mlModules
 
-    character(len=65)::currentdate = '29/4/2007'
-    character(len=65) ,dimension(:), allocatable:: calendarMoments
-    character(len=65), dimension(:), allocatable ::calendarDates
-    real, dimension(:), allocatable :: calendarCumuls
+    CHARACTER(LEN=65)::currentdate = '29/4/2007'
+    CHARACTER(LEN=65) ,DIMENSION(:), ALLOCATABLE:: calendarMoments
+    CHARACTER(LEN=65), DIMENSION(:), ALLOCATABLE ::calendarDates
+    REAL, DIMENSION(:), ALLOCATABLE :: calendarCumuls
 
-    real ::cumulTT = 741.510096671757 ,  phase = 3, leafNumber = 8.919453833361189,&
-        FinalLeafNumber = 8.797582013199484
-    integer:: HasFlagLeafLiguleAppeared = 0
+    REAL ::cumulTT = 741.510096671757 ,  phase = 3, leafNumber = 8.919453833361189,&
+        finalLeafNumber = 8.797582013199484
+    INTEGER:: hasFlagLeafLiguleAppeared = 0
 
-    call AddToList(calendarCumuls,0.0)
-    call AddToList(calendarCumuls,112.330110409888)
-    call AddToList(calendarCumuls,157.969706915664)
-    call AddToList(calendarCumuls,280.570678654207)
-    call AddToList(calendarCumuls,354.582294511779)
-    call AddToList(calendarCumuls,378.453152853726)
-    call AddToList(calendarCumuls,402.042720581446)
-    call AddToList(calendarCumuls,424.98704708663)
-    call AddToList(calendarCumuls,467.23305195298)
-    call AddToList(calendarCumuls,487.544313430698)
-    call AddToList(calendarCumuls,560.665248444002)
-    call AddToList(calendarCumuls,646.389617338974)
+    CALL AddToList(calendarCumuls,0.0)
+    CALL AddToList(calendarCumuls,112.330110409888)
+    CALL AddToList(calendarCumuls,157.969706915664)
+    CALL AddToList(calendarCumuls,280.570678654207)
+    CALL AddToList(calendarCumuls,354.582294511779)
+    CALL AddToList(calendarCumuls,378.453152853726)
+    CALL AddToList(calendarCumuls,402.042720581446)
+    CALL AddToList(calendarCumuls,424.98704708663)
+    CALL AddToList(calendarCumuls,467.23305195298)
+    CALL AddToList(calendarCumuls,487.544313430698)
+    CALL AddToList(calendarCumuls,560.665248444002)
+    CALL AddToList(calendarCumuls,646.389617338974)
 
-    allocate(calendarDates(1))
+    ALLOCATE(calendarDates(1))
     calendarDates(1)="21/03/2007"
-    call AddToListChar(calendarDates,"27/3/2007")
-    call AddToListChar(calendarDates,"30/3/2007")
-    call AddToListChar(calendarDates,"5/4/2007")
-    call AddToListChar(calendarDates,"9/4/2007")
-    call AddToListChar(calendarDates,"10/4/2007")
-    call AddToListChar(calendarDates,"11/4/2007")
-    call AddToListChar(calendarDates,"12/4/2007")
-    call AddToListChar(calendarDates,"14/4/2007")
-    call AddToListChar(calendarDates,"15/4/2007")
-    call AddToListChar(calendarDates,"19/4/2007")
-    call AddToListChar(calendarDates,"24/4/2007")
+    CALL AddToListChar(calendarDates,"27/3/2007")
+    CALL AddToListChar(calendarDates,"30/3/2007")
+    CALL AddToListChar(calendarDates,"5/4/2007")
+    CALL AddToListChar(calendarDates,"9/4/2007")
+    CALL AddToListChar(calendarDates,"10/4/2007")
+    CALL AddToListChar(calendarDates,"11/4/2007")
+    CALL AddToListChar(calendarDates,"12/4/2007")
+    CALL AddToListChar(calendarDates,"14/4/2007")
+    CALL AddToListChar(calendarDates,"15/4/2007")
+    CALL AddToListChar(calendarDates,"19/4/2007")
+    CALL AddToListChar(calendarDates,"24/4/2007")
 
-    allocate(calendarMoments(1))
+    ALLOCATE(calendarMoments(1))
     calendarMoments(1)="Sowing"
-    call AddToListChar(calendarMoments,"Emergence")
-    call AddToListChar(calendarMoments,"EndVernalisation")
-    call AddToListChar(calendarMoments,"MainShootPlus1Tiller")
-    call AddToListChar(calendarMoments,"FloralInitiation")
-    call AddToListChar(calendarMoments,"MainShootPlus2Tiller")
-    call AddToListChar(calendarMoments,"TerminalSpikelet")
-    call AddToListChar(calendarMoments,"PseudoStemErection")
-    call AddToListChar(calendarMoments,"MainShootPlus3Tiller")
-    call AddToListChar(calendarMoments,"1stNodeDetectable")
-    call AddToListChar(calendarMoments,"2ndNodeDetectable")
-    call AddToListChar(calendarMoments, "FlagLeafJustVisible")
+    CALL AddToListChar(calendarMoments,"Emergence")
+    CALL AddToListChar(calendarMoments,"EndVernalisation")
+    CALL AddToListChar(calendarMoments,"MainShootPlus1Tiller")
+    CALL AddToListChar(calendarMoments,"FloralInitiation")
+    CALL AddToListChar(calendarMoments,"MainShootPlus2Tiller")
+    CALL AddToListChar(calendarMoments,"TerminalSpikelet")
+    CALL AddToListChar(calendarMoments,"PseudoStemErection")
+    CALL AddToListChar(calendarMoments,"MainShootPlus3Tiller")
+    CALL AddToListChar(calendarMoments,"1stNodeDetectable")
+    CALL AddToListChar(calendarMoments,"2ndNodeDetectable")
+    CALL AddToListChar(calendarMoments, "FlagLeafJustVisible")
 
-    print *, "------------------------- Test updateLeafFlag---------------"
+    PRINT *, "------------------------- Test updateLeafFlag---------------"
 
-    call calculateUpdateLeafFlag( cumulTT, leafNumber,&
+    CALL Calculate_UpdateLeafFlag( cumulTT, leafNumber,&
         calendarMoments, calendarDates, calendarCumuls,currentdate,&
-        FinalLeafNumber, HasFlagLeafLiguleAppeared, phase)
+        finalLeafNumber, hasFlagLeafLiguleAppeared, phase)
 
-    print *, "HasFlagLeafLiguleAppeared =", HasFlagLeafLiguleAppeared
+    PRINT *, "hasFlagLeafLiguleAppeared =", hasFlagLeafLiguleAppeared
 
-    print *, "calendarCumuls, CalendarDates,    CalendarMoments"
-    Do I=1, size(calendarCumuls)
-        print *, calendarCumuls(I), calendarDates(I), calendarMoments(I)
-    End Do
+    PRINT *, "calendarCumuls, CalendarDates,    CalendarMoments"
+    DO I=1, SIZE(calendarCumuls)
+        PRINT *, calendarCumuls(I), calendarDates(I), calendarMoments(I)
+    END DO
 
-end subroutine test_updateLeafFlag
+END SUBROUTINE test_updateLeafFlag
 
-subroutine test_updatePhase
+SUBROUTINE test_updatePhase
 
-    use updatePhaseModule
-    use crop2mlModules
-    implicit none
+    USE updatePhaseModule
+    USE crop2mlModules
+    IMPLICIT NONE
 
-    real:: cumulTT = 354.582294511779, leafNumber =  4.620511621863958, &
-        cumulTTFromZC_39 = 0, GAI = 0.3255196285135,&
-        GrainCumulTT = 0, DayLength = 12.7433275303389, Vernaprog =  1.0532526829571554, &
-        MinFinalNumber = 6.879410413987549, FixPhyll = 91.2,Dse = 105,PFLLAnth = 2.22,&
-        Dcd = 100,Dgf = 450, Degfm = 0, MaxDL = 15,SLDL = 0.85, PHEADANTH = 1,&
-        P = 120,phase = 1,cumulTTFromZC_91 = 0, phyllochron = 91.2, FinalLeafNumber
+    REAL:: cumulTT = 354.582294511779, leafNumber =  4.620511621863958, &
+        cumulTTFromZC_39 = 0, gai = 0.3255196285135,&
+        GrainCumulTT = 0, dayLength = 12.7433275303389, vernaprog =  1.0532526829571554, &
+        minFinalNumber = 6.879410413987549, FixPhyll = 91.2,Dse = 105,PFLLAnth = 2.22,&
+        Dcd = 100,Dgf = 450, Degfm = 0, maxDL = 15,SLDL = 0.85, PHEADANTH = 1,&
+        P = 120,phase = 1,cumulTTFromZC_91 = 0, phyllochron = 91.2, finalLeafNumber
 
-    integer::IsVernalizable = 1,hasLastPrimordiumAppeared = 0,SwitchMaize = 0, isMomentRegistredZC_39 = 0
-    logical:: IgnoreGrainMaturation = .FALSE.
-    character(65) :: choosePhyllUse = "Default"
+    INTEGER::IsVernalizable = 1,hasLastPrimordiumAppeared = 0,switchMaize = 0, isMomentRegistredZC_39 = 0
+    LOGICAL:: IgnoreGrainMaturation = .FALSE.
+    CHARACTER(65) :: choosePhyllUse = "Default"
 
-    print *, "---------------------------- test updatePhase----------------------"
+    PRINT *, "---------------------------- test updatePhase----------------------"
 
-    call calculateUpdatePhase(cumulTT, leafNumber, cumulTTFromZC_39,&
-        isMomentRegistredZC_39, GAI, GrainCumulTT, DayLength, Vernaprog,&
-        MinFinalNumber, FixPhyll,IsVernalizable, Dse, PFLLAnth,&
-        Dcd, Dgf, Degfm, MaxDL, SLDL, IgnoreGrainMaturation,&
-        PHEADANTH,SwitchMaize,choosePhyllUse, P, phase, &
+    CALL Calculate_UpdatePhase(cumulTT, leafNumber, cumulTTFromZC_39,&
+        isMomentRegistredZC_39, gai, GrainCumulTT, dayLength, vernaprog,&
+        minFinalNumber, FixPhyll,IsVernalizable, Dse, PFLLAnth,&
+        Dcd, Dgf, Degfm, maxDL, SLDL, IgnoreGrainMaturation,&
+        PHEADANTH,switchMaize,choosePhyllUse, P, phase, &
         cumulTTFromZC_91, phyllochron,hasLastPrimordiumAppeared, &
-        FinalLeafNumber)
-    print *, "FinalLeafNumber =  ", FinalLeafNumber
-    print *, "Phase =  ", phase
-    print *, "hasLastPrimordiumAppeared=  ", hasLastPrimordiumAppeared
+        finalLeafNumber)
+    PRINT *, "finalLeafNumber =  ", finalLeafNumber
+    PRINT *, "Phase =  ", phase
+    PRINT *, "hasLastPrimordiumAppeared=  ", hasLastPrimordiumAppeared
 
 
-end subroutine
+END SUBROUTINE
 
-subroutine test_vernalizationProgress
-    use crop2mlModules
-    use vernalizationProgressModule
+SUBROUTINE test_vernalizationProgress
+    USE crop2mlModules
+    USE vernalizationProgressModule
 
-    real::DayLength = 12.3037621834005,DeltaTT = 20.3429985011972,&
-        cumulTT =  112.330110409888,leafNumber = 0,MinTvern = 0.0,&
-        IntTvern =  11.0, VAI =  0.015,VBEE = 0.01, MinDL = 8.0,MaxDL = 15.0, &
-        MaxTvern =  23.0,PNini = 4.0, AMXLFNO = 24.0, Vernaprog =  0.5517254187376879,&
-        MinFinalNumber = 5.5
+    REAL::dayLength = 12.3037621834005,deltaTT = 20.3429985011972,&
+        cumulTT =  112.330110409888,leafNumber = 0,minTvern = 0.0,&
+        intTvern =  11.0, vAI =  0.015,vBEE = 0.01, minDL = 8.0,maxDL = 15.0, &
+        maxTvern =  23.0,pNini = 4.0, aMXLFNO = 24.0, vernaprog =  0.5517254187376879,&
+        minFinalNumber = 5.5
 
-    integer::IsVernalizable =1
-    character(len=25)::currentdate = '27/3/2007'
-    character(len=25) ,dimension(:), allocatable:: calendarMoments
-    character(len=25), dimension(:), allocatable ::calendarDates
-    real, dimension(:), allocatable :: calendarCumuls
+    INTEGER::IsVernalizable =1
+    CHARACTER(LEN=25)::currentdate = '27/3/2007'
+    CHARACTER(LEN=25) ,DIMENSION(:), ALLOCATABLE:: calendarMoments
+    CHARACTER(LEN=25), DIMENSION(:), ALLOCATABLE ::calendarDates
+    REAL, DIMENSION(:), ALLOCATABLE :: calendarCumuls
 
-    call AddToList(calendarCumuls,0.0)
+    CALL AddToList(calendarCumuls,0.0)
 
-    allocate(calendarDates(1))
+    ALLOCATE(calendarDates(1))
     calendarDates(1)="21/03/2007"
 
-    allocate(calendarMoments(1))
+    ALLOCATE(calendarMoments(1))
     calendarMoments(1)="Sowing"
 
-    print *, "------------------------- test_vernalizationProgress----------------"
-    call calculateVernalizationProgress(DayLength, DeltaTT, cumulTT, &
+    PRINT *, "------------------------- test_vernalizationProgress----------------"
+    CALL Calculate_VernalizationProgress(dayLength, deltaTT, cumulTT, &
         leafNumber,calendarMoments, calendarDates, calendarCumuls, &
-        MinTvern, IntTvern, VAI, VBEE, MinDL, MaxDL, MaxTvern, PNini, AMXLFNO, Vernaprog,&
-         currentdate, IsVernalizable, MinFinalNumber)
+        minTvern, intTvern, vAI, vBEE, minDL, maxDL, maxTvern, pNini, aMXLFNO, vernaprog,&
+         currentdate, IsVernalizable, minFinalNumber)
 
-    print *, "MinFinalNumber  = ", MinFinalNumber
-    print *, "VernaProg = ", Vernaprog
+    PRINT *, "minFinalNumber  = ", minFinalNumber
+    PRINT *, "vernaprog = ", vernaprog
 
-    Do I=1, size(calendarCumuls)
-        print *, calendarCumuls(I), calendarDates(I), calendarMoments(I)
-    End Do
+    DO I=1, SIZE(calendarCumuls)
+        PRINT *, calendarCumuls(I), calendarDates(I), calendarMoments(I)
+    END DO
 
-end subroutine
+END SUBROUTINE
 
-subroutine test_PhyllSowingDateCorrection
-    use phyllSowingDateCorrectionModule
-    implicit none
+SUBROUTINE test_PhyllSowingDateCorrection
+    USE phyllSowingDateCorrectionModule
+    IMPLICIT NONE
 
-    integer::SowingDay = 80,SDws = 90, SDsa_sh = 151, SDsa_nh = 200
-    real:: Latitude = 33.069,  Rp = 0.003, P = 120, FixPhyll
+    INTEGER::SowingDay = 80,SDws = 90, SDsa_sh = 151, SDsa_nh = 200
+    REAL:: Latitude = 33.069,  Rp = 0.003, P = 120, FixPhyll
 
-    print *, "------------------------ test_phyllSowingDateCorrection------------------"
+    PRINT *, "------------------------ test_phyllSowingDateCorrection------------------"
 
-    call calculatePhyllSowingDateCorrection(SowingDay,Latitude,SDsa_sh,Rp,SDws,SDsa_nh,P, FixPhyll)
+    CALL Calculate_PhyllSowingDateCorrection(SowingDay,Latitude,SDsa_sh,Rp,SDws,SDsa_nh,P, FixPhyll)
 
-    print *,  "FixPhyll = ", FixPhyll
+    PRINT *,  "FixPhyll = ", FixPhyll
 
-end subroutine
+END SUBROUTINE

@@ -1,12 +1,10 @@
 
     !use crop2mlModules
-
-        if (ANY(calendarMoments=="FlagLeafLiguleJustVisible"))then
-
+    
+        IF (ANY(calendarMoments=="FlagLeafLiguleJustVisible"))THEN
            isMomentRegistredZC_39 = 1
-
-        else
+        ELSE
             isMomentRegistredZC_39 = 0
-        endif
+        ENDIF
 
 
