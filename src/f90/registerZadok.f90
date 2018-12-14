@@ -1,7 +1,6 @@
 
     !use crop2mlModules
         INTEGER::  roundedfinalLeafNumber
-
         roundedfinalLeafNumber = INT(finalLeafNumber+0.5)
         IF ((leafNumber>=4) .AND. (ALL(calendarMoments/="MainShootPlus1Tiller"))) THEN
             CALL AddToListchar(calendarMoments,"MainShootPlus1Tiller")

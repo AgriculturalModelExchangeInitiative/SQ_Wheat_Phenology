@@ -6,7 +6,6 @@ CONTAINS
             leafNumber,calendarMoments, calendarDates, calendarCumuls, &
             minTvern, intTvern, vAI, vBEE, minDL, maxDL, maxTvern, pNini, aMXLFNO, vernaprog,&
             currentdate, isVernalizable, minFinalNumber)
-
         ! DECLARATION
         REAL, INTENT(IN)::dayLength, deltaTT, cumulTT,leafNumber,minTvern, intTvern, vAI,&
             vBEE, minDL, maxDL, maxTvern, pNini, aMXLFNO
@@ -16,7 +15,7 @@ CONTAINS
         CHARACTER(LEN=25),DIMENSION(:), INTENT(INOUT), ALLOCATABLE:: calendarMoments, calendarDates
         REAL, INTENT(INOUT):: vernaprog, minFinalNumber
         REAL:: tt, maxVernaProg, dLverna, primordno, minLeafNumber, potlfno
-
+		
         IF ((isVernalizable==1) .AND. (vernaprog < 1)) THEN
             tt = deltaTT
             IF ((tt >= minTvern) .AND. (TT <= intTvern)) THEN

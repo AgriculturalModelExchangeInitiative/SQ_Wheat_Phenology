@@ -24,8 +24,8 @@ CONTAINS
         REAL:: phase1, appFLN, ttFromLastLeafToHeading, localDegfm, ttFromLastLeafToAnthesis
 
         phase1 = phase
-        IF ((phase1 >= 0) .AND. (phase1 < 1))THEN
-            IF (switchMaize==0)THEN
+        IF ((phase1 >= 0) .AND. (phase1 < 1)) THEN
+            IF (switchMaize==0) THEN
                 IF (cumulTT>= dse) THEN
                     phase = 1
                 ELSE

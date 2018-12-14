@@ -3,13 +3,12 @@ MODULE IsMomentRegistredZC_39Module
     IMPLICIT NONE
 CONTAINS
      SUBROUTINE Calculate_IsMomentRegistredZC_39(calendarMoments, isMomentRegistredZC_39)
-	 
         !      INPUT VARIABLES:
         CHARACTER(LEN=*),DIMENSION(:), INTENT(IN):: calendarMoments
         !     OUTPUT VARIABLES:
         INTEGER , INTENT(OUT):: isMomentRegistredZC_39
 
-        IF (ANY(calendarMoments=="FlagLeafLiguleJustVisible"))THEN
+        IF (ANY(calendarMoments=="FlagLeafLiguleJustVisible")) THEN
            isMomentRegistredZC_39 = 1
         ELSE
             isMomentRegistredZC_39 = 0

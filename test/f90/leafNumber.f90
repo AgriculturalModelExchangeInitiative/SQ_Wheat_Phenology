@@ -6,8 +6,7 @@ CONTAINS
 
     SUBROUTINE Calculate_LeafNumber(deltaTT,phyllochron,hasFlagLeafLiguleAppeared,&
             switchMaize, atip,leaf_tip_emerg,k_bl, nlim, leafNumber,&
-            cumulTTPhenoMaizeAtEmergence, cumulTT,phase, ntip)
-			
+            cumulTTPhenoMaizeAtEmergence, cumulTT,phase, ntip)			
         !inputs
         INTEGER , INTENT(IN):: hasFlagLeafLiguleAppeared, switchMaize
         REAL, INTENT(IN):: deltaTT, atip, leaf_tip_emerg, k_bl, &
