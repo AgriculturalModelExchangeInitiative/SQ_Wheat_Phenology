@@ -19,7 +19,6 @@
 	<Algorithm  language="python" platform="" filename="Fibonacci.py" />
 	<Algorithm  language="C#" platform="" filename="Fibonacci.cs" />
 	<Algorithm  language="Java" platform="" filename="Fibonacci.java" />
-	<Algorithm  language="C++" platform="" filename="Fibonacci.cpp" />
 
 
     <Parametersets>

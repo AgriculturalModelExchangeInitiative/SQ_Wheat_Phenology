@@ -9,11 +9,11 @@ import numpy as np
 def test_test_wheat1():
     params= registerzadok(
     slopeTSFLN = 0.9,
+    phase = 2,
     calendarCumuls = [ 0.0, 112.330110409888,157.969706915664, 280.570678654207],
     calendarMoments = ["Sowing","Emergence","EndVernalisation","MainShootPlus1Tiller"],
-    phase = 2,
+    intTSFLN = 2.6,
     calendarDates = ["21/3/2007","27/3/2007","30/3/2007","5/4/2007"],
-    TSFLN = 2.6,
      )
     hasZadokStageChanged_estimated = params[0]
     hasZadokStageChanged_computed = 0

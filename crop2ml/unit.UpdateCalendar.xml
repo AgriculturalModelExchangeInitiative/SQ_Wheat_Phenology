@@ -27,12 +27,10 @@
 
     </Outputs>
 
-	<Algorithm  language="python" platform="" filename="UpdateCalendar.py" />
+	<Algorithm  language="Python" platform="" filename="UpdateCalendar.py" />
 	<Algorithm  language="C#" platform="" filename="UpdateCalendar.cs" />
 	<Algorithm  language="Java" platform="" filename="UpdateCalendar.java" />
-	<Algorithm  language="C++" platform="" filename="UpdateCalendar.cpp" />
-
-    
+  
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >
         </Parameterset>

@@ -9,14 +9,13 @@ import numpy as np
 def test_test_wheat1():
     params= updatephase(
     phase = 1,
-    SwitchMaize = 0,
-    FinalLeafNumber = 0,
+    switchMaize = 0,
     hasLastPrimordiumAppeared = 0,
     choosePhyllUse = "Default",
      )
-    FinalLeafNumber_estimated = round(params[0], 2)
-    FinalLeafNumber_computed = 8.80
-    assert (FinalLeafNumber_estimated == FinalLeafNumber_computed)
+    finalLeafNumber_estimated = round(params[0], 2)
+    finalLeafNumber_computed = 8.80
+    assert (finalLeafNumber_estimated == finalLeafNumber_computed)
     phase_estimated = round(params[1], 1)
     phase_computed = 2
     assert (phase_estimated == phase_computed)

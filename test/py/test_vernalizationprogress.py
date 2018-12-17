@@ -9,14 +9,14 @@ import numpy as np
 def test_test_wheat1():
     params= vernalizationprogress(
     cumulTT =  112.330110409888,
-    IsVernalizable = 1,
+    isVernalizable = 1,
      )
-    Vernaprog_estimated = round(params[0], 2)
-    Vernaprog_computed = 0.64
-    assert (Vernaprog_estimated == Vernaprog_computed)
-    MinFinalNumber_estimated = round(params[1], 2)
-    MinFinalNumber_computed = 5.5
-    assert (MinFinalNumber_estimated == MinFinalNumber_computed)
+    vernaprog_estimated = round(params[0], 2)
+    vernaprog_computed = 0.64
+    assert (vernaprog_estimated == vernaprog_computed)
+    minFinalNumber_estimated = round(params[1], 2)
+    minFinalNumber_computed = 5.5
+    assert (minFinalNumber_estimated == minFinalNumber_computed)
     calendarMoments_estimated = params[2]
     calendarMoments_computed = ["Sowing"]
     assert np.all(calendarMoments_estimated == calendarMoments_computed)

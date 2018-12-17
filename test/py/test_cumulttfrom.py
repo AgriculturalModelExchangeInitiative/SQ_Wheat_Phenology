@@ -9,7 +9,7 @@ import numpy as np
 def test_test_wheat1():
     params= cumulttfrom(
     cumulTT = 972.970888983105,
-    SwitchMaize = 0,
+    switchMaize = 0,
     calendarCumuls = [0.0, 112.330110409888, 354.582294511779, 741.510096671757, 853.999637026622, 954.59002776961],
     calendarMoments = ["Sowing", "Emergence", "FloralInitiation", "FlagLeafLiguleJustVisible", "Heading", "Anthesis"],
      )
