@@ -1,5 +1,12 @@
+MODULE phyllSowingDateCorrectionModule
+    USE crop2mlModules
+CONTAINS
 
-    !use crop2mlModules
+    SUBROUTINE Calculate_PhyllSowingDateCorrection(sowingDay,latitude,sDsa_sh,rp,sDws,sDsa_nh,p, fixPhyll)
+
+        REAL , INTENT(IN)::latitude,rp,p
+        INTEGER, INTENT(IN):: sowingDay,sDws,sDsa_nh,sDsa_sh
+        REAL, INTENT(OUT):: fixPhyll
 
         IF (latitude < 0) THEN
             IF (sowingDay > sDsa_sh) THEN
@@ -14,6 +21,6 @@
                 fixPhyll = p
             END IF
         END IF
-
-
+    END SUBROUTINE
+END MODULE
 

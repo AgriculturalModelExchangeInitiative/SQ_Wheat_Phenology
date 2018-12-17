@@ -1,4 +1,20 @@
-    !use crop2mlModules
+MODULE phyllochronModule
+    USE crop2mlModules
+
+    !type tyPhyllochron
+    !   real:: phyllochron, pastMaxAI
+    !end type
+
+CONTAINS
+    SUBROUTINE Calculate_Phyllochron(fixPhyll,leafNumber,lincr,ldecr,pdecr,&
+            pincr, ptq, gai, pastMaxAI,kl, aPTQ, phylPTQ1, p,choosePhyllUse, phyllochron)
+
+        REAL , INTENT(IN)::fixPhyll,leafNumber,lincr,ldecr,pdecr,pincr,ptq,&
+            kl, aPTQ, phylPTQ1, p
+        REAL , INTENT(INOUT):: pastMaxAI, gai
+        CHARACTER(LEN=*), INTENT(IN):: choosePhyllUse
+        REAL, INTENT(OUT):: phyllochron
+
         IF (choosePhyllUse .EQ. 'Default') THEN
             IF (leafNumber < ldecr) THEN
                 phyllochron = fixPhyll * pdecr
@@ -27,4 +43,5 @@
                 phyllochron = p * pincr
             END IF
         END IF
-
+    END SUBROUTINE
+END MODULE

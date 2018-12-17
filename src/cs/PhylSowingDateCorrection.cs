@@ -1,17 +1,48 @@
+public class PhylSowingDateCorrection
+{
+    public double fixPhyll;
+    public PhylSowingDateCorrection(double _fixPhyll)
+    {
+        fixPhyll=_fixPhyll;
+    }
+}
 
-if (Latitude < 0)
+public static class Estimation_PhylSowingDateCorrection
 {
-	if (SowingDay > SDsa_sh)
-	{
-		FixPhyll = P * (1 - Rp * Math.Min(SowingDay - SDsa_sh, SDws));
-	}
-	else FixPhyll = P;
+    public static PhylSowingDateCorrection CalculatePhylSowingDateCorrection(int sowingDay,double latitude,int sDsa_sh,double rp,int sDws,int sDsa_nh,double p)
+    {
+
+
+/*
+     PhylSowingDateCorrection Model
+
+    Author: 
+    Reference: Modeling development phase in the 
+                Wheat Simulation Model SiriusQuality.
+                See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427
+    Instituton: INRA Montpellier
+    Abstract: Correction of the Phyllochron Varietal parameter according to sowing date 
+    
+*/
+        double fixPhyll;
+
+        if (latitude < 0)
+        {
+        	if (sowingDay > sDsa_sh)
+        	{
+        		fixPhyll = p * (1 - rp * Math.Min(sowingDay - sDsa_sh, sDws));
+        	}
+        	else fixPhyll = p;
+        }
+        else
+        {
+        	if (sowingDay < sDsa_nh)
+        	{
+        		fixPhyll = p * (1 - rp * Math.Min(sowingDay, sDws));
+        	}
+        	else fixPhyll = p;
+        }
+        return new PhylSowingDateCorrection(fixPhyll);
+    }
 }
-else
-{
-	if (SowingDay < SDsa_nh)
-	{
-		FixPhyll = P * (1 - Rp * Math.Min(SowingDay, SDws));
-	}
-	else FixPhyll = P;
-}
+

@@ -1,7 +1,22 @@
+MODULE shootNumberModule
+    USE crop2mlModules
+    IMPLICIT NONE
 
-    !use crop2mlModules
-        REAL::oldcanopyShootNumber, calc
-        INTEGER:: emergedLeaves, i
+CONTAINS
+    SUBROUTINE Calculate_ShootNumber(canopyShootNumber,leafNumber,sowingDensity,&
+        targetFertileShoot, tilleringProfile,leafTillerNumberArray, tillerNumber, &
+        averageShootNumberPerPlant)
+
+        INTEGER, INTENT(IN):: sowingDensity
+        REAL, INTENT(IN)::leafNumber,targetFertileShoot
+        INTEGER,DIMENSION(:), ALLOCATABLE, INTENT(INOUT) ::  leafTillerNumberArray
+        INTEGER, INTENT(INOUT)::tillerNumber
+        REAL, INTENT(INOUT):: canopyShootNumber
+        REAL, INTENT(OUT):: averageShootNumberPerPlant
+        REAL,DIMENSION(:), ALLOCATABLE, INTENT(INOUT) :: tilleringProfile
+        REAL::oldcanopyShootNumber
+        INTEGER:: emergedLeaves, shoots, I
+
         oldcanopyShootNumber = canopyShootNumber
         emergedLeaves = INT(MAX(1, CEILING(leafNumber - 1)))
         shoots = fibonacci(emergedLeaves)
@@ -11,6 +26,11 @@
             CALL AddToList(tilleringProfile,canopyShootNumber - oldcanopyShootNumber)
         END IF
          tillerNumber = SIZE(tilleringProfile)
-        DO i=SIZE(leafTillerNumberArray), CEILING(leafNumber)-1
+        DO I=SIZE(leafTillerNumberArray), CEILING(leafNumber)-1
             CALL AddToListInt(leafTillerNumberArray,tillerNumber)
         END DO
+    END SUBROUTINE
+END MODULE
+
+
+

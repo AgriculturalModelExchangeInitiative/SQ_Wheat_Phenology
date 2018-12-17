@@ -1,6 +1,21 @@
+MODULE registerZadokModule
+    USE crop2mlModules
 
-    !use crop2mlModules
+CONTAINS
+    SUBROUTINE Calculate_RegisterZadok(cumulTT,phase,leafNumber,calendarMoments,&
+            calendarDates,calendarCumuls,cumulTTFromZC_65, currentdate,der,&
+            slopeTSFLN,intTSFLN, finalLeafNumber,currentZadokStage,&
+            hasZadokStageChanged)
+
+        REAL , INTENT(IN)::cumulTT,phase,leafNumber, &
+            cumulTTFromZC_65,slopeTSFLN,intTSFLN, finalLeafNumber ,der
+        INTEGER, INTENT(INOUT):: hasZadokStageChanged
+        REAL,DIMENSION (:), INTENT(INOUT), ALLOCATABLE:: calendarCumuls
+        CHARACTER(LEN=65),DIMENSION(:), INTENT(INOUT), ALLOCATABLE:: calendarMoments, calendarDates
+        CHARACTER(LEN=65), INTENT(IN) :: currentdate
+        CHARACTER(LEN=65), INTENT(OUT):: currentZadokStage
         INTEGER::  roundedfinalLeafNumber
+
         roundedfinalLeafNumber = INT(finalLeafNumber+0.5)
         IF ((leafNumber>=4) .AND. (ALL(calendarMoments/="MainShootPlus1Tiller"))) THEN
             CALL AddToListchar(calendarMoments,"MainShootPlus1Tiller")
@@ -65,3 +80,7 @@
         ELSE
             hasZadokStageChanged = 0
         END IF
+    END SUBROUTINE
+END MODULE
+
+

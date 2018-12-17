@@ -1,7 +1,23 @@
+MODULE vernalizationProgressModule
+    USE crop2mlModules
+    IMPLICIT NONE
+CONTAINS
+    SUBROUTINE Calculate_VernalizationProgress( dayLength, deltaTT, cumulTT, &
+            leafNumber,calendarMoments, calendarDates, calendarCumuls, &
+            minTvern, intTvern, vAI, vBEE, minDL, maxDL, maxTvern, pNini, aMXLFNO, vernaprog,&
+            currentdate, isVernalizable, minFinalNumber)
 
-    !use crop2mlModules
+        ! DECLARATION
+        REAL, INTENT(IN)::dayLength, deltaTT, cumulTT,leafNumber,minTvern, intTvern, vAI,&
+            vBEE, minDL, maxDL, maxTvern, pNini, aMXLFNO
+        CHARACTER(LEN=25), INTENT(IN) :: currentdate
+        INTEGER, INTENT(IN)::  isVernalizable
+        REAL,DIMENSION (:), INTENT(INOUT), ALLOCATABLE:: calendarCumuls
+        CHARACTER(LEN=25),DIMENSION(:), INTENT(INOUT), ALLOCATABLE:: calendarMoments, calendarDates
+        REAL, INTENT(INOUT):: vernaprog, minFinalNumber
         REAL:: tt, maxVernaProg, dLverna, primordno, minLeafNumber, potlfno
 
+        ! Fortran Snippets
         IF ((isVernalizable==1) .AND. (vernaprog < 1)) THEN
             tt = deltaTT
             IF ((tt >= minTvern) .AND. (TT <= intTvern)) THEN
@@ -31,7 +47,8 @@
                 END IF
             END IF
         END IF
-
+    END SUBROUTINE
+END MODULE
 
 
 

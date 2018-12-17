@@ -1,9 +1,31 @@
+MODULE updatePhaseModule
+    USE crop2mlModules
+    IMPLICIT NONE
+CONTAINS
 
-    !use crop2mlModules
-        REAL:: phase1, appFLN, ttFromLastLeafToHeading, localDegfm, ttFromLastLeafToAnthesis        
+    SUBROUTINE Calculate_UpdatePhase( cumulTT, leafNumber, cumulTTFromZC_39,&
+            isMomentRegistredZC_39, gai, grainCumulTT, dayLength, vernaprog,&
+            minFinalNumber, fixPhyll,isVernalizable, dse, pFLLAnth,&
+            dcd, dgf, degfm, maxDL, sLDL, ignoreGrainMaturation,&
+            pHEADANTH,switchMaize,choosePhyllUse, p, phase, &
+            cumulTTFromZC_91, phyllochron,hasLastPrimordiumAppeared, &
+            finalLeafNumber)
+
+        ! DECLARATION
+        REAL, INTENT(IN):: cumulTT,p, leafNumber, cumulTTFromZC_39,cumulTTFromZC_91, &
+            gai,grainCumulTT,  dayLength, vernaprog,minFinalNumber, fixPhyll, phyllochron,pHEADANTH, &
+            dse, pFLLAnth, dcd, dgf, degfm, maxDL, sLDL
+        CHARACTER(LEN=65), INTENT(IN) :: choosePhyllUse
+        INTEGER, INTENT(IN)::  isMomentRegistredZC_39, isVernalizable, switchMaize
+        LOGICAL, INTENT(IN)::ignoreGrainMaturation
+        INTEGER, INTENT(INOUT):: hasLastPrimordiumAppeared
+        REAL, INTENT(INOUT):: Phase
+        REAL, INTENT(OUT)::finalLeafNumber
+        REAL:: phase1, appFLN, ttFromLastLeafToHeading, localDegfm, ttFromLastLeafToAnthesis
+
         phase1 = phase
-        IF ((phase1 >= 0) .AND. (phase1 < 1)) THEN
-            IF (switchMaize==0) THEN
+        IF ((phase1 >= 0) .AND. (phase1 < 1))THEN
+            IF (switchMaize==0)THEN
                 IF (cumulTT>= dse) THEN
                     phase = 1
                 ELSE
@@ -80,6 +102,7 @@
             ELSE
                 phase = phase1
             END IF
+
         ELSE IF (phase1 == 4.5) THEN
             IF ((grainCumulTT >= dgf) .OR. (gai <= 0)) THEN
                 phase = 5
@@ -99,5 +122,8 @@
         ELSE IF ((phase1>= 6) .AND. (phase1 < 7)) THEN
             phase = phase1
         END IF
+    END SUBROUTINE
+END MODULE
+
 
 
