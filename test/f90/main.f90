@@ -65,7 +65,6 @@ SUBROUTINE test_leafNumber
         switchMaize, atip,leaf_tip_emerg,k_bl, nlim, leafNumber,&
        cumulTTPhenoMaizeAtEmergence, cumulTT,phase, ntip)
     PRINT *, "leafNumber = ",leafNumber, "ntip = ", ntip
-
 END SUBROUTINE
 
 
@@ -85,7 +84,6 @@ END SUBROUTINE
 SUBROUTINE test_registerZadock
     USE registerZadokModule
     USE crop2mlModules
-
     CHARACTER(LEN=65)::currentZadokStage = 'MainShootPlus1Tiller'
     CHARACTER(LEN=65)::currentdate = '9/4/2007'
     CHARACTER(LEN=65) ,DIMENSION(:), ALLOCATABLE:: calendarMoments
@@ -95,25 +93,21 @@ SUBROUTINE test_registerZadock
         cumulTTFromZC_65 = 0,Der = 300.0,slopeTSFLN = 0.9,intTSFLN = 2.6, &
         finalLeafNumber = 8.797582013199484
     INTEGER :: hasZadokStageChanged = 0
-
     CALL AddToList(calendarCumuls,0.0)
     CALL AddToList(calendarCumuls,112.330110409888)
     CALL AddToList(calendarCumuls,157.969706915664)
     CALL AddToList(calendarCumuls,280.570678654207)
-
     ALLOCATE(calendarDates(1))
     calendarDates(1)="21/03/2007"
     CALL AddToListChar(calendarDates,"27/03/2007")
     CALL AddToListChar(calendarDates,"30/03/2007")
     CALL AddToListChar(calendarDates,"05/04/2007")
     !print *, calendarDates(3)
-
     ALLOCATE(calendarMoments(1))
     calendarMoments(1)="Sowing"
     CALL AddToListChar(calendarMoments,'Emergence')
     CALL AddToListChar(calendarMoments, 'EndVernalisation')
     CALL AddToListChar(calendarMoments,'MainShootPlus1Tiller')
-
     PRINT *, "-----------------------------test_RegisterZadok------------------------"
     CALL Calculate_RegisterZadok(cumulTT,phase,leafNumber,calendarMoments,&
         calendarDates,calendarCumuls,cumulTTFromZC_65, currentdate,Der,&
@@ -126,6 +120,7 @@ SUBROUTINE test_registerZadock
     END DO
 END SUBROUTINE
 
+
 SUBROUTINE test_shootNumber
     USE shootNumberModule
     USE crop2mlModules
@@ -135,13 +130,10 @@ SUBROUTINE test_shootNumber
         canopyShootNumber=288.0, averageShootNumberPerPlant
     INTEGER, DIMENSION(:) , ALLOCATABLE  ::  leafTillerNumberArray
     REAL,DIMENSION(:), ALLOCATABLE  :: tilleringProfile
-
     CALL AddToList(tilleringProfile,288.0)
-
     CALL AddToListInt(leafTillerNumberArray, 1)
     CALL AddToListInt(leafTillerNumberArray, 1)
-    CALL AddToListInt(leafTillerNumberArray, 1)
-	
+    CALL AddToListInt(leafTillerNumberArray, 1)	
     PRINT *, "-----------------------------test_ShootNumber------------------------"
     CALL Calculate_ShootNumber(canopyShootNumber,leafNumber,sowingDensity,&
         TargetFertileShoot, tilleringProfile,leafTillerNumberArray, tillerNumber, &
@@ -152,24 +144,20 @@ SUBROUTINE test_shootNumber
     PRINT *, "tilleringProfile ", tilleringProfile
 END SUBROUTINE
 
+
 SUBROUTINE test_UpdateCalendar
     USE updateCalendarModule
     USE crop2mlModules
-
     CHARACTER(LEN=65)::currentdate = '27/3/2007'
     CHARACTER(LEN=65) ,DIMENSION(:), ALLOCATABLE:: calendarMoments
     CHARACTER(LEN=65), DIMENSION(:), ALLOCATABLE ::calendarDates
     REAL, DIMENSION(:), ALLOCATABLE :: calendarCumuls
-
     REAL ::cumulTT = 112.330110409888 ,  phase = 1
     CALL AddToList(calendarCumuls,0.0)
-
     ALLOCATE(calendarDates(1))
     calendarDates(1)="21/03/2007"
-	
     ALLOCATE(calendarMoments(1))
     calendarMoments(1)="Sowing"
-
     PRINT *, "-----------------------------test_UpdateCalendar------------------------"
     CALL Calculate_UpdateCalendar( cumulTT,&
         calendarMoments, calendarDates,&
@@ -180,10 +168,10 @@ SUBROUTINE test_UpdateCalendar
     END DO
 END SUBROUTINE
 
+
 SUBROUTINE test_updateLeafFlag
     USE updateLeafFlagModule
     USE crop2mlModules
-
     CHARACTER(LEN=65)::currentdate = '29/4/2007'
     CHARACTER(LEN=65) ,DIMENSION(:), ALLOCATABLE:: calendarMoments
     CHARACTER(LEN=65), DIMENSION(:), ALLOCATABLE ::calendarDates
@@ -245,7 +233,6 @@ END SUBROUTINE test_updateLeafFlag
 
 
 SUBROUTINE test_updatePhase
-
     USE updatePhaseModule
     USE crop2mlModules
     IMPLICIT NONE
