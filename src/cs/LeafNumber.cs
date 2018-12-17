@@ -8,26 +8,20 @@ public class LeafNumber
         ntip=_ntip;
     }
 }
-
 public static class Estimation_LeafNumber
 {
     public static LeafNumber CalculateLeafNumber(double deltaTT,double phyllochron,int hasFlagLeafLiguleAppeared,int switchMaize,double atip,double leaf_tip_emerg,double k_bl,double nlim,double leafNumber,double cumulTTPhenoMaizeAtEmergence,double cumulTT,double phase)
     {
-
-
 /*
      CalculateLeafNumber Model
-
     Author: 
     Reference: Modeling development phase in the 
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427
     Instituton: INRA Montpellier
-    Abstract: calculate leaf number. LeafNumber increase is caped at one more leaf per day
-    
+    Abstract: calculate leaf number. LeafNumber increase is caped at one more leaf per day   
 */
         double ntip;
-
         double leafNumber1, nextstartExpTT, nexttipTT, abl, tt_lim_lip, bbl, tt_bl;
         ntip = 0;
         leafNumber1 =leafNumber;		
