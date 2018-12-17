@@ -42,6 +42,8 @@
 	<Algorithm  language="Python" platform="" filename="RegisterZadok.py" />
 	<Algorithm  language="C#" platform="" filename="RegisterZadok.cs" />
 	<Algorithm  language="Java" platform="" filename="RegisterZadok.java" />
+    <Algorithm  language="C++" platform="" filename="RegisterZadok.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="RegisterZadok.f90" />
 
 	
 	

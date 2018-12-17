@@ -52,6 +52,8 @@
 	<Algorithm  language="Python" platform="" filename="VernalizationProgress.py" />
 	<Algorithm  language="C#" platform="" filename="VernalizationProgress.cs" />
 	<Algorithm  language="Java" platform="" filename="VernalizationProgress.java" />
+	<Algorithm  language="C++" platform="" filename="VernalizationProgress.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="VernalizationProgress.f90" />
 
     
     <Parametersets>
