@@ -7,6 +7,4 @@ vector<string> calendarMoments;
 vector<string> calendarDates;
 vector<double> calendarCumuls;
 };
-
-UpdateCalendar Calculate_UpdateCalendar(double cumulTT,vector<string> calendarMoments,vector<string> calendarDates,vector<double> calendarCumuls,string currentdate,int phase)
-;
+UpdateCalendar Calculate_UpdateCalendar(double cumulTT,vector<string> calendarMoments,vector<string> calendarDates,vector<double> calendarCumuls,string currentdate,int phase);
