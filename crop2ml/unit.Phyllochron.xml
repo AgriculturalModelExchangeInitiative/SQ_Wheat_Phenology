@@ -36,6 +36,8 @@
 	<Algorithm  language="Python" platform="" filename="PhyllochronModule.py" />
 	<Algorithm  language="C#" platform="" filename="PhyllochronModule.cs"/>
 	<Algorithm  language="Java" platform="" filename="PhyllochronModule.java"/>
+    <Algorithm  language="C++" platform="" filename="PhyllochronModule.cpp"/>
+	<Algorithm  language="Fortran" platform="" filename="PhyllochronModule.f90"/>
 
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >

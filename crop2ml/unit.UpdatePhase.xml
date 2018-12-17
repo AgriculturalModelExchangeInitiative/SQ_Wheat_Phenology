@@ -50,6 +50,8 @@
 	<Algorithm  language="Python" platform="" filename="UpdatePhase.py" />
 	<Algorithm  language="C#" platform="" filename="UpdatePhase.cs" />
 	<Algorithm  language="Java" platform="" filename="UpdatePhase.java" />
+	<Algorithm  language="C++" platform="" filename="UpdatePhase.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="UpdatePhase.f90" />    
 
      <Parametersets>
         <Parameterset name="wheat" description="some values in there" >

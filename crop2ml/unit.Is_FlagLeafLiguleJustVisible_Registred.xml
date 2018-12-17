@@ -21,6 +21,8 @@
 	<Algorithm  language="Python" platform="" filename="Is_FlagLeafLiguleJustVisible_Registred.py" />
 	<Algorithm  language="C#" platform="" filename="Is_FlagLeafLiguleJustVisible_Registred.cs" />
 	<Algorithm  language="Java" platform="" filename="Is_FlagLeafLiguleJustVisible_Registred.java" />
+	<Algorithm  language="C++" platform="" filename="Is_FlagLeafLiguleJustVisible_Registred.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="Is_FlagLeafLiguleJustVisible_Registred.f90" />
 
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >

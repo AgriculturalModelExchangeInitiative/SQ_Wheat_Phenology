@@ -34,6 +34,8 @@
     <Algorithm  language="Python" platform="" filename="LeafNumberModule.py"/>
 	<Algorithm  language="C#" platform="" filename="LeafNumberModule.cs"/>
 	<Algorithm  language="Java" platform="" filename="LeafNumberModule.java"/>
+	<Algorithm  language="C++" platform="" filename="LeafNumberModule.cpp"/>
+	<Algorithm  language="Fortran" platform="" filename="LeafNumberModule.f90"/>
 
     <Parametersets>
         <Parameterset name="ParamWheat" description="some values in there" >

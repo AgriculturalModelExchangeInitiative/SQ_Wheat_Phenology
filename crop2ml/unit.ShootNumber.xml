@@ -29,13 +29,18 @@
     </Outputs>
     
     <Function name = "fibonacci" language="Python" type="external" filename="Fibonacci.py" description="calculate fibonacci number"/>  
-    <Function name = "fibonacci" language="csharp" type="external" filename="Fibonacci.cs" description="calculate fibonacci number"/>
-    <Function name = "fibonacci" language="java" type="external" filename="Fibonacci.java" description="calculate fibonacci number"/>  
+    <Function name = "fibonacci" language="C#" type="external" filename="Fibonacci.cs" description="calculate fibonacci number"/>
+    <Function name = "fibonacci" language="Java" type="external" filename="Fibonacci.java" description="calculate fibonacci number"/>  
+    <Function name = "fibonacci" language="C++" type="external" filename="Fibonacci.cpp" description="calculate fibonacci number"/>
+    <Function name = "fibonacci" language="Fortran" type="external" filename="Fibonacci.f90" description="calculate fibonacci number"/>  
+
 
 	<Algorithm  language="Python" platform="" filename="ShootNumber.py" />
 	<Algorithm  language="C#" platform="" filename="ShootNumber.cs" />
 	<Algorithm  language="Java" platform="" filename="ShootNumber.java" />
-  
+ 	<Algorithm  language="C++" platform="" filename="ShootNumber.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="ShootNumber.f90" />
+
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >
         	<Param name="targetFertileShoot">600.0</Param>
