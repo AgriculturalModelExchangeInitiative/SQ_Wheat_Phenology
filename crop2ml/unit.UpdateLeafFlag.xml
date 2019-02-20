@@ -31,11 +31,11 @@
    	
     </Outputs>
     
-	<Algorithm  language="Python" platform="" filename="UpdateLeafFlag.py" />
-	<Algorithm  language="C#" platform="" filename="UpdateLeafFlag.cs" />
-	<Algorithm  language="Java" platform="" filename="UpdateLeafFlag.java" />
-	<Algorithm  language="C++" platform="" filename="UpdateLeafFlag.cpp" />
-	<Algorithm  language="Fortran" platform="" filename="UpdateLeafFlag.f90" />    
+	<Algorithm  language="Python" platform="" filename="algo/py/UpdateLeafFlag.py" />
+	<Algorithm  language="C#" platform="" filename="algo/cs/UpdateLeafFlag.cs" />
+	<Algorithm  language="Java" platform="" filename="algo/java/UpdateLeafFlag.java" />
+	<Algorithm  language="C++" platform="" filename="algo/cpp/UpdateLeafFlag.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="algo/f90/UpdateLeafFlag.f90" />    
 
     
      <Parametersets>

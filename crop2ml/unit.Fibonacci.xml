@@ -16,11 +16,11 @@
     	
     </Outputs>
     
-	<Algorithm  language="python" platform="" filename="Fibonacci.py" />
-	<Algorithm  language="C#" platform="" filename="Fibonacci.cs" />
-	<Algorithm  language="Java" platform="" filename="Fibonacci.java" />
-	<Algorithm  language="C++" platform="" filename="Fibonacci.cpp" />
-	<Algorithm  language="Fortran" platform="" filename="Fibonacci.f90" />
+	<Algorithm  language="Python" platform="" filename="algo/py/Fibonacci.py" />
+	<Algorithm  language="C#" platform="" filename="algo/cs/Fibonacci.cs" />
+	<Algorithm  language="Java" platform="" filename="algo/java/Fibonacci.java" />
+	<Algorithm  language="C++" platform="" filename="algo/cpp/Fibonacci.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="algo/f90/Fibonacci.f90" />
 
     <Parametersets>
         <Parameterset name="set1" description="some values in there" >

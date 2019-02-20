@@ -39,11 +39,11 @@
     
   
     
-	<Algorithm  language="Python" platform="" filename="RegisterZadok.py" />
-	<Algorithm  language="C#" platform="" filename="RegisterZadok.cs" />
-	<Algorithm  language="Java" platform="" filename="RegisterZadok.java" />
-    <Algorithm  language="C++" platform="" filename="RegisterZadok.cpp" />
-	<Algorithm  language="Fortran" platform="" filename="RegisterZadok.f90" />
+	<Algorithm  language="Python" platform="" filename="algo/py/RegisterZadok.py" />
+	<Algorithm  language="C#" platform="" filename="algo/cs/RegisterZadok.cs" />
+	<Algorithm  language="Java" platform="" filename="algo/java/RegisterZadok.java" />
+    <Algorithm  language="C++" platform="" filename="algo/cpp/RegisterZadok.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="algo/f90/RegisterZadok.f90" />
 
 	
 	

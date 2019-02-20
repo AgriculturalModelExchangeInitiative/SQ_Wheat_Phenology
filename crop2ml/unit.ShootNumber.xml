@@ -35,11 +35,11 @@
     <Function name = "fibonacci" language="Fortran" type="external" filename="Fibonacci.f90" description="calculate fibonacci number"/>  
 
 
-	<Algorithm  language="Python" platform="" filename="ShootNumber.py" />
-	<Algorithm  language="C#" platform="" filename="ShootNumber.cs" />
-	<Algorithm  language="Java" platform="" filename="ShootNumber.java" />
- 	<Algorithm  language="C++" platform="" filename="ShootNumber.cpp" />
-	<Algorithm  language="Fortran" platform="" filename="ShootNumber.f90" />
+	<Algorithm  language="Python" platform="" filename="algo/py/ShootNumber.py" />
+	<Algorithm  language="C#" platform="" filename="algo/cs/ShootNumber.cs" />
+	<Algorithm  language="Java" platform="" filename="algo/java/ShootNumber.java" />
+ 	<Algorithm  language="C++" platform="" filename="algo/cpp/ShootNumber.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="algo/f90/ShootNumber.f90" />
 
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >

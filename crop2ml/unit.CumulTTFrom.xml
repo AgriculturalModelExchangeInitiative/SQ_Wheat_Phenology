@@ -24,11 +24,11 @@
     	
     </Outputs>
     
-	<Algorithm  language="python" platform="" filename="CumulFrom.py" />
-	<Algorithm  language="C#" platform="" filename="CumulFrom.cs" />
-	<Algorithm  language="Java" platform="" filename="CumulFrom.java" />
-	<Algorithm  language="C++" platform="" filename="CumulFrom.cpp" />
-	<Algorithm  language="Fortran" platform="" filename="CumulFrom.f90" />
+	<Algorithm  language="Python" platform="" filename="algo/py/CumulFrom.py" />
+	<Algorithm  language="C#" platform="" filename="algo/cs/CumulFrom.cs" />
+	<Algorithm  language="Java" platform="" filename="algo/java/CumulFrom.java" />
+	<Algorithm  language="C++" platform="" filename="algo/cpp/CumulFrom.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="algo/f90/CumulFrom.f90" />
 
 
     <Parametersets>

@@ -24,11 +24,11 @@
         <Output name="fixPhyll" description=" Phyllochron Varietal parameter " datatype="DOUBLE" min="0" max="1000"  unit="°C d leaf-1" />
     	
     </Outputs>
-	<Algorithm  language="Python" platform="" filename="PhylSowingDateCorrection.py" />
-	<Algorithm  language="C#" platform="" filename="PhylSowingDateCorrection.cs" />
-	<Algorithm  language="Java" platform="" filename="PhylSowingDateCorrection.java" />
-	<Algorithm  language="C++" platform="" filename="PhylSowingDateCorrection.cpp" />
-	<Algorithm  language="Fortran" platform="" filename="PhylSowingDateCorrection.f90" />
+	<Algorithm  language="Python" platform="" filename="algo/py/PhylSowingDateCorrection.py" />
+	<Algorithm  language="C#" platform="" filename="algo/cs/PhylSowingDateCorrection.cs" />
+	<Algorithm  language="Java" platform="" filename="algo/java/PhylSowingDateCorrection.java" />
+	<Algorithm  language="C++" platform="" filename="algo/cpp/PhylSowingDateCorrection.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="algo/f90/PhylSowingDateCorrection.f90" />
 
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >
