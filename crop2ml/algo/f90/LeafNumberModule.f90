@@ -4,10 +4,10 @@
 
         leafNumber1 =leafNumber
         ntip=0
-        IF ((phase .EQ. 1) .AND. (cumulTTPhenoMaizeAtEmergence .EQ. 0)) THEN
+        IF ((phase .EQ. 1.0) .AND. (cumulTTPhenoMaizeAtEmergence .EQ. 0.0)) THEN
             cumulTTPhenoMaizeAtEmergence = cumulTT
         END IF
-        IF ((phase .GE. 1) .AND. (phase .LT. 4)) THEN
+        IF ((phase .GE. 1.0) .AND. (phase .LT. 4.0)) THEN
             IF (hasFlagLeafLiguleAppeared .EQ. 0) THEN
                 IF (switchMaize .EQ. 0) THEN
                     IF (phyllochron .EQ. 0.0) THEN
