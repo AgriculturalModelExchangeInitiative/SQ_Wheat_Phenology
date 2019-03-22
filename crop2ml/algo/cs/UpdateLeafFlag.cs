@@ -1,8 +1,8 @@
-if (phase >= 1 && phase< 4)
+if (phase >= 1.0 && phase< 4.0)
 {
-    if (leafNumber > 0)
+    if (leafNumber > 0.0)
     {
-        if (hasFlagLeafLiguleAppeared == 0 && (finalLeafNumber > 0 && leafNumber >= finalLeafNumber))
+        if (hasFlagLeafLiguleAppeared == 0 && (finalLeafNumber > 0.0 && leafNumber >= finalLeafNumber))
         {
             hasFlagLeafLiguleAppeared = 1;
             if  (calendarMoments.Contains("FlagLeafLiguleJustVisible")==false)

@@ -1,14 +1,14 @@
 	
  double phase1, ttFromLastLeafToHeading, appFLN, localDegfm, ttFromLastLeafToAnthesis;
 phase1 = phase;				
-if (phase1 >= 0 && phase1 < 1)//SowingToEmergence
+if (phase1 >= 0.0 && phase1 < 1.0)//SowingToEmergence
 {
 			//CheckEmergence
 	if (switchMaize==0)
 	{
 		if (cumulTT>= dse)
 		{
-			phase = 1;//Emergence
+			phase = 1.0;//Emergence
 		}
 		else
 		{
@@ -19,7 +19,7 @@ if (phase1 >= 0 && phase1 < 1)//SowingToEmergence
 	{
 		if (cumulTT >= dse)
 		{
-			phase= 1;//Emergence
+			phase= 1.0;//Emergence
 		}
 		else
 		{
@@ -27,9 +27,9 @@ if (phase1 >= 0 && phase1 < 1)//SowingToEmergence
 		}
 	}
 }
-else if (phase1 >= 1 && phase1 < 2)//EmergenceToFloralInitiation
+else if (phase1 >= 1.0 && phase1 < 2.0)//EmergenceToFloralInitiation
 {
-	if ((isVernalizable==1 && vernaprog >= 1) || (isVernalizable==0))
+	if ((isVernalizable==1 && vernaprog >= 1.0) || (isVernalizable==0))
 	{
 		if (switchMaize==0)
 		{
@@ -61,7 +61,7 @@ else if (phase1 >= 1 && phase1 < 2)//EmergenceToFloralInitiation
 				//CheckFloralInitiation
 		if (hasLastPrimordiumAppeared==1)
 		{
-			phase = 2;//Floralinitiation
+			phase = 2.0;//Floralinitiation
 		}			
 	}
 	else
@@ -69,12 +69,12 @@ else if (phase1 >= 1 && phase1 < 2)//EmergenceToFloralInitiation
 		phase = phase1;
 	}
 }
-else if (phase1 >= 2 && phase1 < 4)//FloralInitiationToAnthesis
+else if (phase1 >= 2.0 && phase1 < 4.0)//FloralInitiationToAnthesis
 {
 	if (isMomentRegistredZC_39==1)
 	{
 				//calculate the heading date
-		if (phase1 < 3)
+		if (phase1 < 3.0)
 		{
 			ttFromLastLeafToHeading = 0.0;
 			if(choosePhyllUse=="Default")ttFromLastLeafToHeading =(pFLLAnth - pHEADANTH) * fixPhyll;
@@ -82,7 +82,7 @@ else if (phase1 >= 2 && phase1 < 4)//FloralInitiationToAnthesis
 			else if (choosePhyllUse == "Test") ttFromLastLeafToHeading = (pFLLAnth - pHEADANTH) * p;
 			if (cumulTTFromZC_39 >= ttFromLastLeafToHeading)
 			{
-				phase = 3;
+				phase = 3.0;
 			}
 			else
 			{
@@ -97,7 +97,7 @@ else if (phase1 >= 2 && phase1 < 4)//FloralInitiationToAnthesis
 
 		if (cumulTTFromZC_39 >= ttFromLastLeafToAnthesis)
 		{
-				phase = 4;//Anthesis
+				phase = 4.0;//Anthesis
 		}
 		else
 		{
@@ -109,7 +109,7 @@ else if (phase1 >= 2 && phase1 < 4)//FloralInitiationToAnthesis
 			phase = phase1;
 		}		
 }
-else if (phase1 == 4)//AnthesisToEndCellDivision
+else if (phase1 == 4.0)//AnthesisToEndCellDivision
 {
 			//CheckEndCellDivision
 	if (grainCumulTT >= dcd)
@@ -124,16 +124,16 @@ else if (phase1 == 4)//AnthesisToEndCellDivision
 else if (phase1 == 4.5)//EndCellDivisionToEndGrainFill
 {
 			// CheckEndGrainFilling
-	if (grainCumulTT >= dgf || gai <= 0)
+	if (grainCumulTT >= dgf || gai <= 0.0)
 	{
-		phase = 5;//End of grain filling
+		phase = 5.0;//End of grain filling
 	}
 	else
 	{
 		phase = phase1;
 	}
 }
-else if (phase1 >= 5 && phase1 < 6)//EndGrainFillToMaturity
+else if (phase1 >= 5.0 && phase1 < 6.0)//EndGrainFillToMaturity
 {
 			//CheckMaturity
 			///<Comment>To enable ignoring grain maturation duration</Comment>
@@ -141,14 +141,14 @@ else if (phase1 >= 5 && phase1 < 6)//EndGrainFillToMaturity
 	if (ignoreGrainMaturation==true) localDegfm = -1;			
 	if (cumulTTFromZC_91 >= localDegfm)
 	{
-		phase = 6; //maturity
+		phase = 6.0; //maturity
 	}
 	else
 	{
 		phase= phase1;
 	}
 }
-else if (phase1>= 6 && phase1 < 7)
+else if (phase1>= 6.0 && phase1 < 7.0)
 {
 	phase = phase1;
 }

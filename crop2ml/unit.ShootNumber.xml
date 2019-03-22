@@ -11,11 +11,11 @@
         <Abstract>calculate the shoot number and update the related variables if needed</Abstract>
     </Description>
     <Inputs>
-        <Input name="canopyShootNumber" description="shoot number for the whole canopy" variablecategory="auxiliary" datatype="DOUBLE" min="0" max="10000" default="288" unit="shoot m-2" inputtype="variable"/>
+        <Input name="canopyShootNumber" description="shoot number for the whole canopy" variablecategory="auxiliary" datatype="DOUBLE" min="0" max="10000" default="288.0" unit="shoot m-2" inputtype="variable"/>
         <Input name="leafNumber" description="Leaf number " variablecategory="state" inputtype ="variable" datatype="DOUBLE" min="0" max="10000" default="0" unit="leaf" />
         <Input name="sowingDensity" description="number of plant /m²" parametercategory="constant" datatype="INT" min="0" max="500" default="288" unit="plant m-2"  inputtype = "parameter"/>
         <Input name="targetFertileShoot" description="max value of shoot number for the canopy" variablecategory="auxiliary" datatype="DOUBLE" min="280" max="1000" default="600" unit="shoot" inputtype = "variable"/>
-        <Input name="tilleringProfile" description=" store the amount of new tiller created at each time a new tiller appears" variablecategory="auxiliary" datatype="DOUBLELIST"  default="[288]" unit=""  inputtype="variable"/>
+        <Input name="tilleringProfile" description=" store the amount of new tiller created at each time a new tiller appears" variablecategory="auxiliary" datatype="DOUBLELIST"  default="[288.0]" unit=""  inputtype="variable"/>
 		<Input name="leafTillerNumberArray" description="store the number of tiller for each leaf layer" variablecategory="auxiliary"  datatype="INTLIST" unit="leaf" default ="[1]"  inputtype="variable"/>
 		<Input name="tillerNumber" description=" store the amount of tiller created at each time a tiller appears" variablecategory="auxiliary" datatype="INT" min="0" max="10000" default="1"  unit=""  inputtype="variable"/>
     </Inputs>
@@ -28,18 +28,22 @@
    	
     </Outputs>
     
-    <Function name = "fibonacci" language="Python" type="external" filename="Fibonacci.py" description="calculate fibonacci number"/>  
-    <Function name = "fibonacci" language="C#" type="external" filename="Fibonacci.cs" description="calculate fibonacci number"/>
-    <Function name = "fibonacci" language="Java" type="external" filename="Fibonacci.java" description="calculate fibonacci number"/>  
-    <Function name = "fibonacci" language="C++" type="external" filename="Fibonacci.cpp" description="calculate fibonacci number"/>
-    <Function name = "fibonacci" language="Fortran" type="external" filename="Fibonacci.f90" description="calculate fibonacci number"/>  
+    <Function name = "fibonacci" language="Python" type="external" filename="algo/py/Fibonacci.py" description="calculate fibonacci number"/>  
+    <Function name = "fibonacci" language="C#" type="external" filename="algo/cs/Fibonacci.cs" description="calculate fibonacci number"/>
+    <Function name = "fibonacci" language="Java" type="external" filename="algo/java/Fibonacci.java" description="calculate fibonacci number"/>  
+    <Function name = "fibonacci" language="C++" type="external" filename="algo/cpp/Fibonacci.cpp" description="calculate fibonacci number"/>
+    <Function name = "fibonacci" language="Fortran" type="external" filename="algo/f90/Fibonacci.f90" description="calculate fibonacci number"/>  
+    <Function name = "fibonacci" language="Cyml" type="external" filename="algo/pyx/Fibonacci.pyx" description="calculate fibonacci number"/>  
+    <Function name = "fibonacci" language="R" type="external" filename="algo/R/Fibonacci.r" description="calculate fibonacci number"/>  
 
 
-	<Algorithm  language="Python" platform="" filename="ShootNumber.py" />
-	<Algorithm  language="C#" platform="" filename="ShootNumber.cs" />
-	<Algorithm  language="Java" platform="" filename="ShootNumber.java" />
- 	<Algorithm  language="C++" platform="" filename="ShootNumber.cpp" />
-	<Algorithm  language="Fortran" platform="" filename="ShootNumber.f90" />
+	<Algorithm  language="Python" platform="" filename="algo/py/ShootNumber.py" />
+	<Algorithm  language="C#" platform="" filename="algo/cs/ShootNumber.cs" />
+	<Algorithm  language="Java" platform="" filename="algo/java/ShootNumber.java" />
+ 	<Algorithm  language="C++" platform="" filename="algo/cpp/ShootNumber.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="algo/f90/ShootNumber.f90" />
+    <Algorithm  language="Cyml" platform="" filename="algo/pyx/ShootNumber.pyx" />
+    <Algorithm  language="R" platform="" filename="algo/r/ShootNumber.r" />
 
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >

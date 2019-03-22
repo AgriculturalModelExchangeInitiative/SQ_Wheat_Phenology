@@ -12,5 +12,5 @@ if (calendarMoments.contains("FlagLeafLiguleJustVisible")){
 }   
 if (calendarMoments.contains("EndGrainFilling")){
     if (switchMaize == 0)
-        cumulTTFromZC_91 = cumulTT-calendarCumuls.get(calendarMoments.indexOf("FlagLeafLiguleJustVisible"));
+        cumulTTFromZC_91 = cumulTT-calendarCumuls.get(calendarMoments.indexOf("EndGrainFilling"));
 }

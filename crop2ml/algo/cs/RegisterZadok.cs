@@ -1,6 +1,6 @@
 
 int roundedFinalLeafNumber = (int)(finalLeafNumber+0.5);
-if (leafNumber>=4 && calendarMoments.Contains("MainShootPlus1Tiller")==false)
+if (leafNumber>=4.0 && calendarMoments.Contains("MainShootPlus1Tiller")==false)
 {
     calendarMoments.Add("MainShootPlus1Tiller");
     calendarCumuls.Add(cumulTT);
@@ -8,7 +8,7 @@ if (leafNumber>=4 && calendarMoments.Contains("MainShootPlus1Tiller")==false)
     hasZadokStageChanged = 1;
     currentZadokStage = "MainShootPlus1Tiller";
 }
-else if (leafNumber>=5 && calendarMoments.Contains("MainShootPlus2Tiller")==false)
+else if (leafNumber>=5.0 && calendarMoments.Contains("MainShootPlus2Tiller")==false)
 {
     calendarMoments.Add("MainShootPlus2Tiller");
     calendarCumuls.Add(cumulTT);
@@ -16,7 +16,7 @@ else if (leafNumber>=5 && calendarMoments.Contains("MainShootPlus2Tiller")==fals
     hasZadokStageChanged = 1;
     currentZadokStage = "MainShootPlus2Tiller";
 }
-else if (leafNumber>=6 && calendarMoments.Contains("MainShootPlus3Tiller")==false)
+else if (leafNumber>=6.0 && calendarMoments.Contains("MainShootPlus3Tiller")==false)
 {
     calendarMoments.Add("MainShootPlus3Tiller");
     calendarCumuls.Add(cumulTT);
@@ -24,7 +24,7 @@ else if (leafNumber>=6 && calendarMoments.Contains("MainShootPlus3Tiller")==fals
     hasZadokStageChanged = 1;
     currentZadokStage = "MainShootPlus3Tiller";
 }        
-else if (finalLeafNumber > 0 && leafNumber>=(slopeTSFLN * finalLeafNumber - intTSFLN) &&  calendarMoments.Contains("TerminalSpikelet")==false)
+else if (finalLeafNumber > 0.0 && leafNumber>=(slopeTSFLN * finalLeafNumber - intTSFLN) &&  calendarMoments.Contains("TerminalSpikelet")==false)
 {
     calendarMoments.Add("TerminalSpikelet");
     calendarCumuls.Add(cumulTT);

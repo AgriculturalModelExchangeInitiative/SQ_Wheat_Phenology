@@ -17,7 +17,7 @@
         <Input name="calendarDates" description="List containing  the dates of the wheat developmental phases" variablecategory="auxiliary" datatype="DATELIST" default="['21/3/2007']" unit=""  inputtype = "variable"/>
         <Input name="calendarCumuls" description="list containing for each stage occured its cumulated thermal times" variablecategory="auxiliary"  datatype="DOUBLELIST" default="[0.0]" unit="°C d"  inputtype = "variable"/>
         <Input name="currentdate" description="current date" variablecategory="auxiliary"   datatype="DATE"  default="27/3/2007" unit="" inputtype = "variable"/>
-		<Input name="phase" description=" the name of the phase" variablecategory="state"  datatype="INT" min="0" max="7" default = "1" unit=""  inputtype="variable"/>
+		<Input name="phase" description=" the name of the phase" variablecategory="state"  datatype="DOUBLE" min="0" max="7" default = "1" unit=""  inputtype="variable"/>
      
     </Inputs>
     <Outputs>
@@ -27,12 +27,14 @@
 
     </Outputs>
 
-	<Algorithm  language="Python" platform="" filename="UpdateCalendar.py" />
-	<Algorithm  language="C#" platform="" filename="UpdateCalendar.cs" />
-	<Algorithm  language="Java" platform="" filename="UpdateCalendar.java" />
- 	<Algorithm  language="C++" platform="" filename="UpdateCalendar.cpp" />
-	<Algorithm  language="Fortran" platform="" filename="UpdateCalendar.f90" /> 
-
+	<Algorithm  language="Python" platform="" filename="algo/py/UpdateCalendar.py" />
+	<Algorithm  language="C#" platform="" filename="algo/cs/UpdateCalendar.cs" />
+	<Algorithm  language="Java" platform="" filename="algo/java/UpdateCalendar.java" />
+ 	<Algorithm  language="C++" platform="" filename="algo/cpp/UpdateCalendar.cpp" />
+	<Algorithm  language="Fortran" platform="" filename="algo/f90/UpdateCalendar.f90" /> 
+    <Algorithm  language="Cyml" platform="" filename="algo/pyx/UpdateCalendar.pyx" />
+    <Algorithm  language="R" platform="" filename="algo/r/UpdateCalendar.r" />        
+   
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >
         </Parameterset>

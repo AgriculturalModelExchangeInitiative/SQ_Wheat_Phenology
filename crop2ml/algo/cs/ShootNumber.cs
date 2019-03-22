@@ -2,7 +2,7 @@
 double oldCanopyShootNumber;
 int emergedLeaves, shoots, i;
 oldCanopyShootNumber = canopyShootNumber;
-emergedLeaves = (int)Math.Max(1, Math.Ceiling(leafNumber - 1));
+emergedLeaves = (int)Math.Max(1.0, Math.Ceiling(leafNumber - 1));
 shoots = fibonacci(emergedLeaves);
 canopyShootNumber = Math.Min(Shoots * sowingDensity, targetFertileShoot);
 AverageShootNumberPerPlant = canopyShootNumber / sowingDensity;

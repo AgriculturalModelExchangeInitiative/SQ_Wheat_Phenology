@@ -12,5 +12,5 @@ if (calendarMoments.Contains("FlagLeafLiguleJustVisible")){
 }   
 if (calendarMoments.Contains("EndGrainFilling")){
     if (switchMaize == 0)
-        cumulTTFromZC_91 = cumulTT-calendarCumuls[calendarMoments.IndexOf("FlagLeafLiguleJustVisible")];
+        cumulTTFromZC_91 = cumulTT-calendarCumuls[calendarMoments.IndexOf("EndGrainFilling")];
 }

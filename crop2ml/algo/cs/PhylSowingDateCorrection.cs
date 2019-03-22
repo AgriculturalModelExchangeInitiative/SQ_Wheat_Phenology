@@ -1,5 +1,5 @@
 
-if (latitude < 0)
+if (latitude < 0.0)
 {
 	if (sowingDay > sDsa_sh)
 	{
