@@ -1,5 +1,5 @@
 
 struct Fibonacci {
-    int value;
+    int result;
 };
 Fibonacci Calculate_Fibonacci(int n);

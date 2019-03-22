@@ -1,10 +1,10 @@
 
 int b=1;
-value =0;
+result =0;
 for(int i=0;i<n;i++)
 {
-    int temp = value;
-    value=b;
+    int temp = result;
+    result=b;
     b=temp+b;
 }
 

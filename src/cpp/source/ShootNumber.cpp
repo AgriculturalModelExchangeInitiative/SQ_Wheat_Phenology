@@ -15,7 +15,7 @@ ShootNumber Calculate_ShootNumber(double canopyShootNumber,double leafNumber,int
     int emergedLeaves,shoots;
     oldCanopyShootNumber= canopyShootNumber;
     emergedLeaves = (int)fmax(1, ceil(leafNumber - 1));
-    shoots = Calculate_Fibonacci(emergedLeaves).value;
+    shoots = Calculate_Fibonacci(emergedLeaves).result;
     canopyShootNumber = fmin(shoots * sowingDensity, targetFertileShoot);
     averageShootNumberPerPlant = canopyShootNumber / sowingDensity;
     if (canopyShootNumber != oldCanopyShootNumber)
