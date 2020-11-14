@@ -11,54 +11,46 @@
         <Abstract>calculate the shoot number and update the related variables if needed</Abstract>
     </Description>
     <Inputs>
-        <Input name="canopyShootNumber" description="shoot number for the whole canopy" variablecategory="auxiliary" datatype="DOUBLE" min="0" max="10000" default="288" unit="shoot m-2" inputtype="variable"/>
-        <Input name="leafNumber" description="Leaf number " variablecategory="state" inputtype ="variable" datatype="DOUBLE" min="0" max="10000" default="0" unit="leaf" />
-        <Input name="sowingDensity" description="number of plant /m²" parametercategory="constant" datatype="INT" min="0" max="500" default="288" unit="plant m-2"  inputtype = "parameter"/>
-        <Input name="targetFertileShoot" description="max value of shoot number for the canopy" variablecategory="auxiliary" datatype="DOUBLE" min="280" max="1000" default="600" unit="shoot" inputtype = "variable"/>
-        <Input name="tilleringProfile" description=" store the amount of new tiller created at each time a new tiller appears" variablecategory="auxiliary" datatype="DOUBLELIST"  default="[288]" unit=""  inputtype="variable"/>
-		<Input name="leafTillerNumberArray" description="store the number of tiller for each leaf layer" variablecategory="auxiliary"  datatype="INTLIST" unit="leaf" default ="[1]"  inputtype="variable"/>
-		<Input name="tillerNumber" description=" store the amount of tiller created at each time a tiller appears" variablecategory="auxiliary" datatype="INT" min="0" max="10000" default="1"  unit=""  inputtype="variable"/>
+        <Input name="canopyShootNumber_t1" description="shoot number for the whole canopy" variablecategory="state" datatype="DOUBLE" min="0" max="10000" default="288.0" unit="shoot m-2" inputtype="variable"/>
+        <Input name="leafNumber" description="Leaf number " variablecategory="state" inputtype ="variable" datatype="DOUBLE" min="0" max="10000" default="3.34" unit="leaf" />
+        <Input name="sowingDensity" description="number of plant /m²" parametercategory="species" datatype="DOUBLE" min="0" max="500" default="288.0" unit="plant m-2"  inputtype = "parameter"/>
+        <Input name="targetFertileShoot" description="max value of shoot number for the canopy" parametercategory="species" datatype="DOUBLE" min="280" max="1000" default="600.0" unit="shoot" inputtype = "variable"/>
+        <Input name="tilleringProfile_t1" description=" store the amount of new tiller created at each time a new tiller appears" variablecategory="state" datatype="DOUBLELIST"  default="[288.0]" unit=""  inputtype="variable"/>
+		<Input name="leafTillerNumberArray_t1" description="store the number of tiller for each leaf layer" variablecategory="state"  datatype="INTLIST" unit="leaf" default ="[1, 1, 1]"  inputtype="variable"/>
+		<Input name="numberTillerCohort_t1" description=" Number of tiller which appears" variablecategory="state" datatype="INT" min="0" max="10000" default="1"  unit=""  inputtype="variable"/>
     </Inputs>
     <Outputs>
-        <Output name="averageShootNumberPerPlant" description="average shoot number per plant in the canopy" variablecategory="auxiliary"  datatype="DOUBLE" min="0" max="10000"  unit="shoot m-2" />
-        <Output name="canopyShootNumber" description="shoot number for the whole canopy" variablecategory="auxiliary"  datatype="DOUBLE" min="0" max="10000"  unit="m2 m-2" />
-		<Output name="leafTillerNumberArray" description="store the number of tiller for each leaf layer" variablecategory="auxiliary"   datatype="INTLIST" unit="leaf" />
-        <Output name="tilleringProfile" description=" store the amount of new tiller created at each time a new tiller appears" variablecategory="auxiliary"  datatype="DOUBLELIST"   unit="" />
-        <Output name="tillerNumber" description=" store the amount of new tiller created at each time a new tiller appears" variablecategory="auxiliary"  datatype="INT" min="0" max="10000"  unit="" />
+        <Output name="averageShootNumberPerPlant" description="average shoot number per plant in the canopy" variablecategory="state"  datatype="DOUBLE" min="0" max="10000"  unit="shoot m-2" />
+        <Output name="canopyShootNumber" description="shoot number for the whole canopy" variablecategory="state"  datatype="DOUBLE" min="0" max="10000"  unit="shoot m-2" />
+		<Output name="leafTillerNumberArray" description="store the number of tiller for each leaf layer" variablecategory="state"   datatype="INTLIST" unit="leaf" />
+        <Output name="tilleringProfile" description=" store the amount of new tiller created at each time a new tiller appears" variablecategory="state"  datatype="DOUBLELIST"   unit="dimensionless" />
+        <Output name="numberTillerCohort" description="Number of tiller which appears" variablecategory="state"  datatype="INT" min="0" max="10000"  unit="dimensionless" />
    	
     </Outputs>
-    
-    <Function name = "fibonacci" language="Python" type="external" filename="Fibonacci.py" description="calculate fibonacci number"/>  
-    <Function name = "fibonacci" language="C#" type="external" filename="Fibonacci.cs" description="calculate fibonacci number"/>
-    <Function name = "fibonacci" language="Java" type="external" filename="Fibonacci.java" description="calculate fibonacci number"/>  
-    <Function name = "fibonacci" language="C++" type="external" filename="Fibonacci.cpp" description="calculate fibonacci number"/>
-    <Function name = "fibonacci" language="Fortran" type="external" filename="Fibonacci.f90" description="calculate fibonacci number"/>  
+    <Initialization name = "init_ShootNumber" language="Cyml" filename="algo/pyx/init.ShootNumber.pyx"/>  
+   
+    <Function name = "fibonacci" language="Cyml" type="internal" filename="algo/pyx/Fibonacci.pyx" description="calculate fibonacci number"/>  
 
-
-	<Algorithm  language="Python" platform="" filename="algo/py/ShootNumber.py" />
-	<Algorithm  language="C#" platform="" filename="algo/cs/ShootNumber.cs" />
-	<Algorithm  language="Java" platform="" filename="algo/java/ShootNumber.java" />
- 	<Algorithm  language="C++" platform="" filename="algo/cpp/ShootNumber.cpp" />
-	<Algorithm  language="Fortran" platform="" filename="algo/f90/ShootNumber.f90" />
+    <Algorithm  language="Cyml" platform="" filename="algo/pyx/ShootNumber.pyx" />
 
     <Parametersets>
         <Parameterset name="wheat" description="some values in there" >
         	<Param name="targetFertileShoot">600.0</Param>
-        	<Param name="sowingDensity">288</Param>
+        	<Param name="sowingDensity">288.0</Param>
         </Parameterset>
      </Parametersets>
      <Testsets>
         <Testset name="check wheat model1" parameterset = "wheat" description="some values in there" >
         	<Test name ="test_wheat1">
-        		<InputValue name="canopyShootNumber" >288.0</InputValue>
+        		<InputValue name="canopyShootNumber_t1" >288.0</InputValue>
 				<InputValue name="leafNumber">3.34348137255</InputValue>				
-				<InputValue name="leafTillerNumberArray">[1, 1, 1]</InputValue>
-				<InputValue name="tilleringProfile" >[288.0]</InputValue>
+				<InputValue name="leafTillerNumberArray_t1">[1, 1, 1]</InputValue>
+				<InputValue name="tilleringProfile_t1" >[288.0]</InputValue>
 				<OutputValue name="averageShootNumberPerPlant" precision ="2">2</OutputValue>
 				<OutputValue name="canopyShootNumber" precision="1" >576</OutputValue>				
 				<OutputValue name="leafTillerNumberArray" >[1, 1, 1, 2]</OutputValue>
 				<OutputValue name="tilleringProfile" precision ="2">[288.0, 288.0]</OutputValue>
-				<OutputValue name="tillerNumber">2</OutputValue>
+				<OutputValue name="numberTillerCohort">2</OutputValue>
        	
         	</Test>
         </Testset>

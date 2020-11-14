@@ -1,56 +1,98 @@
-public class ShootNumber
-{
-    public double averageShootNumberPerPlant;
-    public double canopyShootNumber;
-    public List<int> leafTillerNumberArray;
-    public List<double> tilleringProfile;
-    public int tillerNumber;
-    public ShootNumber(double _averageShootNumberPerPlant,double _canopyShootNumber,List<int> _leafTillerNumberArray,List<double> _tilleringProfile,int _tillerNumber)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void  Calculate_shootnumber(State s, State s1, Rate r, Auxiliary a)
     {
-        averageShootNumberPerPlant=_averageShootNumberPerPlant;
-        canopyShootNumber=_canopyShootNumber;
-        leafTillerNumberArray=_leafTillerNumberArray;
-        tilleringProfile=_tilleringProfile;
-        tillerNumber=_tillerNumber;
+        ...
+        double canopyShootNumber_t1 = s1.canopyShootNumber;
+        double leafNumber = s.leafNumber;
+        List<double> tilleringProfile_t1 = s1.tilleringProfile;
+        List<int> leafTillerNumberArray_t1 = s1.leafTillerNumberArray;
+        int numberTillerCohort_t1 = s1.numberTillerCohort;
+        
+        ...  
+              
     }
-}
 
-public static class Estimation_ShootNumber
-{
-    public static ShootNumber CalculateShootNumber(double canopyShootNumber,double leafNumber,int sowingDensity,double targetFertileShoot,List<double> tilleringProfile,List<int> leafTillerNumberArray,int tillerNumber)
-    {
-
-
-/*
-     CalculateShootNumber Model
-
-    Author: 
-    Reference: Modeling development phase in the 
-                Wheat Simulation Model SiriusQuality.
-                See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427
-    Instituton: INRA/LEPSE Montpellier
-    Abstract: calculate the shoot number and update the related variables if needed
-    
-*/
         double averageShootNumberPerPlant;
-
-        double oldCanopyShootNumber;
-        int emergedLeaves, shoots, i;
-        oldCanopyShootNumber = canopyShootNumber;
-        emergedLeaves = (int)Math.Max(1, Math.Ceiling(leafNumber - 1));
+        double canopyShootNumber;
+        List<int> leafTillerNumberArray = new List<int>();
+        List<double> tilleringProfile = new List<double>();
+        int numberTillerCohort;
+        int emergedLeaves;
+        int shoots;
+        int i;
+        List<int> lNumberArray_rate = new List<int>();
+        emergedLeaves = Math.Max(1, (int) Math.Ceiling(leafNumber - 1.0d));
         shoots = fibonacci(emergedLeaves);
-        canopyShootNumber = Math.Min(Shoots * sowingDensity, targetFertileShoot);
-        AverageShootNumberPerPlant = canopyShootNumber / sowingDensity;
-        if (canopyShootNumber != oldCanopyShootNumber)
+        canopyShootNumber = Math.Min(shoots * sowingDensity, targetFertileShoot);
+        averageShootNumberPerPlant = canopyShootNumber / sowingDensity;
+        if (canopyShootNumber != canopyShootNumber_t1)
         {
-        	tilleringProfile.Add(canopyShootNumber - oldCanopyShootNumber);
-        }		
-        tillerNumber = tilleringProfile.Count;		
-        for (i = leafTillerNumberArray.Count; i < Math.Ceiling(leafNumber); i++)
-        {
-        	leafTillerNumberArray.Add(tillerNumber);
+            tilleringProfile = new List<double>(tilleringProfile_t1);
+            tilleringProfile.Add(canopyShootNumber - canopyShootNumber_t1);
         }
-        return new ShootNumber(averageShootNumberPerPlant,canopyShootNumber,leafTillerNumberArray,tilleringProfile,tillerNumber);
+        numberTillerCohort = tilleringProfile.Count;
+        for (i=leafTillerNumberArray_t1.Count ; i<(int) Math.Ceiling(leafNumber) ; i+=1)
+        {
+            lNumberArray_rate.Add(numberTillerCohort);
+        }
+        leafTillerNumberArray = new List<int>(leafTillerNumberArray_t1);
+        leafTillerNumberArray.AddRange(lNumberArray_rate);
+        s.averageShootNumberPerPlant= averageShootNumberPerPlant;
+        s.canopyShootNumber= canopyShootNumber;
+        s.leafTillerNumberArray= leafTillerNumberArray;
+        s.tilleringProfile= tilleringProfile;
+        s.numberTillerCohort= numberTillerCohort;
+    }
+    public static int fibonacci(int n)
+    {
+        if (n <= 1)
+        {
+            return n;
+        }
+        else
+        {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    }
+    public void Init(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
+    {
+        double canopyShootNumber_t1;
+        double leafNumber;
+        List<double> tilleringProfile_t1 = new List<double>();
+        List<int> leafTillerNumberArray_t1 = new List<int>();
+        int numberTillerCohort_t1;
+        double averageShootNumberPerPlant;
+        double canopyShootNumber;
+        List<int> leafTillerNumberArray = new List<int>();
+        List<double> tilleringProfile = new List<double>();
+        int numberTillerCohort;
+        canopyShootNumber = sowingDensity;
+        averageShootNumberPerPlant = 1.0d;
+        tilleringProfile.Add(sowingDensity);
+        numberTillerCohort = 1;
+        leafTillerNumberArray = new List<int>{};
+        s.averageShootNumberPerPlant= averageShootNumberPerPlant;
+        s.canopyShootNumber= canopyShootNumber;
+        s.leafTillerNumberArray= leafTillerNumberArray;
+        s.tilleringProfile= tilleringProfile;
+        s.numberTillerCohort= numberTillerCohort;
     }
 }
-

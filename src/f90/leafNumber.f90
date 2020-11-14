@@ -1,58 +1,96 @@
-MODULE leafNumberModule
-    USE crop2mlModules
+MODULE Leafnumbermod
     IMPLICIT NONE
-
 CONTAINS
 
-    SUBROUTINE Calculate_LeafNumber(deltaTT,phyllochron,hasFlagLeafLiguleAppeared,&
-            switchMaize, atip,leaf_tip_emerg,k_bl, nlim, leafNumber,&
-            cumulTTPhenoMaizeAtEmergence, cumulTT,phase, ntip)
-        !inputs
-        INTEGER , INTENT(IN):: hasFlagLeafLiguleAppeared, switchMaize
-        REAL, INTENT(IN):: deltaTT, atip, leaf_tip_emerg, k_bl, &
-            nlim, cumulTT,phase
-        !outputs
-        REAL, INTENT(INOUT):: leafNumber, cumulTTPhenoMaizeAtEmergence, phyllochron
-        REAL, INTENT(OUT) ::  ntip
-        REAL :: leafNumber1, abl, nextstartExpTT, tt_lim_lip, tt_bl, bbl, nexttipTT
-
-        leafNumber1 =leafNumber
-        ntip=0
-        IF ((phase .EQ. 1) .AND. (cumulTTPhenoMaizeAtEmergence .EQ. 0)) THEN
-            cumulTTPhenoMaizeAtEmergence = cumulTT
-        END IF
-        IF ((phase .GE. 1) .AND. (phase .LT. 4)) THEN
-            IF (hasFlagLeafLiguleAppeared .EQ. 0) THEN
-                IF (switchMaize .EQ. 0) THEN
-                    IF (phyllochron .EQ. 0.0) THEN
-                        phyllochron = 0.0000001
-                    END IF
-                    leafNumber = leafNumber1 + MIN(deltaTT / phyllochron, 0.999)
-                    ntip=0.0
+    SUBROUTINE model_leafnumber(deltaTT, &
+        phyllochron_t1, &
+        hasFlagLeafLiguleAppeared, &
+        leafNumber_t1, &
+        phase, &
+        leafNumber)
+        IMPLICIT NONE
+        REAL, INTENT(IN) :: deltaTT
+        REAL, INTENT(IN) :: phyllochron_t1
+        INTEGER, INTENT(IN) :: hasFlagLeafLiguleAppeared
+        REAL, INTENT(IN) :: leafNumber_t1
+        REAL, INTENT(IN) :: phase
+        REAL, INTENT(OUT) :: leafNumber
+        REAL:: phyllochron_
+        !- Description:
+    !            * Title: CalculateLeafNumber Model
+    !            * Author: Pierre MARTRE
+    !            * Reference: Modeling development phase in the 
+    !                Wheat Simulation Model SiriusQuality.
+    !                See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427
+    !            * Institution: INRA Montpellier
+    !            * Abstract: calculate leaf number. LeafNumber increase is caped at one more leaf per day
+        !- inputs:
+    !            * name: deltaTT
+    !                          ** description : daily delta TT 
+    !                          ** variablecategory : auxiliary
+    !                          ** datatype : DOUBLE
+    !                          ** min : -20
+    !                          ** max : 100
+    !                          ** default : 23.5895677277199
+    !                          ** unit : °C d
+    !                          ** inputtype : variable
+    !            * name: phyllochron_t1
+    !                          ** description : phyllochron
+    !                          ** variablecategory : state
+    !                          ** inputtype : variable
+    !                          ** datatype : DOUBLE
+    !                          ** min : 0
+    !                          ** max : 1000
+    !                          ** default : 0
+    !                          ** unit : °C d leaf-1
+    !            * name: hasFlagLeafLiguleAppeared
+    !                          ** description : true if flag leaf has appeared (leafnumber reached finalLeafNumber)
+    !                          ** variablecategory : state
+    !                          ** datatype : INT
+    !                          ** min : 0
+    !                          ** max : 1
+    !                          ** default : 0
+    !                          ** unit : 
+    !                          ** inputtype : variable
+    !            * name: leafNumber_t1
+    !                          ** description :  Actual number of phytomers
+    !                          ** variablecategory : state
+    !                          ** datatype : DOUBLE
+    !                          ** min : 0
+    !                          ** max : 25
+    !                          ** default : 0
+    !                          ** unit : leaf
+    !                          ** inputtype : variable
+    !            * name: phase
+    !                          ** description :  the name of the phase
+    !                          ** variablecategory : state
+    !                          ** datatype : DOUBLE
+    !                          ** min : 0
+    !                          ** max : 7
+    !                          ** default : 1
+    !                          ** unit :  
+    !                          ** uri : some url
+    !                          ** inputtype : variable
+        !- outputs:
+    !            * name: leafNumber
+    !                          ** description : Actual number of phytomers
+    !                          ** variablecategory : state
+    !                          ** datatype : DOUBLE
+    !                          ** min : 0
+    !                          ** max : 10000
+    !                          ** unit : leaf
+    !                          ** uri : some url
+        leafNumber = leafNumber_t1
+        IF(phase .GE. 1.0 .AND. phase .LT. 4.0) THEN
+            IF(hasFlagLeafLiguleAppeared .EQ. 0) THEN
+                IF(phyllochron_t1 .EQ. 0.0) THEN
+                    phyllochron_ = 0.0000001
                 ELSE
-                    IF (leafNumber1 .LT. leaf_tip_emerg) THEN
-                        leafNumber = leaf_tip_emerg
-                    ELSE
-                        nextstartExpTT = 0
-                        nexttipTT = ((leafNumber1 + 1) - leaf_tip_emerg) / atip + cumulTTPhenoMaizeAtEmergence
-                        abl = k_bl * atip
-                        tt_lim_lip = ((nlim - leaf_tip_emerg) / atip) + cumulTTPhenoMaizeAtEmergence
-                        bbl = nlim - (abl * tt_lim_lip)
-                        tt_bl = ((leafNumber1 + 1) - bbl) / abl
-                        IF (tt_bl .GT. nexttipTT) THEN
-                            nextstartExpTT = nexttipTT
-                        ELSE
-                            nextstartExpTT = tt_bl
-                        ENDIF
-                        IF (cumulTT .GE. nextstartExpTT) THEN
-                            leafNumber = leafNumber1 + 1
-                        ELSE
-                            leafNumber = leafNumber1
-                        END IF
-                    END IF
-                    ntip = atip * (cumulTT - cumulTTPhenoMaizeAtEmergence) + leaf_tip_emerg
+                    phyllochron_ = phyllochron_t1
                 END IF
+                leafNumber = leafNumber_t1 + min(deltaTT / phyllochron_, 0.999)
             END IF
         END IF
-    END SUBROUTINE
+    END SUBROUTINE model_leafnumber
+
 END MODULE
