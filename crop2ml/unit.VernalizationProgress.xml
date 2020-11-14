@@ -17,13 +17,13 @@
     	</Abstract>
     </Description>
     <Inputs>
-        <Input name="dayLength" description="day length" datatype="DOUBLE" min="0" max="10000" default="12.3037621834005" unit="mm2 m-2"  inputtype="variable"/>
-        <Input name="deltaTT" description="difference cumul TT between j and j-1 day " inputtype ="variable" datatype="DOUBLE" min="-20" max="100" default="20.3429985011972" unit="°C d" />
-        <Input name="cumulTT" description="cumul thermal times at currentdate"  datatype="DOUBLE" min="-200" max="10000" default="112.330110409888" unit="°C d"  inputtype = "variable"/>
-        <Input name="leafNumber" description="Actual number of phytomers" variablecategory="state" datatype="DOUBLE" min="0" max="25" default="0" unit="leaf"  inputtype = "variable"/>
-        <Input name="calendarMoments" description="List containing appearance of each stage" variablecategory="auxiliary"  datatype="STRINGLIST"  default= "['Sowing']" unit=""  inputtype = "variable"/>
-        <Input name="calendarDates" description="List containing  the dates of the wheat developmental phases" variablecategory="auxiliary" datatype="DATELIST" default="['21/3/2007']" unit=""  inputtype = "variable"/>
-        <Input name="calendarCumuls" description="list containing for each stage occured its cumulated thermal times" variablecategory="auxiliary"  datatype="DOUBLELIST" default="[0.0]" unit=""  inputtype = "variable"/>
+        <Input name="dayLength" description="day length" variablecategory="auxiliary" datatype="DOUBLE" min="0" max="10000" default="12.3037621834005" unit="mm2 m-2"  inputtype="variable"/>
+        <Input name="deltaTT" description="difference cumul TT between j and j-1 day " variablecategory="auxiliary" inputtype ="variable" datatype="DOUBLE" min="-20" max="100" default="20.3429985011972" unit="°C d" />
+        <Input name="cumulTT" description="cumul thermal times at currentdate" variablecategory="auxiliary" datatype="DOUBLE" min="-200" max="10000" default="112.330110409888" unit="°C d"  inputtype = "variable"/>
+        <Input name="leafNumber_t1" description="Actual number of phytomers" variablecategory="state" datatype="DOUBLE" min="0" max="25" default="0" unit="leaf"  inputtype = "variable"/>
+        <Input name="calendarMoments_t1" description="List containing appearance of each stage" variablecategory="state"  datatype="STRINGLIST"  default= "['Sowing']" unit=""  inputtype = "variable"/>
+        <Input name="calendarDates_t1" description="List containing  the dates of the wheat developmental phases" variablecategory="state" datatype="DATELIST" default="['2007/3/21']" unit=""  inputtype = "variable"/>
+        <Input name="calendarCumuls_t1" description="list containing for each stage occured its cumulated thermal times" variablecategory="state"  datatype="DOUBLELIST" default="[0.0]" unit=""  inputtype = "variable"/>
         <Input name="minTvern" description="Minimum temperature for vernalization to occur" parametercategory="species" datatype="DOUBLE" min="-20" max="60" default="0.0" unit="°C"  inputtype = "parameter"/>
         <Input name="intTvern" description="Intermediate temperature for vernalization to occur" parametercategory="species" datatype="DOUBLE" min="-20" max="60" default=" 11.0" unit="°C"  inputtype = "parameter"/>
         <Input name="vAI" description="Response of vernalization rate to temperature" parametercategory="species" datatype="DOUBLE" min="0" max="1" default=" 0.015" unit="d-1 °C-1"  inputtype = "parameter"/>
@@ -33,34 +33,37 @@
         <Input name="maxTvern" description="Maximum temperature for vernalization to occur" parametercategory="species" datatype="DOUBLE" min="-20" max="60" default=" 23.0" unit="°C"  inputtype = "parameter"/>
         <Input name="pNini" description="Number of primorida in the apex at emergence" parametercategory="species" datatype="DOUBLE" min="0" max="24" default="4.0" unit="primordia"  inputtype = "parameter"/>
         <Input name="aMXLFNO" description="Absolute maximum leaf number" parametercategory="species" datatype="DOUBLE" min="0" max="25" default="24.0" unit="leaf"  inputtype = "parameter"/>
-        <Input name="vernaprog" description="progression on a 0  to 1 scale of the vernalization" variablecategory="state" datatype="DOUBLE" min="0" max="1" default=" 0.5517254187376879" unit=""  inputtype = "parameter"/>
-        <Input name="currentdate" description="current date " variablecategory="auxiliary"  datatype="DATE" default="27/3/2007"  inputtype = "variable"/>
-        <Input name="isVernalizable" description="true if the plant is vernalizable"  datatype="INT" min="0" max="1" default="1" unit=""  inputtype = "parameter"/>
-        <Input name="minFinalNumber" description="minimum final leaf number"  datatype="DOUBLE" min="0" max="25" default="5.5" unit="leaf"  inputtype = "variable" variablecategory="state"/>
+        <Input name="vernaprog_t1" description="progression on a 0  to 1 scale of the vernalization" variablecategory="state" datatype="DOUBLE" min="0" max="1" default=" 0.5517254187376879" unit=""  inputtype = "variable"/>
+        <Input name="currentdate" description="current date " variablecategory="auxiliary"  datatype="DATE" default="2007/3/27"   inputtype = "variable" unit="" />
+        <Input name="isVernalizable" description="true if the plant is vernalizable" parametercategory="species"  datatype="INT" min="0" max="1" default="1" unit=""  inputtype = "parameter"/>
+        <Input name="minFinalNumber_t1" description="minimum final leaf number"  datatype="DOUBLE" min="0" max="25" default="5.5" unit="leaf"  inputtype = "variable" variablecategory="state"/>
      
     </Inputs>
  
     <Outputs>
-        <Output name="vernaprog" description="progression on a 0  to 1 scale of the vernalization" datatype="DOUBLE" min="0" max="10000"  unit=""  />
-        <Output name="minFinalNumber" description="minimum final leaf number" datatype="DOUBLE" min="0" max="10000" unit="leaf"  />
-        <Output name="calendarMoments" description="List containing appearance of each stage" variablecategory="auxiliary"  datatype="STRINGLIST"   unit="" />
-        <Output name="calendarDates" description="List containing  the dates of the wheat developmental phases" variablecategory="auxiliary" datatype="DATELIST" unit="" />
-        <Output name="calendarCumuls" description="list containing for each stage occured its cumulated thermal times" variablecategory="auxiliary"  datatype="DOUBLELIST"  unit="" />
+        <Output name="vernaprog" description="progression on a 0  to 1 scale of the vernalization" variablecategory="state" datatype="DOUBLE" min="0" max="10000"  unit=""  />
+        <Output name="minFinalNumber" description="minimum final leaf number" variablecategory="state" datatype="DOUBLE" min="0" max="10000" unit="leaf"  />
+        <Output name="calendarMoments" description="List containing appearance of each stage" variablecategory="state"  datatype="STRINGLIST"   unit="" />
+        <Output name="calendarDates" description="List containing  the dates of the wheat developmental phases" variablecategory="state" datatype="DATELIST" unit="" />
+        <Output name="calendarCumuls" description="list containing for each stage occured its cumulated thermal times" variablecategory="state"  datatype="DOUBLELIST"  unit="" />
  	
     </Outputs>
 
-	<Algorithm  language="Python" platform="" filename="algo/py/VernalizationProgress.py" />
-	<Algorithm  language="C#" platform="" filename="algo/cs/VernalizationProgress.cs" />
-	<Algorithm  language="Java" platform="" filename="algo/java/VernalizationProgress.java" />
-	<Algorithm  language="C++" platform="" filename="algo/cpp/VernalizationProgress.cpp" />
-	<Algorithm  language="Fortran" platform="" filename="algo/f90/VernalizationProgress.f90" />
 	<Algorithm  language="Cyml" platform="" filename="algo/pyx/VernalizationProgress.pyx" />
-	<Algorithm  language="R" platform="" filename="algo/r/VernalizationProgress.r" />
 
     
     <Parametersets>
             <Parameterset name="wheat" description="some values in there" >
         	<Param name="isVernalizable">1</Param>
+            <Param name="minTvern">0.0</Param>
+            <Param name="intTvern">11.0</Param>
+            <Param name="vAI">0.015</Param>
+            <Param name="vBEE">0.01</Param>
+            <Param name="minDL">8.0</Param>
+            <Param name="maxDL">15.0</Param>
+            <Param name="maxTvern">23.0</Param>
+            <Param name="pNini">4.0</Param>
+            <Param name="aMXLFNO">24.0</Param>
         </Parameterset>
      </Parametersets>
      <Testsets>
@@ -70,7 +73,7 @@
 				<OutputValue name="vernaprog" precision ="2">0.64</OutputValue>
 				<OutputValue name="minFinalNumber" precision ="2">5.5</OutputValue>
 				<OutputValue name="calendarMoments" >["Sowing"]</OutputValue>        	
-    			<OutputValue name="calendarDates" >["21/3/2007"]</OutputValue>        	
+    			<OutputValue name="calendarDates" >["2007/3/21"]</OutputValue>        	
 			    <OutputValue name="calendarCumuls" precision="2">[0.0]</OutputValue>        	
  
         	</Test>
