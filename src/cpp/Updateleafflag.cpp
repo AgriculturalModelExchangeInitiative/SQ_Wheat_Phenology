@@ -128,22 +128,22 @@ void Updateleafflag::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phen
     //                          ** variablecategory : state
     //                          ** datatype : DOUBLELIST
     //                          ** unit : °C d
-    float cumulTT = a.getcumulTT();
-    float leafNumber = s.getleafNumber();
+    double cumulTT = a.getcumulTT();
+    double leafNumber = s.getleafNumber();
     vector<string> calendarMoments = s.getcalendarMoments();
     vector<string> calendarDates = s.getcalendarDates();
-    vector<float> calendarCumuls = s.getcalendarCumuls();
+    vector<double> calendarCumuls = s.getcalendarCumuls();
     string currentdate = a.getcurrentdate();
-    float finalLeafNumber = s.getfinalLeafNumber();
+    double finalLeafNumber = s.getfinalLeafNumber();
     int hasFlagLeafLiguleAppeared_t1 = s1.gethasFlagLeafLiguleAppeared();
-    float phase = s.getphase();
+    double phase = s.getphase();
     int hasFlagLeafLiguleAppeared;
     hasFlagLeafLiguleAppeared = 0;
-    if (phase >= 1.0f && phase < 4.0f)
+    if (phase >= 1.0d && phase < 4.0d)
     {
-        if (leafNumber > 0.0f)
+        if (leafNumber > 0.0d)
         {
-            if (hasFlagLeafLiguleAppeared == 0 && (finalLeafNumber > 0.0f && leafNumber >= finalLeafNumber))
+            if (hasFlagLeafLiguleAppeared == 0 && (finalLeafNumber > 0.0d && leafNumber >= finalLeafNumber))
             {
                 hasFlagLeafLiguleAppeared = 1;
                 if (!(find(calendarMoments.begin(), calendarMoments.end(), "FlagLeafLiguleJustVisible") != calendarMoments.end()))

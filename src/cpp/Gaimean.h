@@ -10,12 +10,12 @@ using namespace std;
 class Gaimean
 {
     private:
-        float tTWindowForPTQ;
+        double tTWindowForPTQ;
     public:
         Gaimean();
         void  Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a);
         void  Init(PhenologyState& s,PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a);
-        float gettTWindowForPTQ();
-        void settTWindowForPTQ(float _tTWindowForPTQ);
+        double gettTWindowForPTQ();
+        void settTWindowForPTQ(double _tTWindowForPTQ);
 
 };

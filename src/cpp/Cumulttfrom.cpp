@@ -70,14 +70,14 @@ void Cumulttfrom::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolo
     //                          ** max : 5000
     //                          ** unit : °C d
     vector<string> calendarMoments_t1 = s1.getcalendarMoments();
-    vector<float> calendarCumuls_t1 = s1.getcalendarCumuls();
-    float cumulTT = a.getcumulTT();
-    float cumulTTFromZC_65;
-    float cumulTTFromZC_39;
-    float cumulTTFromZC_91;
-    cumulTTFromZC_65 = 0.0f;
-    cumulTTFromZC_39 = 0.0f;
-    cumulTTFromZC_91 = 0.0f;
+    vector<double> calendarCumuls_t1 = s1.getcalendarCumuls();
+    double cumulTT = a.getcumulTT();
+    double cumulTTFromZC_65;
+    double cumulTTFromZC_39;
+    double cumulTTFromZC_91;
+    cumulTTFromZC_65 = 0.0d;
+    cumulTTFromZC_39 = 0.0d;
+    cumulTTFromZC_91 = 0.0d;
     if (find(calendarMoments_t1.begin(), calendarMoments_t1.end(), "Anthesis") != calendarMoments_t1.end())
     {
         cumulTTFromZC_65 = cumulTT - calendarCumuls_t1[find(calendarMoments_t1.begin(), calendarMoments_t1.end(), "Anthesis") - calendarMoments_t1.begin()];

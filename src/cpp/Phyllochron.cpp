@@ -12,36 +12,36 @@
 using namespace std;
 
 Phyllochron::Phyllochron() { }
-float Phyllochron::getlincr() {return this-> lincr; }
-float Phyllochron::getldecr() {return this-> ldecr; }
-float Phyllochron::getpdecr() {return this-> pdecr; }
-float Phyllochron::getpincr() {return this-> pincr; }
-float Phyllochron::getkl() {return this-> kl; }
-float Phyllochron::getpTQhf() {return this-> pTQhf; }
-float Phyllochron::getB() {return this-> B; }
-float Phyllochron::getp() {return this-> p; }
+double Phyllochron::getlincr() {return this-> lincr; }
+double Phyllochron::getldecr() {return this-> ldecr; }
+double Phyllochron::getpdecr() {return this-> pdecr; }
+double Phyllochron::getpincr() {return this-> pincr; }
+double Phyllochron::getkl() {return this-> kl; }
+double Phyllochron::getpTQhf() {return this-> pTQhf; }
+double Phyllochron::getB() {return this-> B; }
+double Phyllochron::getp() {return this-> p; }
 string Phyllochron::getchoosePhyllUse() {return this-> choosePhyllUse; }
-float Phyllochron::getareaSL() {return this-> areaSL; }
-float Phyllochron::getareaSS() {return this-> areaSS; }
-float Phyllochron::getlARmin() {return this-> lARmin; }
-float Phyllochron::getlARmax() {return this-> lARmax; }
-float Phyllochron::getsowingDensity() {return this-> sowingDensity; }
-float Phyllochron::getlNeff() {return this-> lNeff; }
-void Phyllochron::setlincr(float _lincr) { this->lincr = _lincr; }
-void Phyllochron::setldecr(float _ldecr) { this->ldecr = _ldecr; }
-void Phyllochron::setpdecr(float _pdecr) { this->pdecr = _pdecr; }
-void Phyllochron::setpincr(float _pincr) { this->pincr = _pincr; }
-void Phyllochron::setkl(float _kl) { this->kl = _kl; }
-void Phyllochron::setpTQhf(float _pTQhf) { this->pTQhf = _pTQhf; }
-void Phyllochron::setB(float _B) { this->B = _B; }
-void Phyllochron::setp(float _p) { this->p = _p; }
+double Phyllochron::getareaSL() {return this-> areaSL; }
+double Phyllochron::getareaSS() {return this-> areaSS; }
+double Phyllochron::getlARmin() {return this-> lARmin; }
+double Phyllochron::getlARmax() {return this-> lARmax; }
+double Phyllochron::getsowingDensity() {return this-> sowingDensity; }
+double Phyllochron::getlNeff() {return this-> lNeff; }
+void Phyllochron::setlincr(double _lincr) { this->lincr = _lincr; }
+void Phyllochron::setldecr(double _ldecr) { this->ldecr = _ldecr; }
+void Phyllochron::setpdecr(double _pdecr) { this->pdecr = _pdecr; }
+void Phyllochron::setpincr(double _pincr) { this->pincr = _pincr; }
+void Phyllochron::setkl(double _kl) { this->kl = _kl; }
+void Phyllochron::setpTQhf(double _pTQhf) { this->pTQhf = _pTQhf; }
+void Phyllochron::setB(double _B) { this->B = _B; }
+void Phyllochron::setp(double _p) { this->p = _p; }
 void Phyllochron::setchoosePhyllUse(string _choosePhyllUse) { this->choosePhyllUse = _choosePhyllUse; }
-void Phyllochron::setareaSL(float _areaSL) { this->areaSL = _areaSL; }
-void Phyllochron::setareaSS(float _areaSS) { this->areaSS = _areaSS; }
-void Phyllochron::setlARmin(float _lARmin) { this->lARmin = _lARmin; }
-void Phyllochron::setlARmax(float _lARmax) { this->lARmax = _lARmax; }
-void Phyllochron::setsowingDensity(float _sowingDensity) { this->sowingDensity = _sowingDensity; }
-void Phyllochron::setlNeff(float _lNeff) { this->lNeff = _lNeff; }
+void Phyllochron::setareaSL(double _areaSL) { this->areaSL = _areaSL; }
+void Phyllochron::setareaSS(double _areaSS) { this->areaSS = _areaSS; }
+void Phyllochron::setlARmin(double _lARmin) { this->lARmin = _lARmin; }
+void Phyllochron::setlARmax(double _lARmax) { this->lARmax = _lARmax; }
+void Phyllochron::setsowingDensity(double _sowingDensity) { this->sowingDensity = _sowingDensity; }
+void Phyllochron::setlNeff(double _lNeff) { this->lNeff = _lNeff; }
 void Phyllochron::Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a)
 {
     //- Name: Phyllochron -Version: 1.0, -Time step: 1
@@ -253,16 +253,16 @@ void Phyllochron::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolo
     //                          ** max : 1000
     //                          ** unit :  °C d leaf-1
     //                          ** uri : some url
-    float fixPhyll = a.getfixPhyll();
-    float leafNumber = s.getleafNumber();
-    float ptq = s.getptq();
-    float gAImean = s.getgAImean();
-    float phyllochron;
-    float gaiLim;
-    float LAR;
-    phyllochron = 0.0f;
-    LAR = 0.0f;
-    gaiLim = lNeff * ((areaSL + areaSS) / 10000.0f) * sowingDensity;
+    double fixPhyll = a.getfixPhyll();
+    double leafNumber = s.getleafNumber();
+    double ptq = s.getptq();
+    double gAImean = s.getgAImean();
+    double phyllochron;
+    double gaiLim;
+    double LAR;
+    phyllochron = 0.0d;
+    LAR = 0.0d;
+    gaiLim = lNeff * ((areaSL + areaSS) / 10000.0d) * sowingDensity;
     if (choosePhyllUse == "Default")
     {
         if (leafNumber < ldecr)
@@ -288,7 +288,7 @@ void Phyllochron::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolo
         {
             LAR = (lARmin + ((lARmax - lARmin) * ptq / (pTQhf + ptq))) / (B * gaiLim);
         }
-        phyllochron = 1.0f / LAR;
+        phyllochron = 1.0d / LAR;
     }
     if (choosePhyllUse == "Test")
     {

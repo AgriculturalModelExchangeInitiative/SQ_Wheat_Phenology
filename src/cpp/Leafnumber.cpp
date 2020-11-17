@@ -79,27 +79,27 @@ void Leafnumber::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolog
     //                          ** max : 10000
     //                          ** unit : leaf
     //                          ** uri : some url
-    float deltaTT = a.getdeltaTT();
-    float phyllochron_t1 = s1.getphyllochron();
+    double deltaTT = a.getdeltaTT();
+    double phyllochron_t1 = s1.getphyllochron();
     int hasFlagLeafLiguleAppeared = s.gethasFlagLeafLiguleAppeared();
-    float leafNumber_t1 = s1.getleafNumber();
-    float phase = s.getphase();
-    float leafNumber;
+    double leafNumber_t1 = s1.getleafNumber();
+    double phase = s.getphase();
+    double leafNumber;
     leafNumber = leafNumber_t1;
-    float phyllochron_;
-    if (phase >= 1.0f && phase < 4.0f)
+    double phyllochron_;
+    if (phase >= 1.0d && phase < 4.0d)
     {
         if (hasFlagLeafLiguleAppeared == 0)
         {
-            if (phyllochron_t1 == 0.0f)
+            if (phyllochron_t1 == 0.0d)
             {
-                phyllochron_ = 0.0000001f;
+                phyllochron_ = 0.0000001d;
             }
             else
             {
                 phyllochron_ = phyllochron_t1;
             }
-            leafNumber = leafNumber_t1 + min(deltaTT / phyllochron_, 0.999f);
+            leafNumber = leafNumber_t1 + min(deltaTT / phyllochron_, 0.999d);
         }
     }
     s.setleafNumber(leafNumber);

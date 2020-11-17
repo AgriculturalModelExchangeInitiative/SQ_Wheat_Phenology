@@ -12,25 +12,25 @@
 using namespace std;
 
 Vernalizationprogress::Vernalizationprogress() { }
-float Vernalizationprogress::getminTvern() {return this-> minTvern; }
-float Vernalizationprogress::getintTvern() {return this-> intTvern; }
-float Vernalizationprogress::getvAI() {return this-> vAI; }
-float Vernalizationprogress::getvBEE() {return this-> vBEE; }
-float Vernalizationprogress::getminDL() {return this-> minDL; }
-float Vernalizationprogress::getmaxDL() {return this-> maxDL; }
-float Vernalizationprogress::getmaxTvern() {return this-> maxTvern; }
-float Vernalizationprogress::getpNini() {return this-> pNini; }
-float Vernalizationprogress::getaMXLFNO() {return this-> aMXLFNO; }
+double Vernalizationprogress::getminTvern() {return this-> minTvern; }
+double Vernalizationprogress::getintTvern() {return this-> intTvern; }
+double Vernalizationprogress::getvAI() {return this-> vAI; }
+double Vernalizationprogress::getvBEE() {return this-> vBEE; }
+double Vernalizationprogress::getminDL() {return this-> minDL; }
+double Vernalizationprogress::getmaxDL() {return this-> maxDL; }
+double Vernalizationprogress::getmaxTvern() {return this-> maxTvern; }
+double Vernalizationprogress::getpNini() {return this-> pNini; }
+double Vernalizationprogress::getaMXLFNO() {return this-> aMXLFNO; }
 int Vernalizationprogress::getisVernalizable() {return this-> isVernalizable; }
-void Vernalizationprogress::setminTvern(float _minTvern) { this->minTvern = _minTvern; }
-void Vernalizationprogress::setintTvern(float _intTvern) { this->intTvern = _intTvern; }
-void Vernalizationprogress::setvAI(float _vAI) { this->vAI = _vAI; }
-void Vernalizationprogress::setvBEE(float _vBEE) { this->vBEE = _vBEE; }
-void Vernalizationprogress::setminDL(float _minDL) { this->minDL = _minDL; }
-void Vernalizationprogress::setmaxDL(float _maxDL) { this->maxDL = _maxDL; }
-void Vernalizationprogress::setmaxTvern(float _maxTvern) { this->maxTvern = _maxTvern; }
-void Vernalizationprogress::setpNini(float _pNini) { this->pNini = _pNini; }
-void Vernalizationprogress::setaMXLFNO(float _aMXLFNO) { this->aMXLFNO = _aMXLFNO; }
+void Vernalizationprogress::setminTvern(double _minTvern) { this->minTvern = _minTvern; }
+void Vernalizationprogress::setintTvern(double _intTvern) { this->intTvern = _intTvern; }
+void Vernalizationprogress::setvAI(double _vAI) { this->vAI = _vAI; }
+void Vernalizationprogress::setvBEE(double _vBEE) { this->vBEE = _vBEE; }
+void Vernalizationprogress::setminDL(double _minDL) { this->minDL = _minDL; }
+void Vernalizationprogress::setmaxDL(double _maxDL) { this->maxDL = _maxDL; }
+void Vernalizationprogress::setmaxTvern(double _maxTvern) { this->maxTvern = _maxTvern; }
+void Vernalizationprogress::setpNini(double _pNini) { this->pNini = _pNini; }
+void Vernalizationprogress::setaMXLFNO(double _aMXLFNO) { this->aMXLFNO = _aMXLFNO; }
 void Vernalizationprogress::setisVernalizable(int _isVernalizable) { this->isVernalizable = _isVernalizable; }
 void Vernalizationprogress::Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a)
 {
@@ -252,33 +252,33 @@ void Vernalizationprogress::Calculate_Model(PhenologyState& s, PhenologyState& s
     //                          ** variablecategory : state
     //                          ** datatype : DOUBLELIST
     //                          ** unit : 
-    float dayLength = a.getdayLength();
-    float deltaTT = a.getdeltaTT();
-    float cumulTT = a.getcumulTT();
-    float leafNumber_t1 = s1.getleafNumber();
+    double dayLength = a.getdayLength();
+    double deltaTT = a.getdeltaTT();
+    double cumulTT = a.getcumulTT();
+    double leafNumber_t1 = s1.getleafNumber();
     vector<string> calendarMoments_t1 = s1.getcalendarMoments();
     vector<string> calendarDates_t1 = s1.getcalendarDates();
-    vector<float> calendarCumuls_t1 = s1.getcalendarCumuls();
-    float vernaprog_t1 = s1.getvernaprog();
+    vector<double> calendarCumuls_t1 = s1.getcalendarCumuls();
+    double vernaprog_t1 = s1.getvernaprog();
     string currentdate = a.getcurrentdate();
-    float minFinalNumber_t1 = s1.getminFinalNumber();
-    float vernaprog;
-    float minFinalNumber;
+    double minFinalNumber_t1 = s1.getminFinalNumber();
+    double vernaprog;
+    double minFinalNumber;
     vector<string> calendarMoments;
     vector<string> calendarDates;
-    vector<float> calendarCumuls;
-    float maxVernaProg;
-    float dLverna;
-    float primordno;
-    float minLeafNumber;
-    float potlfno;
-    float tt;
+    vector<double> calendarCumuls;
+    double maxVernaProg;
+    double dLverna;
+    double primordno;
+    double minLeafNumber;
+    double potlfno;
+    double tt;
     calendarMoments = calendarMoments_t1;
     calendarCumuls = calendarCumuls_t1;
     calendarDates = calendarDates_t1;
     minFinalNumber = minFinalNumber_t1;
     vernaprog = vernaprog_t1;
-    if (isVernalizable == 1 && vernaprog_t1 < 1.0f)
+    if (isVernalizable == 1 && vernaprog_t1 < 1.0d)
     {
         tt = deltaTT;
         if (tt >= minTvern && tt <= intTvern)
@@ -293,25 +293,25 @@ void Vernalizationprogress::Calculate_Model(PhenologyState& s, PhenologyState& s
         {
             maxVernaProg = vAI * intTvern + vBEE;
             dLverna = max(minDL, min(maxDL, dayLength));
-            vernaprog = vernaprog + max(0.0f, maxVernaProg * (1.0f + ((intTvern - tt) / (maxTvern - intTvern) * ((dLverna - minDL) / (maxDL - minDL)))));
+            vernaprog = vernaprog + max(0.0d, maxVernaProg * (1.0d + ((intTvern - tt) / (maxTvern - intTvern) * ((dLverna - minDL) / (maxDL - minDL)))));
         }
-        primordno = 2.0f * leafNumber_t1 + pNini;
+        primordno = 2.0d * leafNumber_t1 + pNini;
         minLeafNumber = minFinalNumber_t1;
-        if (vernaprog >= 1.0f || primordno >= aMXLFNO)
+        if (vernaprog >= 1.0d || primordno >= aMXLFNO)
         {
             minFinalNumber = max(primordno, minFinalNumber_t1);
             calendarMoments.push_back("EndVernalisation");
             calendarCumuls.push_back(cumulTT);
             calendarDates.push_back(currentdate);
-            vernaprog = max(1.0f, vernaprog);
+            vernaprog = max(1.0d, vernaprog);
         }
         else
         {
             potlfno = aMXLFNO - ((aMXLFNO - minLeafNumber) * vernaprog);
             if (primordno >= potlfno)
             {
-                minFinalNumber = max((potlfno + primordno) / 2.0f, minFinalNumber_t1);
-                vernaprog = max(1.0f, vernaprog);
+                minFinalNumber = max((potlfno + primordno) / 2.0d, minFinalNumber_t1);
+                vernaprog = max(1.0d, vernaprog);
                 calendarMoments.push_back("EndVernalisation");
                 calendarCumuls.push_back(cumulTT);
                 calendarDates.push_back(currentdate);

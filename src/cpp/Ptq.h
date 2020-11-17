@@ -10,15 +10,15 @@ using namespace std;
 class Ptq
 {
     private:
-        float tTWindowForPTQ;
-        float kl;
+        double tTWindowForPTQ;
+        double kl;
     public:
         Ptq();
         void  Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a);
         void  Init(PhenologyState& s,PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a);
-        float gettTWindowForPTQ();
-        void settTWindowForPTQ(float _tTWindowForPTQ);
-        float getkl();
-        void setkl(float _kl);
+        double gettTWindowForPTQ();
+        void settTWindowForPTQ(double _tTWindowForPTQ);
+        double getkl();
+        void setkl(double _kl);
 
 };

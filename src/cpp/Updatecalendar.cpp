@@ -86,49 +86,49 @@ void Updatecalendar::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phen
     //                          ** variablecategory : state
     //                          ** datatype : DOUBLELIST
     //                          ** unit : °C d
-    float cumulTT = a.getcumulTT();
+    double cumulTT = a.getcumulTT();
     vector<string> calendarMoments = s.getcalendarMoments();
     vector<string> calendarDates = s.getcalendarDates();
-    vector<float> calendarCumuls = s.getcalendarCumuls();
+    vector<double> calendarCumuls = s.getcalendarCumuls();
     string currentdate = a.getcurrentdate();
-    float phase = s.getphase();
-    if (phase >= 1.0f && phase < 2.0f && !(find(calendarMoments.begin(), calendarMoments.end(), "Emergence") != calendarMoments.end()))
+    double phase = s.getphase();
+    if (phase >= 1.0d && phase < 2.0d && !(find(calendarMoments.begin(), calendarMoments.end(), "Emergence") != calendarMoments.end()))
     {
         calendarMoments.push_back("Emergence");
         calendarCumuls.push_back(cumulTT);
         calendarDates.push_back(currentdate);
     }
-    else if ( phase >= 2.0f && phase < 3.0f && !(find(calendarMoments.begin(), calendarMoments.end(), "FloralInitiation") != calendarMoments.end()))
+    else if ( phase >= 2.0d && phase < 3.0d && !(find(calendarMoments.begin(), calendarMoments.end(), "FloralInitiation") != calendarMoments.end()))
     {
         calendarMoments.push_back("FloralInitiation");
         calendarCumuls.push_back(cumulTT);
         calendarDates.push_back(currentdate);
     }
-    else if ( phase >= 3.0f && phase < 4.0f && !(find(calendarMoments.begin(), calendarMoments.end(), "Heading") != calendarMoments.end()))
+    else if ( phase >= 3.0d && phase < 4.0d && !(find(calendarMoments.begin(), calendarMoments.end(), "Heading") != calendarMoments.end()))
     {
         calendarMoments.push_back("Heading");
         calendarCumuls.push_back(cumulTT);
         calendarDates.push_back(currentdate);
     }
-    else if ( phase == 4.0f && !(find(calendarMoments.begin(), calendarMoments.end(), "Anthesis") != calendarMoments.end()))
+    else if ( phase == 4.0d && !(find(calendarMoments.begin(), calendarMoments.end(), "Anthesis") != calendarMoments.end()))
     {
         calendarMoments.push_back("Anthesis");
         calendarCumuls.push_back(cumulTT);
         calendarDates.push_back(currentdate);
     }
-    else if ( phase == 4.5f && !(find(calendarMoments.begin(), calendarMoments.end(), "EndCellDivision") != calendarMoments.end()))
+    else if ( phase == 4.5d && !(find(calendarMoments.begin(), calendarMoments.end(), "EndCellDivision") != calendarMoments.end()))
     {
         calendarMoments.push_back("EndCellDivision");
         calendarCumuls.push_back(cumulTT);
         calendarDates.push_back(currentdate);
     }
-    else if ( phase >= 5.0f && phase < 6.0f && !(find(calendarMoments.begin(), calendarMoments.end(), "EndGrainFilling") != calendarMoments.end()))
+    else if ( phase >= 5.0d && phase < 6.0d && !(find(calendarMoments.begin(), calendarMoments.end(), "EndGrainFilling") != calendarMoments.end()))
     {
         calendarMoments.push_back("EndGrainFilling");
         calendarCumuls.push_back(cumulTT);
         calendarDates.push_back(currentdate);
     }
-    else if ( phase >= 6.0f && phase < 7.0f && !(find(calendarMoments.begin(), calendarMoments.end(), "Maturity") != calendarMoments.end()))
+    else if ( phase >= 6.0d && phase < 7.0d && !(find(calendarMoments.begin(), calendarMoments.end(), "Maturity") != calendarMoments.end()))
     {
         calendarMoments.push_back("Maturity");
         calendarCumuls.push_back(cumulTT);

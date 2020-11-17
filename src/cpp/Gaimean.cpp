@@ -12,8 +12,8 @@
 using namespace std;
 
 Gaimean::Gaimean() { }
-float Gaimean::gettTWindowForPTQ() {return this-> tTWindowForPTQ; }
-void Gaimean::settTWindowForPTQ(float _tTWindowForPTQ) { this->tTWindowForPTQ = _tTWindowForPTQ; }
+double Gaimean::gettTWindowForPTQ() {return this-> tTWindowForPTQ; }
+void Gaimean::settTWindowForPTQ(double _tTWindowForPTQ) { this->tTWindowForPTQ = _tTWindowForPTQ; }
 void Gaimean::Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a)
 {
     //- Name: GAImean -Version: 1.0, -Time step: 1
@@ -117,21 +117,21 @@ void Gaimean::Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRa
     //                          ** max : 
     //                          ** unit : m2 leaf m-2 ground
     //                          ** uri : 
-    float gAI = a.getgAI();
-    float deltaTT = a.getdeltaTT();
-    float pastMaxAI_t1 = s1.getpastMaxAI();
-    vector<float> listTTShootWindowForPTQ1_t1 = s1.getlistTTShootWindowForPTQ1();
-    vector<float> listGAITTWindowForPTQ_t1 = s1.getlistGAITTWindowForPTQ();
-    float gAImean;
-    float pastMaxAI;
-    vector<float> listTTShootWindowForPTQ1;
-    vector<float> listGAITTWindowForPTQ;
-    vector<float> TTList;
-    vector<float> GAIList;
-    float SumTT;
+    double gAI = a.getgAI();
+    double deltaTT = a.getdeltaTT();
+    double pastMaxAI_t1 = s1.getpastMaxAI();
+    vector<double> listTTShootWindowForPTQ1_t1 = s1.getlistTTShootWindowForPTQ1();
+    vector<double> listGAITTWindowForPTQ_t1 = s1.getlistGAITTWindowForPTQ();
+    double gAImean;
+    double pastMaxAI;
+    vector<double> listTTShootWindowForPTQ1;
+    vector<double> listGAITTWindowForPTQ;
+    vector<double> TTList;
+    vector<double> GAIList;
+    double SumTT;
     int count = 0;
-    float gai_ = 0.0f;
-    float gaiMean_ = 0.0f;
+    double gai_ = 0.0d;
+    double gaiMean_ = 0.0d;
     int countGaiMean = 0;
     int i;
     for (i=0 ; i<listTTShootWindowForPTQ1_t1.size() ; i+=1)

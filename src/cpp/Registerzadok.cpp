@@ -12,13 +12,13 @@
 using namespace std;
 
 Registerzadok::Registerzadok() { }
-float Registerzadok::getder() {return this-> der; }
-float Registerzadok::getslopeTSFLN() {return this-> slopeTSFLN; }
-float Registerzadok::getintTSFLN() {return this-> intTSFLN; }
+double Registerzadok::getder() {return this-> der; }
+double Registerzadok::getslopeTSFLN() {return this-> slopeTSFLN; }
+double Registerzadok::getintTSFLN() {return this-> intTSFLN; }
 string Registerzadok::getsowingDate() {return this-> sowingDate; }
-void Registerzadok::setder(float _der) { this->der = _der; }
-void Registerzadok::setslopeTSFLN(float _slopeTSFLN) { this->slopeTSFLN = _slopeTSFLN; }
-void Registerzadok::setintTSFLN(float _intTSFLN) { this->intTSFLN = _intTSFLN; }
+void Registerzadok::setder(double _der) { this->der = _der; }
+void Registerzadok::setslopeTSFLN(double _slopeTSFLN) { this->slopeTSFLN = _slopeTSFLN; }
+void Registerzadok::setintTSFLN(double _intTSFLN) { this->intTSFLN = _intTSFLN; }
 void Registerzadok::setsowingDate(string _sowingDate) { this->sowingDate = _sowingDate; }
 void Registerzadok::Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a)
 {
@@ -203,21 +203,21 @@ void Registerzadok::Calculate_Model(PhenologyState& s, PhenologyState& s1, Pheno
     //                          ** variablecategory : state
     //                          ** datatype : DOUBLELIST
     //                          ** unit : °C d
-    float cumulTT = a.getcumulTT();
-    float phase = s.getphase();
-    float leafNumber = s.getleafNumber();
+    double cumulTT = a.getcumulTT();
+    double phase = s.getphase();
+    double leafNumber = s.getleafNumber();
     vector<string> calendarMoments = s.getcalendarMoments();
     vector<string> calendarDates = s.getcalendarDates();
-    vector<float> calendarCumuls = s.getcalendarCumuls();
-    float cumulTTFromZC_65 = a.getcumulTTFromZC_65();
+    vector<double> calendarCumuls = s.getcalendarCumuls();
+    double cumulTTFromZC_65 = a.getcumulTTFromZC_65();
     string currentdate = a.getcurrentdate();
-    float finalLeafNumber = s.getfinalLeafNumber();
+    double finalLeafNumber = s.getfinalLeafNumber();
     string currentZadokStage = s.getcurrentZadokStage();
     int hasZadokStageChanged_t1 = s1.gethasZadokStageChanged();
     int hasZadokStageChanged;
     int roundedFinalLeafNumber;
-    roundedFinalLeafNumber = int(finalLeafNumber + 0.5f);
-    if (leafNumber >= 4.0f && !(find(calendarMoments.begin(), calendarMoments.end(), "MainShootPlus1Tiller") != calendarMoments.end()))
+    roundedFinalLeafNumber = int(finalLeafNumber + 0.5d);
+    if (leafNumber >= 4.0d && !(find(calendarMoments.begin(), calendarMoments.end(), "MainShootPlus1Tiller") != calendarMoments.end()))
     {
         calendarMoments.push_back("MainShootPlus1Tiller");
         calendarCumuls.push_back(cumulTT);
@@ -225,7 +225,7 @@ void Registerzadok::Calculate_Model(PhenologyState& s, PhenologyState& s1, Pheno
         hasZadokStageChanged = 1;
         currentZadokStage = "MainShootPlus1Tiller";
     }
-    else if ( leafNumber >= 5.0f && !(find(calendarMoments.begin(), calendarMoments.end(), "MainShootPlus2Tiller") != calendarMoments.end()))
+    else if ( leafNumber >= 5.0d && !(find(calendarMoments.begin(), calendarMoments.end(), "MainShootPlus2Tiller") != calendarMoments.end()))
     {
         calendarMoments.push_back("MainShootPlus2Tiller");
         calendarCumuls.push_back(cumulTT);
@@ -233,7 +233,7 @@ void Registerzadok::Calculate_Model(PhenologyState& s, PhenologyState& s1, Pheno
         hasZadokStageChanged = 1;
         currentZadokStage = "MainShootPlus2Tiller";
     }
-    else if ( leafNumber >= 6.0f && !(find(calendarMoments.begin(), calendarMoments.end(), "MainShootPlus3Tiller") != calendarMoments.end()))
+    else if ( leafNumber >= 6.0d && !(find(calendarMoments.begin(), calendarMoments.end(), "MainShootPlus3Tiller") != calendarMoments.end()))
     {
         calendarMoments.push_back("MainShootPlus3Tiller");
         calendarCumuls.push_back(cumulTT);
@@ -241,7 +241,7 @@ void Registerzadok::Calculate_Model(PhenologyState& s, PhenologyState& s1, Pheno
         hasZadokStageChanged = 1;
         currentZadokStage = "MainShootPlus3Tiller";
     }
-    else if ( finalLeafNumber > 0.0f && (leafNumber >= slopeTSFLN * finalLeafNumber - intTSFLN && !(find(calendarMoments.begin(), calendarMoments.end(), "TerminalSpikelet") != calendarMoments.end())))
+    else if ( finalLeafNumber > 0.0d && (leafNumber >= slopeTSFLN * finalLeafNumber - intTSFLN && !(find(calendarMoments.begin(), calendarMoments.end(), "TerminalSpikelet") != calendarMoments.end())))
     {
         calendarMoments.push_back("TerminalSpikelet");
         calendarCumuls.push_back(cumulTT);
@@ -249,7 +249,7 @@ void Registerzadok::Calculate_Model(PhenologyState& s, PhenologyState& s1, Pheno
         hasZadokStageChanged = 1;
         currentZadokStage = "TerminalSpikelet";
     }
-    else if ( leafNumber >= roundedFinalLeafNumber - 4.0f && roundedFinalLeafNumber - 4 > 0 && !(find(calendarMoments.begin(), calendarMoments.end(), "PseudoStemErection") != calendarMoments.end()))
+    else if ( leafNumber >= roundedFinalLeafNumber - 4.0d && roundedFinalLeafNumber - 4 > 0 && !(find(calendarMoments.begin(), calendarMoments.end(), "PseudoStemErection") != calendarMoments.end()))
     {
         calendarMoments.push_back("PseudoStemErection");
         calendarCumuls.push_back(cumulTT);
@@ -257,7 +257,7 @@ void Registerzadok::Calculate_Model(PhenologyState& s, PhenologyState& s1, Pheno
         hasZadokStageChanged = 1;
         currentZadokStage = "PseudoStemErection";
     }
-    else if ( leafNumber >= roundedFinalLeafNumber - 3.0f && roundedFinalLeafNumber - 3 > 0 && !(find(calendarMoments.begin(), calendarMoments.end(), "1stNodeDetectable") != calendarMoments.end()))
+    else if ( leafNumber >= roundedFinalLeafNumber - 3.0d && roundedFinalLeafNumber - 3 > 0 && !(find(calendarMoments.begin(), calendarMoments.end(), "1stNodeDetectable") != calendarMoments.end()))
     {
         calendarMoments.push_back("1stNodeDetectable");
         calendarCumuls.push_back(cumulTT);
@@ -265,7 +265,7 @@ void Registerzadok::Calculate_Model(PhenologyState& s, PhenologyState& s1, Pheno
         hasZadokStageChanged = 1;
         currentZadokStage = "1stNodeDetectable";
     }
-    else if ( leafNumber >= roundedFinalLeafNumber - 2.0f && roundedFinalLeafNumber - 2 > 0 && !(find(calendarMoments.begin(), calendarMoments.end(), "2ndNodeDetectable") != calendarMoments.end()))
+    else if ( leafNumber >= roundedFinalLeafNumber - 2.0d && roundedFinalLeafNumber - 2 > 0 && !(find(calendarMoments.begin(), calendarMoments.end(), "2ndNodeDetectable") != calendarMoments.end()))
     {
         calendarMoments.push_back("2ndNodeDetectable");
         calendarCumuls.push_back(cumulTT);
@@ -273,7 +273,7 @@ void Registerzadok::Calculate_Model(PhenologyState& s, PhenologyState& s1, Pheno
         hasZadokStageChanged = 1;
         currentZadokStage = "2ndNodeDetectable";
     }
-    else if ( leafNumber >= roundedFinalLeafNumber - 1.0f && roundedFinalLeafNumber - 1 > 0 && !(find(calendarMoments.begin(), calendarMoments.end(), "FlagLeafJustVisible") != calendarMoments.end()))
+    else if ( leafNumber >= roundedFinalLeafNumber - 1.0d && roundedFinalLeafNumber - 1 > 0 && !(find(calendarMoments.begin(), calendarMoments.end(), "FlagLeafJustVisible") != calendarMoments.end()))
     {
         calendarMoments.push_back("FlagLeafJustVisible");
         calendarCumuls.push_back(cumulTT);
@@ -281,7 +281,7 @@ void Registerzadok::Calculate_Model(PhenologyState& s, PhenologyState& s1, Pheno
         hasZadokStageChanged = 1;
         currentZadokStage = "FlagLeafJustVisible";
     }
-    else if ( !(find(calendarMoments.begin(), calendarMoments.end(), "MidGrainFilling") != calendarMoments.end()) && (phase == 4.5f && cumulTTFromZC_65 >= der))
+    else if ( !(find(calendarMoments.begin(), calendarMoments.end(), "MidGrainFilling") != calendarMoments.end()) && (phase == 4.5d && cumulTTFromZC_65 >= der))
     {
         calendarMoments.push_back("MidGrainFilling");
         calendarCumuls.push_back(cumulTT);
