@@ -12,10 +12,10 @@
 using namespace std;
 
 Ptq::Ptq() { }
-float Ptq::gettTWindowForPTQ() {return this-> tTWindowForPTQ; }
-float Ptq::getkl() {return this-> kl; }
-void Ptq::settTWindowForPTQ(float _tTWindowForPTQ) { this->tTWindowForPTQ = _tTWindowForPTQ; }
-void Ptq::setkl(float _kl) { this->kl = _kl; }
+double Ptq::gettTWindowForPTQ() {return this-> tTWindowForPTQ; }
+double Ptq::getkl() {return this-> kl; }
+void Ptq::settTWindowForPTQ(double _tTWindowForPTQ) { this->tTWindowForPTQ = _tTWindowForPTQ; }
+void Ptq::setkl(double _kl) { this->kl = _kl; }
 void Ptq::Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a)
 {
     //- Name: PTQ -Version: 1.0, -Time step: 1
@@ -120,21 +120,21 @@ void Ptq::Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRate& 
     //                          ** min : 0
     //                          ** max : 10000
     //                          ** unit : MJ °C-1 d m-2)
-    vector<float> listTTShootWindowForPTQ_t1 = s1.getlistTTShootWindowForPTQ();
-    vector<float> listPARTTWindowForPTQ_t1 = s1.getlistPARTTWindowForPTQ();
-    vector<float> listGAITTWindowForPTQ = s.getlistGAITTWindowForPTQ();
-    float pAR = a.getpAR();
-    float deltaTT = a.getdeltaTT();
-    vector<float> listPARTTWindowForPTQ;
-    vector<float> listTTShootWindowForPTQ;
-    float ptq;
-    vector<float> TTList;
-    vector<float> PARList;
+    vector<double> listTTShootWindowForPTQ_t1 = s1.getlistTTShootWindowForPTQ();
+    vector<double> listPARTTWindowForPTQ_t1 = s1.getlistPARTTWindowForPTQ();
+    vector<double> listGAITTWindowForPTQ = s.getlistGAITTWindowForPTQ();
+    double pAR = a.getpAR();
+    double deltaTT = a.getdeltaTT();
+    vector<double> listPARTTWindowForPTQ;
+    vector<double> listTTShootWindowForPTQ;
+    double ptq;
+    vector<double> TTList;
+    vector<double> PARList;
     int i;
     int count;
-    float SumTT;
-    float parInt = 0.0f;
-    float TTShoot;
+    double SumTT;
+    double parInt = 0.0d;
+    double TTShoot;
     for (i=0 ; i<listTTShootWindowForPTQ_t1.size() ; i+=1)
     {
         TTList.push_back(listTTShootWindowForPTQ_t1[i]);

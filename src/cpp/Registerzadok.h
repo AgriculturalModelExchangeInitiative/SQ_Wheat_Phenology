@@ -10,20 +10,20 @@ using namespace std;
 class Registerzadok
 {
     private:
-        float der;
-        float slopeTSFLN;
-        float intTSFLN;
+        double der;
+        double slopeTSFLN;
+        double intTSFLN;
         string sowingDate;
     public:
         Registerzadok();
         void  Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a);
         void  Init(PhenologyState& s,PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a);
-        float getder();
-        void setder(float _der);
-        float getslopeTSFLN();
-        void setslopeTSFLN(float _slopeTSFLN);
-        float getintTSFLN();
-        void setintTSFLN(float _intTSFLN);
+        double getder();
+        void setder(double _der);
+        double getslopeTSFLN();
+        void setslopeTSFLN(double _slopeTSFLN);
+        double getintTSFLN();
+        void setintTSFLN(double _intTSFLN);
         string getsowingDate();
         void setsowingDate(string _sowingDate);
 

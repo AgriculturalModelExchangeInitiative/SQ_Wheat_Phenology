@@ -13,19 +13,19 @@ using namespace std;
 
 Phylsowingdatecorrection::Phylsowingdatecorrection() { }
 int Phylsowingdatecorrection::getsowingDay() {return this-> sowingDay; }
-float Phylsowingdatecorrection::getlatitude() {return this-> latitude; }
-float Phylsowingdatecorrection::getsDsa_sh() {return this-> sDsa_sh; }
-float Phylsowingdatecorrection::getrp() {return this-> rp; }
+double Phylsowingdatecorrection::getlatitude() {return this-> latitude; }
+double Phylsowingdatecorrection::getsDsa_sh() {return this-> sDsa_sh; }
+double Phylsowingdatecorrection::getrp() {return this-> rp; }
 int Phylsowingdatecorrection::getsDws() {return this-> sDws; }
-float Phylsowingdatecorrection::getsDsa_nh() {return this-> sDsa_nh; }
-float Phylsowingdatecorrection::getp() {return this-> p; }
+double Phylsowingdatecorrection::getsDsa_nh() {return this-> sDsa_nh; }
+double Phylsowingdatecorrection::getp() {return this-> p; }
 void Phylsowingdatecorrection::setsowingDay(int _sowingDay) { this->sowingDay = _sowingDay; }
-void Phylsowingdatecorrection::setlatitude(float _latitude) { this->latitude = _latitude; }
-void Phylsowingdatecorrection::setsDsa_sh(float _sDsa_sh) { this->sDsa_sh = _sDsa_sh; }
-void Phylsowingdatecorrection::setrp(float _rp) { this->rp = _rp; }
+void Phylsowingdatecorrection::setlatitude(double _latitude) { this->latitude = _latitude; }
+void Phylsowingdatecorrection::setsDsa_sh(double _sDsa_sh) { this->sDsa_sh = _sDsa_sh; }
+void Phylsowingdatecorrection::setrp(double _rp) { this->rp = _rp; }
 void Phylsowingdatecorrection::setsDws(int _sDws) { this->sDws = _sDws; }
-void Phylsowingdatecorrection::setsDsa_nh(float _sDsa_nh) { this->sDsa_nh = _sDsa_nh; }
-void Phylsowingdatecorrection::setp(float _p) { this->p = _p; }
+void Phylsowingdatecorrection::setsDsa_nh(double _sDsa_nh) { this->sDsa_nh = _sDsa_nh; }
+void Phylsowingdatecorrection::setp(double _p) { this->p = _p; }
 void Phylsowingdatecorrection::Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a)
 {
     //- Name: PhylSowingDateCorrection -Version: 1.0, -Time step: 1
@@ -116,8 +116,8 @@ void Phylsowingdatecorrection::Calculate_Model(PhenologyState& s, PhenologyState
     //                          ** min : 0
     //                          ** max : 1000
     //                          ** unit : °C d leaf-1
-    float fixPhyll;
-    if (latitude < 0.0f)
+    double fixPhyll;
+    if (latitude < 0.0d)
     {
         if (sowingDay > int(sDsa_sh))
         {

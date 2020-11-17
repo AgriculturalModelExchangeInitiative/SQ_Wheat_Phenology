@@ -13,29 +13,29 @@ using namespace std;
 
 Updatephase::Updatephase() { }
 int Updatephase::getisVernalizable() {return this-> isVernalizable; }
-float Updatephase::getdse() {return this-> dse; }
-float Updatephase::getpFLLAnth() {return this-> pFLLAnth; }
-float Updatephase::getdcd() {return this-> dcd; }
-float Updatephase::getdgf() {return this-> dgf; }
-float Updatephase::getdegfm() {return this-> degfm; }
-float Updatephase::getmaxDL() {return this-> maxDL; }
-float Updatephase::getsLDL() {return this-> sLDL; }
+double Updatephase::getdse() {return this-> dse; }
+double Updatephase::getpFLLAnth() {return this-> pFLLAnth; }
+double Updatephase::getdcd() {return this-> dcd; }
+double Updatephase::getdgf() {return this-> dgf; }
+double Updatephase::getdegfm() {return this-> degfm; }
+double Updatephase::getmaxDL() {return this-> maxDL; }
+double Updatephase::getsLDL() {return this-> sLDL; }
 bool Updatephase::getignoreGrainMaturation() {return this-> ignoreGrainMaturation; }
-float Updatephase::getpHEADANTH() {return this-> pHEADANTH; }
+double Updatephase::getpHEADANTH() {return this-> pHEADANTH; }
 string Updatephase::getchoosePhyllUse() {return this-> choosePhyllUse; }
-float Updatephase::getp() {return this-> p; }
+double Updatephase::getp() {return this-> p; }
 void Updatephase::setisVernalizable(int _isVernalizable) { this->isVernalizable = _isVernalizable; }
-void Updatephase::setdse(float _dse) { this->dse = _dse; }
-void Updatephase::setpFLLAnth(float _pFLLAnth) { this->pFLLAnth = _pFLLAnth; }
-void Updatephase::setdcd(float _dcd) { this->dcd = _dcd; }
-void Updatephase::setdgf(float _dgf) { this->dgf = _dgf; }
-void Updatephase::setdegfm(float _degfm) { this->degfm = _degfm; }
-void Updatephase::setmaxDL(float _maxDL) { this->maxDL = _maxDL; }
-void Updatephase::setsLDL(float _sLDL) { this->sLDL = _sLDL; }
+void Updatephase::setdse(double _dse) { this->dse = _dse; }
+void Updatephase::setpFLLAnth(double _pFLLAnth) { this->pFLLAnth = _pFLLAnth; }
+void Updatephase::setdcd(double _dcd) { this->dcd = _dcd; }
+void Updatephase::setdgf(double _dgf) { this->dgf = _dgf; }
+void Updatephase::setdegfm(double _degfm) { this->degfm = _degfm; }
+void Updatephase::setmaxDL(double _maxDL) { this->maxDL = _maxDL; }
+void Updatephase::setsLDL(double _sLDL) { this->sLDL = _sLDL; }
 void Updatephase::setignoreGrainMaturation(bool _ignoreGrainMaturation) { this->ignoreGrainMaturation = _ignoreGrainMaturation; }
-void Updatephase::setpHEADANTH(float _pHEADANTH) { this->pHEADANTH = _pHEADANTH; }
+void Updatephase::setpHEADANTH(double _pHEADANTH) { this->pHEADANTH = _pHEADANTH; }
 void Updatephase::setchoosePhyllUse(string _choosePhyllUse) { this->choosePhyllUse = _choosePhyllUse; }
-void Updatephase::setp(float _p) { this->p = _p; }
+void Updatephase::setp(double _p) { this->p = _p; }
 void Updatephase::Calculate_Model(PhenologyState& s, PhenologyState& s1, PhenologyRate& r, PhenologyAuxiliary& a)
 {
     //- Name: UpdatePhase -Version: 1.0, -Time step: 1
@@ -310,45 +310,45 @@ void Updatephase::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolo
     //                          ** min : 0
     //                          ** max : 1
     //                          ** unit : 
-    float cumulTT = a.getcumulTT();
-    float leafNumber_t1 = s1.getleafNumber();
-    float cumulTTFromZC_39 = a.getcumulTTFromZC_39();
+    double cumulTT = a.getcumulTT();
+    double leafNumber_t1 = s1.getleafNumber();
+    double cumulTTFromZC_39 = a.getcumulTTFromZC_39();
     int isMomentRegistredZC_39 = s.getisMomentRegistredZC_39();
-    float gAI = a.getgAI();
-    float grainCumulTT = a.getgrainCumulTT();
-    float dayLength = a.getdayLength();
-    float vernaprog = s.getvernaprog();
-    float minFinalNumber = s.getminFinalNumber();
-    float fixPhyll = a.getfixPhyll();
-    float phase_t1 = s1.getphase();
-    float cumulTTFromZC_91 = a.getcumulTTFromZC_91();
-    float phyllochron = s.getphyllochron();
+    double gAI = a.getgAI();
+    double grainCumulTT = a.getgrainCumulTT();
+    double dayLength = a.getdayLength();
+    double vernaprog = s.getvernaprog();
+    double minFinalNumber = s.getminFinalNumber();
+    double fixPhyll = a.getfixPhyll();
+    double phase_t1 = s1.getphase();
+    double cumulTTFromZC_91 = a.getcumulTTFromZC_91();
+    double phyllochron = s.getphyllochron();
     int hasLastPrimordiumAppeared_t1 = s1.gethasLastPrimordiumAppeared();
-    float finalLeafNumber_t1 = s1.getfinalLeafNumber();
-    float finalLeafNumber;
-    float phase;
+    double finalLeafNumber_t1 = s1.getfinalLeafNumber();
+    double finalLeafNumber;
+    double phase;
     int hasLastPrimordiumAppeared;
-    float ttFromLastLeafToHeading;
-    float appFLN;
-    float localDegfm;
-    float ttFromLastLeafToAnthesis;
+    double ttFromLastLeafToHeading;
+    double appFLN;
+    double localDegfm;
+    double ttFromLastLeafToAnthesis;
     hasLastPrimordiumAppeared = hasLastPrimordiumAppeared_t1;
     finalLeafNumber = finalLeafNumber_t1;
     phase = phase_t1;
-    if (phase_t1 >= 0.0f && phase_t1 < 1.0f)
+    if (phase_t1 >= 0.0d && phase_t1 < 1.0d)
     {
         if (cumulTT >= dse)
         {
-            phase = 1.0f;
+            phase = 1.0d;
         }
         else
         {
             phase = phase_t1;
         }
     }
-    else if ( phase_t1 >= 1.0f && phase_t1 < 2.0f)
+    else if ( phase_t1 >= 1.0d && phase_t1 < 2.0d)
     {
-        if (isVernalizable == 1 && vernaprog >= 1.0f || isVernalizable == 0)
+        if (isVernalizable == 1 && vernaprog >= 1.0d || isVernalizable == 0)
         {
             if (dayLength > maxDL)
             {
@@ -358,7 +358,7 @@ void Updatephase::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolo
             else
             {
                 appFLN = minFinalNumber + (sLDL * (maxDL - dayLength));
-                if (appFLN / 2.0f <= leafNumber_t1)
+                if (appFLN / 2.0d <= leafNumber_t1)
                 {
                     finalLeafNumber = appFLN;
                     hasLastPrimordiumAppeared = 1;
@@ -370,7 +370,7 @@ void Updatephase::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolo
             }
             if (hasLastPrimordiumAppeared == 1)
             {
-                phase = 2.0f;
+                phase = 2.0d;
             }
         }
         else
@@ -378,13 +378,13 @@ void Updatephase::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolo
             phase = phase_t1;
         }
     }
-    else if ( phase_t1 >= 2.0f && phase_t1 < 4.0f)
+    else if ( phase_t1 >= 2.0d && phase_t1 < 4.0d)
     {
         if (isMomentRegistredZC_39 == 1)
         {
-            if (phase_t1 < 3.0f)
+            if (phase_t1 < 3.0d)
             {
-                ttFromLastLeafToHeading = 0.0f;
+                ttFromLastLeafToHeading = 0.0d;
                 if (choosePhyllUse == "Default")
                 {
                     ttFromLastLeafToHeading = (pFLLAnth - pHEADANTH) * fixPhyll;
@@ -399,7 +399,7 @@ void Updatephase::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolo
                 }
                 if (cumulTTFromZC_39 >= ttFromLastLeafToHeading)
                 {
-                    phase = 3.0f;
+                    phase = 3.0d;
                 }
                 else
                 {
@@ -410,7 +410,7 @@ void Updatephase::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolo
             {
                 phase = phase_t1;
             }
-            ttFromLastLeafToAnthesis = 0.0f;
+            ttFromLastLeafToAnthesis = 0.0d;
             if (choosePhyllUse == "Default")
             {
                 ttFromLastLeafToAnthesis = pFLLAnth * fixPhyll;
@@ -425,7 +425,7 @@ void Updatephase::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolo
             }
             if (cumulTTFromZC_39 >= ttFromLastLeafToAnthesis)
             {
-                phase = 4.0f;
+                phase = 4.0d;
             }
         }
         else
@@ -433,45 +433,45 @@ void Updatephase::Calculate_Model(PhenologyState& s, PhenologyState& s1, Phenolo
             phase = phase_t1;
         }
     }
-    else if ( phase_t1 == 4.0f)
+    else if ( phase_t1 == 4.0d)
     {
         if (grainCumulTT >= dcd)
         {
-            phase = 4.5f;
+            phase = 4.5d;
         }
         else
         {
             phase = phase_t1;
         }
     }
-    else if ( phase_t1 == 4.5f)
+    else if ( phase_t1 == 4.5d)
     {
-        if (grainCumulTT >= dgf || gAI <= 0.0f)
+        if (grainCumulTT >= dgf || gAI <= 0.0d)
         {
-            phase = 5.0f;
+            phase = 5.0d;
         }
         else
         {
             phase = phase_t1;
         }
     }
-    else if ( phase_t1 >= 5.0f && phase_t1 < 6.0f)
+    else if ( phase_t1 >= 5.0d && phase_t1 < 6.0d)
     {
         localDegfm = degfm;
         if (ignoreGrainMaturation)
         {
-            localDegfm = -1.0f;
+            localDegfm = -1.0d;
         }
         if (cumulTTFromZC_91 >= localDegfm)
         {
-            phase = 6.0f;
+            phase = 6.0d;
         }
         else
         {
             phase = phase_t1;
         }
     }
-    else if ( phase_t1 >= 6.0f && phase_t1 < 7.0f)
+    else if ( phase_t1 >= 6.0d && phase_t1 < 7.0d)
     {
         phase = phase_t1;
     }
