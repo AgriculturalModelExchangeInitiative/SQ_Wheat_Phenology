@@ -39,9 +39,7 @@
     </Outputs>
     
     <Algorithm  language="Cyml" platform="" filename="algo/pyx/RegisterZadok.pyx" />
-
-	
-	
+    
      <Parametersets>
         <Parameterset name="wheat" description="some values in there" >
         	<Param name="slopeTSFLN">0.9</Param>
