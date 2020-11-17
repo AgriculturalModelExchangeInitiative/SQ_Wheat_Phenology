@@ -115,13 +115,13 @@ model_shootnumber <- function (canopyShootNumber_t1 = 288.0,
     averageShootNumberPerPlant <- canopyShootNumber / sowingDensity
     if (canopyShootNumber != canopyShootNumber_t1)
     {
-        tilleringProfile <- 
+        tilleringProfile <- c(tilleringProfile_t1, canopyShootNumber - canopyShootNumber_t1)
     }
     numberTillerCohort <- length(tilleringProfile)
     for( i in seq(length(leafTillerNumberArray_t1), ceiling(leafNumber)-1, 1)){
         lNumberArray_rate <- c(lNumberArray_rate, numberTillerCohort)
     }
-    leafTillerNumberArray <- 
+    leafTillerNumberArray <- c(leafTillerNumberArray_t1, lNumberArray_rate)
     return (list ("averageShootNumberPerPlant" = averageShootNumberPerPlant,"canopyShootNumber" = canopyShootNumber,"leafTillerNumberArray" = leafTillerNumberArray,"tilleringProfile" = tilleringProfile,"numberTillerCohort" = numberTillerCohort))
 }
 
