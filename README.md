@@ -50,7 +50,7 @@ An example of transformation in OpenAlea
 
 An example of unit test in R (Soil evaporation model unit)
 ----------------------------------------------------------
-![](doc/images/soilevap.PNG)
+![](doc/images/test_soilevap.PNG)
 
 
 
