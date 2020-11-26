@@ -1,3 +1,6 @@
+
+[![DOI](https://zenodo.org/badge/159197147.svg)](https://zenodo.org/badge/latestdoi/159197147)
+
 AgriculturalModelExchangeInitiative
 ==============================
 
