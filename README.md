@@ -45,7 +45,7 @@ Model visualization
 An example of transformation in OpenAlea
 ----------------------------------------
 
-![](doc/images/phenology.png)
+![](doc/images/phenology2.png)
 
 
 An example of unit test in R (Soil evaporation model unit)
