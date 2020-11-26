@@ -16,13 +16,16 @@ CONTAINS
         IMPLICIT NONE
         REAL, INTENT(IN) :: tTWindowForPTQ
         REAL, INTENT(IN) :: kl
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: listTTShootWindowForPTQ_t1
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: listPARTTWindowForPTQ_t1
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                listTTShootWindowForPTQ_t1
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                listPARTTWindowForPTQ_t1
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: listGAITTWindowForPTQ
         REAL, INTENT(IN) :: pAR
         REAL, INTENT(IN) :: deltaTT
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: listPARTTWindowForPTQ
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: listTTShootWindowForPTQ
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                listTTShootWindowForPTQ
         REAL, INTENT(OUT) :: ptq
         REAL, ALLOCATABLE , DIMENSION(:):: TTList
         REAL, ALLOCATABLE , DIMENSION(:):: PARList
@@ -141,7 +144,7 @@ CONTAINS
         call Add(PARList, pAR)
         SumTT = sum(TTList)
         count = 0
-        DO WHILE ( SumTT .GT. tTWindowForPTQ ) 
+        DO WHILE ( SumTT .GT. tTWindowForPTQ )
             SumTT = SumTT - TTList(count+1)
             count = count + 1
         END DO
@@ -150,7 +153,8 @@ CONTAINS
             call Add(listPARTTWindowForPTQ, PARList(i+1))
         END DO
         DO i = 0 , SIZE(listTTShootWindowForPTQ)-1, 1
-            parInt = parInt + (listPARTTWindowForPTQ(i+1) * (1 - EXP((-kl) * listGAITTWindowForPTQ(i+1))))
+            parInt = parInt + (listPARTTWindowForPTQ(i+1) * (1 - EXP((-kl) *  &
+                    listGAITTWindowForPTQ(i+1))))
         END DO
         TTShoot = sum(listTTShootWindowForPTQ)
         ptq = parInt / TTShoot

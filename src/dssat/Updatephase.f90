@@ -348,7 +348,8 @@ CONTAINS
                 phase = phase_t1
             END IF
         ELSE IF ( phase_t1 .GE. 1.0 .AND. phase_t1 .LT. 2.0) THEN
-            IF(isVernalizable .EQ. 1 .AND. vernaprog .GE. 1.0 .OR. isVernalizable .EQ. 0) THEN
+            IF(isVernalizable .EQ. 1 .AND. vernaprog .GE. 1.0 .OR. isVernalizable  &
+                    .EQ. 0) THEN
                 IF(dayLength .GT. maxDL) THEN
                     finalLeafNumber = minFinalNumber
                     hasLastPrimordiumAppeared = 1

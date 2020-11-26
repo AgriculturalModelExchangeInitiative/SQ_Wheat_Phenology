@@ -47,7 +47,7 @@ public class Phylsowingdatecorrection
     }
     public Phylsowingdatecorrection() { }
     
-    public void  Calculate_phylsowingdatecorrection(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
+    public void  CalculateModel(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
     {
         //- Name: PhylSowingDateCorrection -Version: 1.0, -Time step: 1
         //- Description:

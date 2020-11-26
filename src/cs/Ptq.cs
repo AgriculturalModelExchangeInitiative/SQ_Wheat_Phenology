@@ -17,7 +17,7 @@ public class Ptq
     }
     public Ptq() { }
     
-    public void  Calculate_ptq(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
+    public void  CalculateModel(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
     {
         //- Name: PTQ -Version: 1.0, -Time step: 1
         //- Description:

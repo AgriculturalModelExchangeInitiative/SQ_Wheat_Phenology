@@ -123,8 +123,10 @@ CONTAINS
         REAL, INTENT(IN) :: sDsa_sh
         REAL, INTENT(IN) :: latitude
         REAL, INTENT(IN) :: kl
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) :: calendarDates_t1
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) :: calendarMoments_t1
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                calendarDates_t1
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                calendarMoments_t1
         REAL, INTENT(IN) :: lincr
         REAL, INTENT(IN) :: ldecr
         REAL, INTENT(IN) :: pincr
@@ -146,12 +148,16 @@ CONTAINS
         REAL, INTENT(IN) :: deltaTT
         REAL, INTENT(IN) :: pastMaxAI_t1
         REAL, INTENT(IN) :: tTWindowForPTQ
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: listGAITTWindowForPTQ_t1
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                listGAITTWindowForPTQ_t1
         REAL, INTENT(IN) :: gAI
         REAL, INTENT(IN) :: pAR
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: listPARTTWindowForPTQ_t1
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: listTTShootWindowForPTQ1_t1
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: listTTShootWindowForPTQ_t1
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                listPARTTWindowForPTQ_t1
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                listTTShootWindowForPTQ1_t1
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                listTTShootWindowForPTQ_t1
         REAL, INTENT(IN) :: vBEE
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: calendarCumuls_t1
         INTEGER, INTENT(IN) :: isVernalizable
@@ -184,7 +190,8 @@ CONTAINS
         INTEGER, INTENT(IN) :: hasFlagLeafLiguleAppeared_t1
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: tilleringProfile_t1
         REAL, INTENT(IN) :: targetFertileShoot
-        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: leafTillerNumberArray_t1
+        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                leafTillerNumberArray_t1
         REAL, INTENT(IN) :: dse
         REAL, INTENT(IN) :: slopeTSFLN
         REAL, INTENT(IN) :: intTSFLN
@@ -196,11 +203,14 @@ CONTAINS
         INTEGER:: numberTillerCohort_t1
         REAL, INTENT(OUT) :: averageShootNumberPerPlant
         REAL, INTENT(OUT) :: canopyShootNumber
-        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: leafTillerNumberArray
+        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                leafTillerNumberArray
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: tilleringProfile
         INTEGER, INTENT(OUT) :: numberTillerCohort
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: calendarMoments
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: calendarDates
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                calendarMoments
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                calendarDates
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: calendarCumuls
         REAL, INTENT(OUT) :: finalLeafNumber
         REAL, INTENT(OUT) :: phase
@@ -214,9 +224,11 @@ CONTAINS
         INTEGER, INTENT(OUT) :: hasZadokStageChanged
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: listGAITTWindowForPTQ
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: listPARTTWindowForPTQ
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: listTTShootWindowForPTQ
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                listTTShootWindowForPTQ
         REAL, INTENT(OUT) :: pastMaxAI
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: listTTShootWindowForPTQ1
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                listTTShootWindowForPTQ1
         !- Description:
     !            * Title: Phenology
     !            * Author: Pierre MARTRE
@@ -1097,19 +1109,49 @@ CONTAINS
     !                          ** max : 5000.0
     !                          ** unit : m2 leaf m-2 ground
     !                          ** uri : 
-        call model_gaimean(gAI, tTWindowForPTQ, deltaTT, pastMaxAI_t1, listTTShootWindowForPTQ1_t1, listGAITTWindowForPTQ_t1,gAImean,pastMaxAI,listTTShootWindowForPTQ1,listGAITTWindowForPTQ)
-        call model_ptq(tTWindowForPTQ, kl, listTTShootWindowForPTQ_t1, listPARTTWindowForPTQ_t1, listGAITTWindowForPTQ, pAR, deltaTT,listPARTTWindowForPTQ,listTTShootWindowForPTQ,ptq)
-        call model_cumulttfrom(calendarMoments_t1, calendarCumuls_t1, cumulTT,cumulTTFromZC_65,cumulTTFromZC_39,cumulTTFromZC_91)
-        call model_ismomentregistredzc_39(calendarMoments_t1,isMomentRegistredZC_39)
-        call model_vernalizationprogress(dayLength, deltaTT, cumulTT, leafNumber_t1, calendarMoments_t1, calendarDates_t1, calendarCumuls_t1, minTvern, intTvern, vAI, vBEE, minDL, maxDL, maxTvern, pNini, aMXLFNO, vernaprog_t1, currentdate, isVernalizable, minFinalNumber_t1,vernaprog,minFinalNumber,calendarMoments,calendarDates,calendarCumuls)
-        call model_phylsowingdatecorrection(sowingDay, latitude, sDsa_sh, rp, sDws, sDsa_nh, p,fixPhyll)
-        call model_updatephase(cumulTT, leafNumber_t1, cumulTTFromZC_39, isMomentRegistredZC_39, gAI, grainCumulTT, dayLength, vernaprog, minFinalNumber, fixPhyll, isVernalizable, dse, pFLLAnth, dcd, dgf, degfm, maxDL, sLDL, ignoreGrainMaturation, pHEADANTH, choosePhyllUse, p, phase_t1, cumulTTFromZC_91, phyllochron, hasLastPrimordiumAppeared_t1, finalLeafNumber_t1,finalLeafNumber,phase,hasLastPrimordiumAppeared)
-        call model_leafnumber(deltaTT, phyllochron_t1, hasFlagLeafLiguleAppeared, leafNumber_t1, phase,leafNumber)
-        call model_shootnumber(canopyShootNumber_t1, leafNumber, sowingDensity, targetFertileShoot, tilleringProfile_t1, leafTillerNumberArray_t1, numberTillerCohort_t1,averageShootNumberPerPlant,canopyShootNumber,leafTillerNumberArray,tilleringProfile,numberTillerCohort)
-        call model_updateleafflag(cumulTT, leafNumber, calendarMoments, calendarDates, calendarCumuls, currentdate, finalLeafNumber, hasFlagLeafLiguleAppeared_t1, phase,hasFlagLeafLiguleAppeared,calendarMoments,calendarDates,calendarCumuls)
-        call model_registerzadok(cumulTT, phase, leafNumber, calendarMoments, calendarDates, calendarCumuls, cumulTTFromZC_65, currentdate, der, slopeTSFLN, intTSFLN, finalLeafNumber, currentZadokStage, hasZadokStageChanged_t1, sowingDate,hasZadokStageChanged,currentZadokStage,calendarMoments,calendarDates,calendarCumuls)
-        call model_updatecalendar(cumulTT, calendarMoments, calendarDates, calendarCumuls, currentdate, phase,calendarMoments,calendarDates,calendarCumuls)
-        call model_phyllochron(fixPhyll, leafNumber, lincr, ldecr, pdecr, pincr, ptq, gAImean, kl, pTQhf, B, p, choosePhyllUse, areaSL, areaSS, lARmin, lARmax, sowingDensity, lNeff,phyllochron)
+        call model_gaimean(gAI, tTWindowForPTQ, deltaTT, pastMaxAI_t1,  &
+                listTTShootWindowForPTQ1_t1,  &
+                listGAITTWindowForPTQ_t1,gAImean,pastMaxAI,listTTShootWindowForPTQ1,listGAITTWindowForPTQ)
+        call model_ptq(tTWindowForPTQ, kl, listTTShootWindowForPTQ_t1,  &
+                listPARTTWindowForPTQ_t1, listGAITTWindowForPTQ, pAR,  &
+                deltaTT,listPARTTWindowForPTQ,listTTShootWindowForPTQ,ptq)
+        call model_cumulttfrom(calendarMoments_t1, calendarCumuls_t1,  &
+                cumulTT,cumulTTFromZC_65,cumulTTFromZC_39,cumulTTFromZC_91)
+        call  &
+                model_ismomentregistredzc_39(calendarMoments_t1,isMomentRegistredZC_39)
+        call model_vernalizationprogress(dayLength, deltaTT, cumulTT,  &
+                leafNumber_t1, calendarMoments_t1, calendarDates_t1,  &
+                calendarCumuls_t1, minTvern, intTvern, vAI, vBEE, minDL, maxDL,  &
+                maxTvern, pNini, aMXLFNO, vernaprog_t1, currentdate, isVernalizable,  &
+                minFinalNumber_t1,vernaprog,minFinalNumber,calendarMoments,calendarDates,calendarCumuls)
+        call model_phylsowingdatecorrection(sowingDay, latitude, sDsa_sh, rp,  &
+                sDws, sDsa_nh, p,fixPhyll)
+        call model_updatephase(cumulTT, leafNumber_t1, cumulTTFromZC_39,  &
+                isMomentRegistredZC_39, gAI, grainCumulTT, dayLength, vernaprog,  &
+                minFinalNumber, fixPhyll, isVernalizable, dse, pFLLAnth, dcd, dgf,  &
+                degfm, maxDL, sLDL, ignoreGrainMaturation, pHEADANTH, choosePhyllUse,  &
+                p, phase_t1, cumulTTFromZC_91, phyllochron,  &
+                hasLastPrimordiumAppeared_t1,  &
+                finalLeafNumber_t1,finalLeafNumber,phase,hasLastPrimordiumAppeared)
+        call model_leafnumber(deltaTT, phyllochron_t1,  &
+                hasFlagLeafLiguleAppeared, leafNumber_t1, phase,leafNumber)
+        call model_shootnumber(canopyShootNumber_t1, leafNumber,  &
+                sowingDensity, targetFertileShoot, tilleringProfile_t1,  &
+                leafTillerNumberArray_t1,  &
+                numberTillerCohort_t1,averageShootNumberPerPlant,canopyShootNumber,leafTillerNumberArray,&
+                tilleringProfile,numberTillerCohort)
+        call model_updateleafflag(cumulTT, leafNumber, calendarMoments,  &
+                calendarDates, calendarCumuls, currentdate, finalLeafNumber,  &
+                hasFlagLeafLiguleAppeared_t1, phase,hasFlagLeafLiguleAppeared)
+        call model_registerzadok(cumulTT, phase, leafNumber, calendarMoments,  &
+                calendarDates, calendarCumuls, cumulTTFromZC_65, currentdate, der,  &
+                slopeTSFLN, intTSFLN, finalLeafNumber, currentZadokStage,  &
+                hasZadokStageChanged_t1, sowingDate,hasZadokStageChanged)
+        call model_updatecalendar(cumulTT, calendarMoments, calendarDates,  &
+                calendarCumuls, currentdate, phase)
+        call model_phyllochron(fixPhyll, leafNumber, lincr, ldecr, pdecr,  &
+                pincr, ptq, gAImean, kl, pTQhf, B, p, choosePhyllUse, areaSL, areaSS,  &
+                lARmin, lARmax, sowingDensity, lNeff,phyllochron)
     END SUBROUTINE model_phenology
 
     SUBROUTINE init_phenology(aMXLFNO, &
@@ -1247,13 +1289,18 @@ CONTAINS
         INTEGER, INTENT(OUT) :: hasFlagLeafLiguleAppeared
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: listPARTTWindowForPTQ
         INTEGER, INTENT(OUT) :: hasLastPrimordiumAppeared
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: listTTShootWindowForPTQ
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: listTTShootWindowForPTQ1
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                listTTShootWindowForPTQ
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                listTTShootWindowForPTQ1
         REAL, INTENT(OUT) :: ptq
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: calendarMoments
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                calendarMoments
         REAL, INTENT(OUT) :: canopyShootNumber
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: calendarDates
-        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: leafTillerNumberArray
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                calendarDates
+        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                leafTillerNumberArray
         REAL, INTENT(OUT) :: vernaprog
         REAL, INTENT(OUT) :: phyllochron
         REAL, INTENT(OUT) :: leafNumber
@@ -1267,7 +1314,7 @@ CONTAINS
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: calendarCumuls
         REAL, INTENT(OUT) :: gAImean
         REAL, INTENT(OUT) :: pastMaxAI
-        currentZadokStage = 
+        currentZadokStage = ""
         hasZadokStageChanged = 0
         hasFlagLeafLiguleAppeared = 0
         hasLastPrimordiumAppeared = 0

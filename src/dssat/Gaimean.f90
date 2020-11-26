@@ -18,11 +18,14 @@ CONTAINS
         REAL, INTENT(IN) :: tTWindowForPTQ
         REAL, INTENT(IN) :: deltaTT
         REAL, INTENT(IN) :: pastMaxAI_t1
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: listTTShootWindowForPTQ1_t1
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: listGAITTWindowForPTQ_t1
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                listTTShootWindowForPTQ1_t1
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                listGAITTWindowForPTQ_t1
         REAL, INTENT(OUT) :: gAImean
         REAL, INTENT(OUT) :: pastMaxAI
-        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: listTTShootWindowForPTQ1
+        REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                listTTShootWindowForPTQ1
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: listGAITTWindowForPTQ
         REAL, ALLOCATABLE , DIMENSION(:):: TTList
         REAL, ALLOCATABLE , DIMENSION(:):: GAIList
@@ -143,7 +146,7 @@ CONTAINS
         call Add(TTList, deltaTT)
         call Add(GAIList, gAI)
         SumTT = sum(TTList)
-        DO WHILE ( SumTT .GT. tTWindowForPTQ ) 
+        DO WHILE ( SumTT .GT. tTWindowForPTQ )
             SumTT = SumTT - TTList(count+1)
             count = count + 1
         END DO

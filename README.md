@@ -4,7 +4,7 @@ AgriculturalModelExchangeInitiative
 Model of wheat phenology of the crop growth simulation model SiriusQuality 
 
 Project Organization
-------------
+--------------------
 
 ```
 
@@ -30,9 +30,27 @@ Project Organization
         ├── cs/
         ├── f90/
         ├── Bioma/
+        ├── Sirius/
         ├── Simplace/
         ├── OpenAlea/
         ├── Record/
+        ├── DSSAT/
    
 ```
+
+Model visualization
+-------------------
+![](doc/images/phenology.png)
+
+An example of transformation in OpenAlea
+----------------------------------------
+
+![](doc/images/phenology.png)
+
+
+An example of unit test in R (Soil evaporation model unit)
+----------------------------------------------------------
+![](doc/images/soilevap.PNG)
+
+
 

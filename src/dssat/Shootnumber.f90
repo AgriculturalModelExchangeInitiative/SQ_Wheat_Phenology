@@ -21,11 +21,13 @@ CONTAINS
         REAL, INTENT(IN) :: sowingDensity
         REAL, INTENT(IN) :: targetFertileShoot
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: tilleringProfile_t1
-        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: leafTillerNumberArray_t1
+        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                leafTillerNumberArray_t1
         INTEGER, INTENT(IN) :: numberTillerCohort_t1
         REAL, INTENT(OUT) :: averageShootNumberPerPlant
         REAL, INTENT(OUT) :: canopyShootNumber
-        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: leafTillerNumberArray
+        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                leafTillerNumberArray
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: tilleringProfile
         INTEGER, INTENT(OUT) :: numberTillerCohort
         INTEGER:: emergedLeaves
@@ -176,7 +178,8 @@ CONTAINS
         INTEGER:: numberTillerCohort_t1
         REAL, INTENT(OUT) :: averageShootNumberPerPlant
         REAL, INTENT(OUT) :: canopyShootNumber
-        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: leafTillerNumberArray
+        INTEGER, ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                leafTillerNumberArray
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: tilleringProfile
         INTEGER, INTENT(OUT) :: numberTillerCohort
         canopyShootNumber = sowingDensity

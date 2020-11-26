@@ -147,7 +147,7 @@ namespace SiriusModel.Model.Phenology
             a.gAI = gAI;
             a.pAR = pAR;
             a.grainCumulTT = grainCumulTT;
-            phenologyComponent.Calculate_phenology(s,s1, r, a);
+            phenologyComponent.CalculateModel(s,s1, r, a);
         }
 
     }

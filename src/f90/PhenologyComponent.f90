@@ -1141,16 +1141,13 @@ CONTAINS
                 numberTillerCohort_t1,averageShootNumberPerPlant,canopyShootNumber,leafTillerNumberArray,tilleringProfile,numberTillerCohort)
         call model_updateleafflag(cumulTT, leafNumber, calendarMoments,  &
                 calendarDates, calendarCumuls, currentdate, finalLeafNumber,  &
-                hasFlagLeafLiguleAppeared_t1,  &
-                phase,hasFlagLeafLiguleAppeared,calendarMoments,calendarDates,calendarCumuls)
+                hasFlagLeafLiguleAppeared_t1, phase,hasFlagLeafLiguleAppeared)
         call model_registerzadok(cumulTT, phase, leafNumber, calendarMoments,  &
                 calendarDates, calendarCumuls, cumulTTFromZC_65, currentdate, der,  &
                 slopeTSFLN, intTSFLN, finalLeafNumber, currentZadokStage,  &
-                hasZadokStageChanged_t1,  &
-                sowingDate,hasZadokStageChanged,currentZadokStage,calendarMoments,calendarDates,calendarCumuls)
+                hasZadokStageChanged_t1, sowingDate,hasZadokStageChanged)
         call model_updatecalendar(cumulTT, calendarMoments, calendarDates,  &
-                calendarCumuls, currentdate,  &
-                phase,calendarMoments,calendarDates,calendarCumuls)
+                calendarCumuls, currentdate, phase)
         call model_phyllochron(fixPhyll, leafNumber, lincr, ldecr, pdecr,  &
                 pincr, ptq, gAImean, kl, pTQhf, B, p, choosePhyllUse, areaSL, areaSS,  &
                 lARmin, lARmax, sowingDensity, lNeff,phyllochron)
@@ -1316,7 +1313,7 @@ CONTAINS
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: calendarCumuls
         REAL, INTENT(OUT) :: gAImean
         REAL, INTENT(OUT) :: pastMaxAI
-        currentZadokStage =
+        currentZadokStage = ""
         hasZadokStageChanged = 0
         hasFlagLeafLiguleAppeared = 0
         hasLastPrimordiumAppeared = 0
