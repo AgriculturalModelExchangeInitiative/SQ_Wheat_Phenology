@@ -389,21 +389,21 @@ public class PhenologyComponent
         { _Registerzadok.intTSFLN = value; } 
     }
     
-    public void  Calculate_phenology(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
+    public void  CalculateModel%s(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
     {
-        _Gaimean.Calculate_gaimean(s,s1, r, a);
-        _Ptq.Calculate_ptq(s,s1, r, a);
-        _Cumulttfrom.Calculate_cumulttfrom(s,s1, r, a);
-        _Ismomentregistredzc_39.Calculate_ismomentregistredzc_39(s,s1, r, a);
-        _Vernalizationprogress.Calculate_vernalizationprogress(s,s1, r, a);
-        _Phylsowingdatecorrection.Calculate_phylsowingdatecorrection(s,s1, r, a);
-        _Updatephase.Calculate_updatephase(s,s1, r, a);
-        _Leafnumber.Calculate_leafnumber(s,s1, r, a);
-        _Shootnumber.Calculate_shootnumber(s,s1, r, a);
-        _Updateleafflag.Calculate_updateleafflag(s,s1, r, a);
-        _Registerzadok.Calculate_registerzadok(s,s1, r, a);
-        _Updatecalendar.Calculate_updatecalendar(s,s1, r, a);
-        _Phyllochron.Calculate_phyllochron(s,s1, r, a);
+        _Gaimean.CalculateModel(s,s1, r, a);
+        _Ptq.CalculateModel(s,s1, r, a);
+        _Cumulttfrom.CalculateModel(s,s1, r, a);
+        _Ismomentregistredzc_39.CalculateModel(s,s1, r, a);
+        _Vernalizationprogress.CalculateModel(s,s1, r, a);
+        _Phylsowingdatecorrection.CalculateModel(s,s1, r, a);
+        _Updatephase.CalculateModel(s,s1, r, a);
+        _Leafnumber.CalculateModel(s,s1, r, a);
+        _Shootnumber.CalculateModel(s,s1, r, a);
+        _Updateleafflag.CalculateModel(s,s1, r, a);
+        _Registerzadok.CalculateModel(s,s1, r, a);
+        _Updatecalendar.CalculateModel(s,s1, r, a);
+        _Phyllochron.CalculateModel(s,s1, r, a);
     }
     
     public PhenologyComponent(PhenologyComponent toCopy): this() // copy constructor 

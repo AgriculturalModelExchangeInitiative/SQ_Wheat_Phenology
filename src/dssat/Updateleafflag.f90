@@ -16,8 +16,10 @@ CONTAINS
         IMPLICIT NONE
         REAL, INTENT(IN) :: cumulTT
         REAL, INTENT(IN) :: leafNumber
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(INOUT) :: calendarMoments
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(INOUT) :: calendarDates
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(INOUT) ::  &
+                calendarMoments
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(INOUT) ::  &
+                calendarDates
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(INOUT) :: calendarCumuls
         CHARACTER(65), INTENT(IN) :: currentdate
         REAL, INTENT(IN) :: finalLeafNumber
@@ -140,7 +142,8 @@ CONTAINS
         hasFlagLeafLiguleAppeared = 0
         IF(phase .GE. 1.0 .AND. phase .LT. 4.0) THEN
             IF(leafNumber .GT. 0.0) THEN
-                IF(hasFlagLeafLiguleAppeared .EQ. 0 .AND. (finalLeafNumber .GT. 0.0 .AND. leafNumber .GE. finalLeafNumber)) THEN
+                IF(hasFlagLeafLiguleAppeared .EQ. 0 .AND. (finalLeafNumber .GT. 0.0  &
+                        .AND. leafNumber .GE. finalLeafNumber)) THEN
                     hasFlagLeafLiguleAppeared = 1
                     IF(ALL(calendarMoments .NE. 'FlagLeafLiguleJustVisible')) THEN
                         call Add(calendarMoments, 'FlagLeafLiguleJustVisible')

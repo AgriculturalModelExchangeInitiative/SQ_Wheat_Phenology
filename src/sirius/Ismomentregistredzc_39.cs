@@ -6,7 +6,7 @@ public class Ismomentregistredzc_39
     
     public Ismomentregistredzc_39() { }
     
-    public void  Calculate_ismomentregistredzc_39(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
+    public void  CalculateModel(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
     {
         //- Name: IsMomentRegistredZC_39 -Version: 1.0, -Time step: 1
         //- Description:

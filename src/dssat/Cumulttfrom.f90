@@ -10,7 +10,8 @@ CONTAINS
         cumulTTFromZC_39, &
         cumulTTFromZC_91)
         IMPLICIT NONE
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) :: calendarMoments_t1
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                calendarMoments_t1
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: calendarCumuls_t1
         REAL, INTENT(IN) :: cumulTT
         REAL, INTENT(OUT) :: cumulTTFromZC_65
@@ -74,13 +75,17 @@ CONTAINS
         cumulTTFromZC_39 = 0.0
         cumulTTFromZC_91 = 0.0
         IF(ANY(calendarMoments_t1 .EQ. 'Anthesis')) THEN
-            cumulTTFromZC_65 = cumulTT - calendarCumuls_t1(indice(calendarMoments_t1, 'Anthesis'))
+            cumulTTFromZC_65 = cumulTT -  &
+                    calendarCumuls_t1(indice(calendarMoments_t1, 'Anthesis'))
         END IF
         IF(ANY(calendarMoments_t1 .EQ. 'FlagLeafLiguleJustVisible')) THEN
-            cumulTTFromZC_39 = cumulTT - calendarCumuls_t1(indice(calendarMoments_t1, 'FlagLeafLiguleJustVisible'))
+            cumulTTFromZC_39 = cumulTT -  &
+                    calendarCumuls_t1(indice(calendarMoments_t1,  &
+                    'FlagLeafLiguleJustVisible'))
         END IF
         IF(ANY(calendarMoments_t1 .EQ. 'EndGrainFilling')) THEN
-            cumulTTFromZC_91 = cumulTT - calendarCumuls_t1(indice(calendarMoments_t1, 'EndGrainFilling'))
+            cumulTTFromZC_91 = cumulTT -  &
+                    calendarCumuls_t1(indice(calendarMoments_t1, 'EndGrainFilling'))
         END IF
     END SUBROUTINE model_cumulttfrom
 

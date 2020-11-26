@@ -267,9 +267,11 @@ CONTAINS
         END IF
         IF(choosePhyllUse .EQ. 'PTQ') THEN
             IF(gAImean .GT. gaiLim) THEN
-                LAR = (lARmin + ((lARmax - lARmin) * ptq / (pTQhf + ptq))) / (B * gAImean)
+                LAR = (lARmin + ((lARmax - lARmin) * ptq / (pTQhf + ptq))) / (B *  &
+                        gAImean)
             ELSE
-                LAR = (lARmin + ((lARmax - lARmin) * ptq / (pTQhf + ptq))) / (B * gaiLim)
+                LAR = (lARmin + ((lARmax - lARmin) * ptq / (pTQhf + ptq))) / (B *  &
+                        gaiLim)
             END IF
             phyllochron = 1.0 / LAR
         END IF

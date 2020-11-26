@@ -17,7 +17,7 @@ public class Shootnumber
     }
     public Shootnumber() { }
     
-    public void  Calculate_shootnumber(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
+    public void  CalculateModel(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
     {
         //- Name: ShootNumber -Version: 1.0, -Time step: 1
         //- Description:

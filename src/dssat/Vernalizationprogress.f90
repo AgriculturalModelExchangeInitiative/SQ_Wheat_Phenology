@@ -33,8 +33,10 @@ CONTAINS
         REAL, INTENT(IN) :: deltaTT
         REAL, INTENT(IN) :: cumulTT
         REAL, INTENT(IN) :: leafNumber_t1
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) :: calendarMoments_t1
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) :: calendarDates_t1
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                calendarMoments_t1
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                calendarDates_t1
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(IN) :: calendarCumuls_t1
         REAL, INTENT(IN) :: minTvern
         REAL, INTENT(IN) :: intTvern
@@ -51,8 +53,10 @@ CONTAINS
         REAL, INTENT(IN) :: minFinalNumber_t1
         REAL, INTENT(OUT) :: vernaprog
         REAL, INTENT(OUT) :: minFinalNumber
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: calendarMoments
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: calendarDates
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                calendarMoments
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(OUT) ::  &
+                calendarDates
         REAL, ALLOCATABLE , DIMENSION(:), INTENT(OUT) :: calendarCumuls
         REAL:: maxVernaProg
         REAL:: dLverna
@@ -292,7 +296,8 @@ CONTAINS
             IF(tt .GT. intTvern) THEN
                 maxVernaProg = vAI * intTvern + vBEE
                 dLverna = MAX(minDL, min(maxDL, dayLength))
-                vernaprog = vernaprog + MAX(0.0, maxVernaProg * (1.0 + ((intTvern - tt) / (maxTvern - intTvern) * ((dLverna - minDL) / (maxDL - minDL)))))
+                vernaprog = vernaprog + MAX(0.0, maxVernaProg * (1.0 + ((intTvern -  &
+                        tt) / (maxTvern - intTvern) * ((dLverna - minDL) / (maxDL - minDL)))))
             END IF
             primordno = 2.0 * leafNumber_t1 + pNini
             minLeafNumber = minFinalNumber_t1

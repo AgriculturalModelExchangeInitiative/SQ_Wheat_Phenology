@@ -6,7 +6,8 @@ CONTAINS
     SUBROUTINE model_ismomentregistredzc_39(calendarMoments_t1, &
         isMomentRegistredZC_39)
         IMPLICIT NONE
-        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) :: calendarMoments_t1
+        CHARACTER(65), ALLOCATABLE , DIMENSION(:), INTENT(IN) ::  &
+                calendarMoments_t1
         INTEGER, INTENT(OUT) :: isMomentRegistredZC_39
         !- Description:
     !            * Title: Is FlagLeafLiguleJustVisible Model
@@ -34,9 +35,9 @@ CONTAINS
     !                          ** unit : 
         IF (ANY(calendarMoments_t1 .EQ. 'FlagLeafLiguleJustVisible')) THEN
             isMomentRegistredZC_39=1
-        ELSE 
+        ELSE
             isMomentRegistredZC_39=0
-        END IF 
+        END IF
     END SUBROUTINE model_ismomentregistredzc_39
 
 END MODULE
