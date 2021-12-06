@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE ModelComposition PUBLIC " " "https://raw.githubusercontent.com/AgriculturalModelExchangeInitiative/crop2ml/master/ModelComposition.dtd">
-<ModelComposition name="Phenology" id="SQ.pheno_pkg.Phenology" version="001" timestep ="1">
+<ModelComposition name="Phenology" id="SQ.WheatPhenology.Phenology" version="001" timestep ="1">
 	<Description>
 		<Title>Phenology</Title>
 		<Authors>Pierre MARTRE</Authors>
@@ -12,19 +12,19 @@
 	</Description>
 	<Initialization name="init.Phenology" language="Cyml" filename="algo/pyx/init.Phenology.pyx"/>
 	<Composition>
-		<Model name="Phyllochron" id="pheno_pkg.Phyllochron" filename="unit.Phyllochron.xml" />
-		<Model name="PhylSowingDateCorrection" id="pheno_pkg.PhylSowingDateCorrection" filename="unit.PhylSowingDateCorrection.xml" />
-		<Model name="ShootNumber" id="pheno_pkg.ShootNumber" filename="unit.ShootNumber.xml" />
-		<Model name="UpdateLeafFlag" id="pheno_pkg.UpdateLeafFlag" filename="unit.UpdateLeafFlag.xml" />
-		<Model name="UpdatePhase" id="pheno_pkg.UpdatePhase" filename="unit.UpdatePhase.xml" />
-		<Model name="LeafNumber" id="pheno_pkg.LeafNumber" filename="unit.LeafNumber.xml" />
-		<Model name="VernalizationProgress" id="pheno_pkg.VernalizationProgress" filename="unit.VernalizationProgress.xml" />
-		<Model name="IsMomentRegistredZC_39" id="pheno_pkg.IsMomentRegistredZC_39" filename="unit.IsMomentRegistredZC_39.xml" />
-		<Model name="CumulTTFrom" id="pheno_pkg.CumulTTFrom" filename="unit.CumulTTFrom.xml" />
-		<Model name="UpdateCalendar" id="pheno_pkg.UpdateCalendar" filename="unit.UpdateCalendar.xml" />
-		<Model name="RegisterZadok" id="pheno_pkg.RegisterZadok" filename="unit.RegisterZadok.xml" />
-		<Model name="PTQ" id="pheno_pkg.PTQ" filename="unit.PTQ.xml" />
-		<Model name="GAImean" id="pheno_pkg.GAImean" filename="unit.GAImean.xml" />
+		<Model name="Phyllochron" id="SQ.WheatPhenology.Phyllochron" filename="unit.Phyllochron.xml" />
+		<Model name="PhylSowingDateCorrection" id="SQ.WheatPhenology.PhylSowingDateCorrection" filename="unit.PhylSowingDateCorrection.xml" />
+		<Model name="ShootNumber" id="SQ.WheatPhenology.ShootNumber" filename="unit.ShootNumber.xml" />
+		<Model name="UpdateLeafFlag" id="SQ.WheatPhenology.UpdateLeafFlag" filename="unit.UpdateLeafFlag.xml" />
+		<Model name="UpdatePhase" id="SQ.WheatPhenology.UpdatePhase" filename="unit.UpdatePhase.xml" />
+		<Model name="LeafNumber" id="SQ.WheatPhenology.LeafNumber" filename="unit.LeafNumber.xml" />
+		<Model name="VernalizationProgress" id="SQ.WheatPhenology.VernalizationProgress" filename="unit.VernalizationProgress.xml" />
+		<Model name="IsMomentRegistredZC_39" id="SQ.WheatPhenology.IsMomentRegistredZC_39" filename="unit.IsMomentRegistredZC_39.xml" />
+		<Model name="CumulTTFrom" id="SQ.WheatPhenology.CumulTTFrom" filename="unit.CumulTTFrom.xml" />
+		<Model name="UpdateCalendar" id="SQ.WheatPhenology.UpdateCalendar" filename="unit.UpdateCalendar.xml" />
+		<Model name="RegisterZadok" id="SQ.WheatPhenology.RegisterZadok" filename="unit.RegisterZadok.xml" />
+		<Model name="PTQ" id="SQ.WheatPhenology.PTQ" filename="unit.PTQ.xml" />
+		<Model name="GAImean" id="SQ.WheatPhenology.GAImean" filename="unit.GAImean.xml" />
 
 		<Links>
 			<InputLink target="LeafNumber.phyllochron_t1" source="phyllochron_t1" />
