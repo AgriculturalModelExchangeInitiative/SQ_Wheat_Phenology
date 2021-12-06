@@ -16,7 +16,7 @@ def model_gaimean(gAI = 0.0,
      - Name: GAImean -Version: 1.0, -Time step: 1
      - Description:
                  * Title: Average GAI on a specific thermal time window
-                 * Author: Loïc Manceau
+                 * Author: Loic Manceau
                  * Reference: -
                  * Institution: INRA
                  * Abstract: -
@@ -124,7 +124,7 @@ def model_gaimean(gAI = 0.0,
     gai_ = 0.0
     gaiMean_ = 0.0
     countGaiMean = 0
-    for i in range(0 , len(listTTShootWindowForPTQ1_t1) , 1):
+    for i in range(0 , len(listTTShootWindowForPTQ1_t1) , 1): # egnon
         TTList.append(listTTShootWindowForPTQ1_t1[i])
         GAIList.append(listGAITTWindowForPTQ_t1[i])
     TTList.append(deltaTT)
