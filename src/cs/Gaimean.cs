@@ -6,10 +6,13 @@ public class Gaimean
     private double _tTWindowForPTQ;
     public double tTWindowForPTQ
     {
+		/* guigonawe
+		kaaa
+		fhhk */
         get { return this._tTWindowForPTQ; }
         set { this._tTWindowForPTQ= value; } 
     }
-    public Gaimean() { }
+    public Gaimean() { } //mandjomidoblo
     
     public void  CalculateModel(PhenologyState s, PhenologyState s1, PhenologyRate r, PhenologyAuxiliary a)
     {
@@ -117,14 +120,14 @@ public class Gaimean
         double gAI = a.gAI;
         double deltaTT = a.deltaTT;
         double pastMaxAI_t1 = s1.pastMaxAI;
-        List<double> listTTShootWindowForPTQ1_t1 = s1.listTTShootWindowForPTQ1;
+        List<double> listTTShootWindowForPTQ1_t1 = s1.listTTShootWindowForPTQ1; //Baba
         List<double> listGAITTWindowForPTQ_t1 = s1.listGAITTWindowForPTQ;
         double gAImean;
         double pastMaxAI;
         List<double> listTTShootWindowForPTQ1 = new List<double>();
         List<double> listGAITTWindowForPTQ = new List<double>();
         List<double> TTList = new List<double>();
-        List<double> GAIList = new List<double>();
+        List<double> GAIList = new List<double>();// oundokpenawe
         double SumTT;
         int count = 0;
         double gai_ = 0.0d;
@@ -164,3 +167,5 @@ public class Gaimean
         s.listGAITTWindowForPTQ= listGAITTWindowForPTQ;
     }
 }
+
+//aklounon
