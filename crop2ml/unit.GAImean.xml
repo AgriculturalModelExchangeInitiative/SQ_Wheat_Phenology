@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE ModelUnit PUBLIC " " "https://raw.githubusercontent.com/AgriculturalModelExchangeInitiative/crop2ml/master/ModelUnit.dtd">
-<ModelUnit modelid="-.pheno_pkg.GAImean" name="GAImean" timestep="1" version="1.0">
+<ModelUnit modelid="SQ.WheatPhenology.GAImean" name="GAImean" timestep="1" version="1.0">
 	<Description>
 		<Title>Average GAI on a specific thermal time window</Title>
 		<Authors>Loïc Manceau</Authors>
 		<Institution>INRA</Institution>
-		<Reference>-</Reference>
-		<Abstract>-</Abstract>
+		<Reference>Modeling development phase in the 
+			Wheat Simulation Model SiriusQuality.
+			See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
+		<Abstract>Calculate GAI mean</Abstract>
+		<ShortDescription>Calculate GAI mean</ShortDescription>
 	</Description>
 	<Inputs>
 		<Input name="gAI" description="Green Area Index of the day" inputtype="variable" variablecategory="auxiliary" datatype="DOUBLE" default="0.0" min="0.0" max="500.0" unit="m2 leaf m-2 ground" uri=""/>

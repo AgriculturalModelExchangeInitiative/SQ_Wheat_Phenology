@@ -8,7 +8,8 @@
         <Reference>Modeling development phase in the 
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
-        <Abstract>Calculate CumulTT </Abstract>
+        <Abstract>Calculate the difference of the cumul thermal time at the current time and the one at three development phases  </Abstract>
+        <ShortDescription>Difference of the cumul thermal times</ShortDescription>
     </Description>
     <Inputs>
         <Input name="calendarMoments_t1" description="List containing appearance of each stage at previous day" variablecategory="state"  datatype="STRINGLIST"  default= "['Sowing']" unit=""  inputtype = "variable"/>

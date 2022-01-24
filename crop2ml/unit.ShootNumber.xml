@@ -9,6 +9,7 @@
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
         <Abstract>calculate the shoot number and update the related variables if needed</Abstract>
+        <ShortDescription>calculate the shoot number and update the related variables if needed</ShortDescription>
     </Description>
     <Inputs>
         <Input name="canopyShootNumber_t1" description="shoot number for the whole canopy" variablecategory="state" datatype="DOUBLE" min="0" max="10000" default="288.0" unit="shoot m-2" inputtype="variable"/>

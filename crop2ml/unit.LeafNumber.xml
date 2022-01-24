@@ -9,6 +9,7 @@
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
         <Abstract>calculate leaf number. LeafNumber increase is caped at one more leaf per day</Abstract>
+        <ShortDescription>calculate leaf number. LeafNumber increase is caped at one more leaf per day</ShortDescription>
     </Description>
     <Inputs>
         <Input name="deltaTT" description="daily delta TT " variablecategory="auxiliary" datatype="DOUBLE" min="-20" max="100" default="23.5895677277199" unit="°C d"  inputtype="variable"/>

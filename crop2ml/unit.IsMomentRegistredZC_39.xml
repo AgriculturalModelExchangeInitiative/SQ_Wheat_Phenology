@@ -9,6 +9,7 @@
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
         <Abstract>if FlagLeafLiguleJustVisible is already Registred </Abstract>
+        <ShortDescription>if FlagLeafLiguleJustVisible is already Registred </ShortDescription>
     </Description>
     <Inputs>
         <Input name="calendarMoments_t1" description="List containing appearance of each stage at previous time" variablecategory="state"  datatype="STRINGLIST"  default= "['Sowing']" unit=""  inputtype = "variable"/>
@@ -34,4 +35,3 @@
       </Testsets>
  	
 </ModelUnit>
-

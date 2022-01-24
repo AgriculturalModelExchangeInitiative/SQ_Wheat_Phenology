@@ -10,6 +10,7 @@
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
         <Abstract>Lists containing for each stage the date it occurs as well as a copy of all types of cumulated thermal times </Abstract>
+        <ShortDescription>Lists containing for each stage the date it occurs as well as a copy of all types of cumulated thermal times</ShortDescription>
     </Description>
     <Inputs>
         <Input name="cumulTT" description="cumul thermal times at current date" variablecategory="auxiliary" datatype="DOUBLE" min="-200" max="10000" default="741.510096671757" unit="°C d"  inputtype="variable"/>

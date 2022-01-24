@@ -15,6 +15,12 @@
         			temperature (soil temperature until leaf # reach MaxLeafSoil and then
         			 canopy temperature)]]>
     	</Abstract>
+        <ShortDescription>Calculate progress (VernaProg) towards vernalization, but there 
+            is no vernalization below minTvern 
+            and above maxTvern . The maximum value of VernaProg is 1.
+            Progress towards full vernalization is a linear function of shoot 
+            temperature (soil temperature until leaf # reach MaxLeafSoil and then
+             canopy temperature)</ShortDescription>
     </Description>
     <Inputs>
         <Input name="dayLength" description="day length" variablecategory="auxiliary" datatype="DOUBLE" min="0" max="10000" default="12.3037621834005" unit="mm2 m-2"  inputtype="variable"/>
