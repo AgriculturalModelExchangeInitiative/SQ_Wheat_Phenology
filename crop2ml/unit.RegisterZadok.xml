@@ -10,6 +10,7 @@
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
         <Abstract><![CDATA[Record the zadok stage in the calendar]]>
     	</Abstract>
+        <ShortDescription>Record the zadok stage in the calendar</ShortDescription>
     </Description>
     <Inputs>
         <Input name="cumulTT" description="" variablecategory="auxiliary" datatype="DOUBLE" min="-200" max="10000" default="354.582294511779" unit="°C d" uri="some url" inputtype="variable"/>

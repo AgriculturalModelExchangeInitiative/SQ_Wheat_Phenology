@@ -9,6 +9,7 @@
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
 		<Abstract>Calculate different types of phyllochron </Abstract>
+		<ShortDescription>Calculate different types of phyllochron </ShortDescription>
 	</Description>
 	<Inputs>
 		<Input name="fixPhyll" description="Sowing date corrected Phyllochron" inputtype="variable" variablecategory="auxiliary" datatype="DOUBLE" default="5.0" min="0.0" max="10000.0" unit="°C d leaf-1" uri="some url"/>

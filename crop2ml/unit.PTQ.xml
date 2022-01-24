@@ -9,6 +9,7 @@
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
         <Abstract>Calculate Photothermal Quaotient </Abstract>
+        <ShortDescription>Calculate Photothermal Quaotient</ShortDescription>
     </Description>
     <Inputs>
         <Input name="tTWindowForPTQ" description="Thermal time window in which averages are computed" parametercategory="species" datatype="DOUBLE" min="0.0" max="70000.0" default="70.0" unit="°C d" uri="some url" inputtype = "parameter"/>

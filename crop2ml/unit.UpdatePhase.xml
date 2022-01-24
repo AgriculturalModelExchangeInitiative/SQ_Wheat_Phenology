@@ -8,8 +8,9 @@
         <Reference>Modeling development phase in the 
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
-        <Abstract><![CDATA[This strategy advances the phase and calculate the final leaf number]]>
+        <Abstract><![CDATA[This strategy advances the phase and calculates the final leaf number]]>
     	</Abstract>
+        <ShortDescription>This strategy advances the phase and calculates the final leaf number</ShortDescription>
     </Description>
     <Inputs>
         <Input name="cumulTT" description="cumul thermal times at current date" variablecategory="auxiliary" datatype="DOUBLE" min="-200" max="10000" default="354.582294511779" unit="°C d" inputtype="variable"/>

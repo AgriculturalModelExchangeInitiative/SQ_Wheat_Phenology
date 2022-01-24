@@ -9,6 +9,7 @@
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
         <Abstract>Correction of the Phyllochron Varietal parameter according to sowing date </Abstract>
+        <ShortDescription>Correction of the Phyllochron Varietal parameter according to sowing date </ShortDescription>
     </Description>
     <Inputs>
         <Input name="sowingDay" description="Day of Year at sowing" parametercategory="species" datatype="INT" min="1" max="365" default="1" unit="d" uri="some url" inputtype = "parameter"/>

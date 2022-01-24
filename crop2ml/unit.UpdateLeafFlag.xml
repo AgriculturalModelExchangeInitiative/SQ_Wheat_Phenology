@@ -10,6 +10,7 @@
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
         <Abstract><![CDATA[tells if flag leaf has appeared and update the calendar if so]]>
     	</Abstract>
+        <ShortDescription>tells if flag leaf has appeared and update the calendar if so</ShortDescription>
     </Description>
     <Inputs>
         <Input name="cumulTT" description="cumul thermal times at current date" variablecategory="auxiliary" datatype="DOUBLE" min="-200" max="10000" default="741.510096671757" unit="°C d" uri="some url" inputtype="variable"/>
