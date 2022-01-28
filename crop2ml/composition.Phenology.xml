@@ -9,7 +9,7 @@
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427</Reference>
 		<Abstract>see documentation</Abstract>
-		<ShortDescription></ShortDescription>
+		<ShortDescription>It determines the timing of crop development</ShortDescription>
 	</Description>
 	<Initialization name="init.Phenology" language="Cyml" filename="algo/pyx/init.Phenology.pyx"/>
 	<Composition>
