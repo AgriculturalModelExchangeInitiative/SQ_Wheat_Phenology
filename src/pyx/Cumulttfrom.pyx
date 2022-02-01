@@ -11,7 +11,7 @@ def model_cumulttfrom(list calendarMoments_t1=['Sowing'],
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427
     Institution: INRA Montpellier
-    Abstract: Calculate CumulTT 
+    Abstract: Calculate the difference of the cumul thermal time at the current time and the one at three development phases  
 
     """
     cdef float cumulTTFromZC_65
