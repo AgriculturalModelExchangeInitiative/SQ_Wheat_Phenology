@@ -35,7 +35,7 @@ def model_updatephase(float cumulTT=354.582294511779,
                 Wheat Simulation Model SiriusQuality.
                 See documentation at http://www1.clermont.inra.fr/siriusquality/?page_id=427
     Institution: INRA Montpellier
-    Abstract: This strategy advances the phase and calculate the final leaf number
+    Abstract: This strategy advances the phase and calculates the final leaf number
     	
 
     """
